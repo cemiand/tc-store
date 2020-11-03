@@ -3,7 +3,10 @@ const usuarioRoutes = require("./usuario")
 
 
 
-router.post("/user", usuarioRoutes)
+router.use("/user", usuarioRoutes)
+
+
+
 
 module.exports = router;
 
