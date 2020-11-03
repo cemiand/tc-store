@@ -4,7 +4,7 @@ const sessions = require("express-session");
 const LocalStrategy = require("passport-local").Strategy;
 const { User } = require("../../db/models");
 
-module.exports = function (app) {
+module.exports = (app) => {
   // CONECTANDO PASSPORT
   app.use(cookieParser());
   app.use(
@@ -17,7 +17,7 @@ module.exports = function (app) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  // DEFINIENDO ESTRATEGIA LOCAL DE AUTENTICACIÓN
+  // ESTRATEGIA LOCAL DE AUTENTICACIÓN
   passport.use(
     new LocalStrategy(
       {
