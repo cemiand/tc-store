@@ -1,7 +1,8 @@
-const { User } = require("../db/models/User")
+const { User } = require("../db/models")
 
 const usuariosController = {
-  UsuarioCreate(req, res) {
+
+  usuarioCreate(req, res) {
     User.create({
       name: req.body.name,
       email: req.body.email,
@@ -25,7 +26,17 @@ const usuariosController = {
     req.logOut();
     res.sendStatus(200)
   },
-  
+  userMe(req, res) {
+    if (req.isAuthenticated()) {
+      res.json({
+        name: req.user.name,
+        email: req.user.email,
+        id: req.user.id
+      })
+    } else {
+      res.status(401).end()
+    }
+  }
 
 }
 

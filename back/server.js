@@ -1,7 +1,6 @@
-const express = require("express");
-const app = express();
-const chalk = require("chalk");
 require("./db/db");
+const app = require("./app");
+const chalk = require("chalk");
 
 const PORT = 1337;
 app.listen(PORT, () =>
