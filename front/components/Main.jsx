@@ -6,9 +6,9 @@ import ProductsContainer from "../containers/ProductsContainer"
 
 
 const Main = () => {
-
     return ( 
         <div>
+            
             <ProductsContainer />,
         </div>
         // <SingleProductContainer />,

@@ -157,12 +157,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Products__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Products */ "./components/Products.jsx");
 /* harmony import */ var _src_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/store/actions/productAction */ "./src/store/actions/productAction.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 
 
 
 
 var ProductContainer = function ProductContainer() {
-  var dispatch = useDispatch();
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
 
   var _useSelector = useSelector(function (state) {
     return state.products;
@@ -37612,8 +37614,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _components_Main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Main */ "./components/Main.jsx");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _components_Main__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Main */ "./components/Main.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store/store */ "./src/store/store.js");
 
 
@@ -37621,11 +37623,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
   store: _store_store__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/",
-  component: _components_Main__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_Main__WEBPACK_IMPORTED_MODULE_4__["default"]
 }))), document.getElementById('root'));
 
 /***/ }),
@@ -37663,7 +37665,7 @@ var singleProduct = function singleProduct(data) {
 
 var fetchProducts = function fetchProducts() {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("") //ACA VA LA DIR DE LOS PRODUCTS
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products") //ACA VA LA DIR DE LOS PRODUCTS
     .then(function (_ref) {
       var data = _ref.data;
       return dispatch(products(data));
@@ -37672,7 +37674,7 @@ var fetchProducts = function fetchProducts() {
 };
 var fetchSingleProduct = function fetchSingleProduct(id) {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("".concat(id)) //ACA VA LA DIR DEL SINGLEPRODUCT
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products/".concat(id)) //ACA VA LA DIR DEL SINGLEPRODUCT
     .then(function (_ref2) {
       var data = _ref2.data;
       return dispatch(singleProduct(data));
