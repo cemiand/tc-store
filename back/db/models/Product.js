@@ -25,7 +25,7 @@ const productSchema = new Schema({
         ref: "review"
     }],
     description: {
-        type: Text,
+        type: String,
         require: true,
     }
 
