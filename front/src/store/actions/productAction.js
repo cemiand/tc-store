@@ -14,11 +14,11 @@ const singleProduct = (data) => ({
 
 export const fetchProducts = () => (dispatch) =>
   axios
-    .get("") //ACA VA LA DIR DE LOS PRODUCTS
+    .get("/api/products") //ACA VA LA DIR DE LOS PRODUCTS
     .then(({ data }) => dispatch(products(data)));
 
 
 export const fetchSingleProduct = (id) => (dispatch) =>
   axios
-    .get(`${id}`) //ACA VA LA DIR DEL SINGLEPRODUCT
+    .get(`/api/products/${id}`) //ACA VA LA DIR DEL SINGLEPRODUCT
     .then(({ data }) => dispatch(singleProduct(data)));

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import Products from "../components/Products"
 import {fetchProducts} from "../src/store/actions/productAction"
+import { useDispatch } from 'react-redux'
 
 
 const ProductContainer = () => {

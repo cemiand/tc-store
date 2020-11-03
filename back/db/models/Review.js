@@ -16,7 +16,7 @@ const reviewSchema = new Schema({
         required: true
     },
     description: {
-        type: Text,
+        type: String,
         require: true,
     }
 
