@@ -15,14 +15,14 @@ const usuariosController = {
         res.status(404).send(error)
       })
   },
-  userLogin(req, res){
+  userLogin(req, res) {
     res.status(200).json({
-      name : req.user.name,
-      email : req.user.email,
-      _id : req.user.id,
+      name: req.user.name,
+      email: req.user.email,
+      _id: req.user.id,
     })
   },
-  userLogout(req,res){
+  userLogout(req, res) {
     req.logOut();
     res.sendStatus(200)
   },
@@ -36,6 +36,20 @@ const usuariosController = {
     } else {
       res.status(401).end()
     }
+  },
+  accesLevel(req, res, next) {
+    if (req.user.accesLevel !== "admin") return res.status(401).send(console.log("Acceso no autorizado"))
+    next()
+  },
+  changeAccesLevel(req, res) {
+    User.findByIdAndUpdate(req.params.id, req.body)
+      .then((user) => {
+        res.send(user)
+      })
+      .catch(err => {
+        res.status(500).send(err)
+      })
+
   }
 
 }
