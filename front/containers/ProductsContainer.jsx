@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Products from "../components/Products"
-import {fetchProducts} from "../src/store/actions/productAction"
+import { fetchProducts } from "../src/store/actions/productAction"
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -8,16 +8,15 @@ const ProductContainer = () => {
 
     const dispatch = useDispatch()
 
-    const { products } = useSelector(state => state.products);
+    const { products } = useSelector(state => state.productsReducer);
 
     useEffect(() => {
         dispatch(fetchProducts())
-      }, [])
+    }, [])
 
-    
 
     return (
-        <Products products={products}/>
+        <Products products={products} />
     )
 }
 

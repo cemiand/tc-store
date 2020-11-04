@@ -3,12 +3,15 @@ const { findAll, findProduct, createProduct, updateProduct, deleteProduct } = re
 
 router.route("/") //all products
   .get(findAll)
+  .post(createProduct)
 
 router.route("/:id") //individual product
   .get(findProduct)
-  .post(createProduct)
   .put(updateProduct)
   .delete(deleteProduct)
 
 
 module.exports = router;
+
+
+
