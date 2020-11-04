@@ -6,6 +6,9 @@ const productSchema = new Schema({
         type: String,
         require: true,
     },
+    pictures: [{
+        type: Schema.Types.String,
+        }]    ,
     brand: {
         type: Schema.Types.String,
         ref: "brand",
