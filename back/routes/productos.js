@@ -9,3 +9,5 @@ router.route("/:id") //individual product
   .post(createProduct)
   .put(updateProduct)
   .delete(deleteProduct)
+
+  
