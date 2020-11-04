@@ -10,7 +10,7 @@ const validateEmail = function (email) {
 
 const orderSchema = new Schema({
  
-  quantity: { type: Number, required: true },
+  quantity: { type: Number, required: true, default: 1, },
   product: {
     type: Schema.Types.ObjectId,
     ref: 'product',
@@ -42,10 +42,7 @@ const userSchema = new Schema({
     },
   ],
   cart: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "product",
-    },
+    orderSchema
   ],
   accessLevel: {
     type: String,
