@@ -3,12 +3,15 @@ import { Route, Switch } from 'react-router-dom'
 import ProductsContainer from "../containers/ProductsContainer"
 import SingleProductContainer from '../containers/SingleProductContainer';
 import LoginContainer from "../containers/LoginContainer"
-import '../src/assets/style.scss'
+import '../src/assets/style.scss';
+import Navbar from "./Navbar"
 
 const Main = () => {
     return (
+
         <React.Fragment>
-            <Route exact path="/" component={LoginContainer} />
+            <Route exact patch="/" component={Navbar} />
+            {/*  <Route exact path="/" component={LoginContainer} /> */}
             <Switch>
                 <Route exact path="/product/:id" component={SingleProductContainer} />
                 <Route exact path="/products" component={ProductsContainer} />
