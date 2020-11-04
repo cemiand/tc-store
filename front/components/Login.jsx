@@ -1,22 +1,7 @@
 import React from "react";
 
-export default () => (
+export default ({ handleSign }) => (
   <div className="cont">
-    {/*   <h1>Login</h1>
-    <div className="text-box">
-      <img src="https://img.icons8.com/android/12/000000/user.png" />
-      <input type="text" placeholder="User" />
-    </div>
-    <div className="text-box">
-      <img src="https://img.icons8.com/material-rounded/12/000000/password.png" />
-      <input type="password" placeholder="Password" />
-    </div>
-    <input type="checkbox" />
-    <span>Remember Me</span>
-    <button onClick={() => console.log("loggin")} className="btn">
-      Login
-    </button> */}
-
     <div className="form sign-in">
       <h2>Sign In</h2>
       <label>
@@ -27,11 +12,18 @@ export default () => (
         <span>Password</span>
         <input type="password" name="password" />
       </label>
-      <button className="submit" type="button">Sign In</button>
+      <button className="submit" type="button">
+        Sign In
+      </button>
+
       <div className="social-media">
         <ul>
-          <li><img src="images/facebook.png" /></li>
-          <li><img src="images/google.png" /></li>
+          <li>
+            <img src="images/facebook.png" />
+          </li>
+          <li>
+            <img src="images/google.png" />
+          </li>
         </ul>
       </div>
     </div>
@@ -40,13 +32,13 @@ export default () => (
       <div className="img">
         <div className="img-text m-up">
           <h2>New here?</h2>
-          <p>Sign up and discover great products!</p>
+          <p>Sign up and discover great amount of new opportunities!</p>
         </div>
         <div className="img-text m-in">
           <h2>One of us?</h2>
           <p>If you already has an account, just sign in. We've missed you!</p>
         </div>
-        <div className="img-btn">
+        <div className="img-btn" onClick={handleSign}>
           <span className="m-up">Sign Up</span>
           <span className="m-in">Sign In</span>
         </div>
@@ -69,8 +61,11 @@ export default () => (
           <span>Confirm Password</span>
           <input type="password" />
         </label>
-        <button type="button" className="submit">Sign Up Now</button>
+        <button type="button" className="submit">
+          Sign Up Now
+        </button>
       </div>
     </div>
+
   </div>
 );
