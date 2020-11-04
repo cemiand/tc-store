@@ -5,7 +5,7 @@ const logMiddleware = morgan("tiny");
 const rootPath = path.join(__dirname, "../../");
 const indexPath = path.join(rootPath, "./public/index.html");
 
-module.exports = function (app) {
+module.exports = (app) => {
   app.setValue("projectRoot", rootPath);
   app.setValue("indexHTMLPath", indexPath);
   app.setValue("log", logMiddleware);
