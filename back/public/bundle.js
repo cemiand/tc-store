@@ -103,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import SingleProductContainer from "../containers/SingleProductContainer"
+
 
 var Main = function Main() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -140,8 +140,9 @@ var Products = function Products(_ref) {
     className: "products"
   }, products.map(function (product) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: product.id
-    }, product);
+      className: "products",
+      key: product._id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, product.brand), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, product.description));
   }));
 };
 
@@ -164,6 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var SingleProduct = function SingleProduct(_ref) {
   var singleProduct = _ref.singleProduct;
+  // console.log("DESDE EL COMP TONTO", singleProduct)
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "product"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, singleProduct.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, singleProduct.brand), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, singleProduct.description));
@@ -196,7 +198,7 @@ var ProductContainer = function ProductContainer() {
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
 
   var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
-    return state.products;
+    return state.productsReducer;
   }),
       products = _useSelector.products;
 
@@ -231,16 +233,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var SingleProductContainer = function SingleProductContainer() {
+var SingleProductContainer = function SingleProductContainer(_ref) {
+  var match = _ref.match;
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
 
   var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
-    return state.singleProduct;
+    return state.productsReducer;
   }),
       singleProduct = _useSelector.singleProduct;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    dispatch(Object(_src_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["fetchSingleProduct"])(ACA_VA_EL_ID_DEL_PRODUCTO));
+    dispatch(Object(_src_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["fetchSingleProduct"])(match.params.id));
+    console.log("DESDE EL CONTAINER", {
+      singleProduct: singleProduct
+    });
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SingleProduct__WEBPACK_IMPORTED_MODULE_1__["default"], {
     singleProduct: singleProduct
