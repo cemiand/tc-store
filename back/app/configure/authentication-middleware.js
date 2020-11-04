@@ -17,7 +17,8 @@ module.exports = (app) => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  // ESTRATEGIA LOCAL DE AUTENTICACIÓN
+  // ESTRATEGIAS DE AUTENTICACIÓN
+  //LOCAL
   passport.use(
     new LocalStrategy(
       {
@@ -40,10 +41,8 @@ module.exports = (app) => {
       }
     )
   );
-
-  // ESTRATEGIA FACEBOOK DE AUTENTICACIÓN
-
-  // ESTRATEGIA GOOGLE DE AUTENTICACIÓN
+  // FACEBOOK
+  // GOOGLE
 
   // CONECTAR PASSPORT CON LAS SESSIONS CONFIGURADAS EN EXRESS
   passport.serializeUser((user, done) => done(null, user.id));
