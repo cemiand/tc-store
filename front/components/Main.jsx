@@ -6,17 +6,17 @@ import LoginContainer from "../containers/LoginContainer"
 import '../src/assets/style.scss'
 
 const Main = () => {
-    return ( 
+    return (
         <React.Fragment>
-            {/* <Navbar /> ACA IRIA LA NAVBAR */}
+            <Route exact path="/" component={LoginContainer} />
             <Switch>
-                <Route exact path = "/product/:id" component = {SingleProductContainer} />
-                <Route exact path = "/products" component = {ProductsContainer} />
-                <Route exact path = "/login" component = {LoginContainer} />
+                <Route exact path="/product/:id" component={SingleProductContainer} />
+                <Route exact path="/products" component={ProductsContainer} />
+                <Route exact path="/login" component={LoginContainer} />
             </Switch>
             {/* <Footer /> ACA IRIA EL FOOTER */}
         </React.Fragment>
     )
 }
- 
+
 export default Main;
