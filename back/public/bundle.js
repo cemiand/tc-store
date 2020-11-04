@@ -99,17 +99,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _containers_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../containers/ProductsContainer */ "./containers/ProductsContainer.jsx");
+/* harmony import */ var _containers_SingleProductContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/SingleProductContainer */ "./containers/SingleProductContainer.jsx");
+
 
 
  // import SingleProductContainer from "../containers/SingleProductContainer"
 
 var Main = function Main() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_containers_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null), ",") // <SingleProductContainer />,
-  // <React.Fragment>
-  //     <Switch>
-  //     </Switch>
-  // </React.Fragment>
-  ;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/product/:id",
+    component: _containers_SingleProductContainer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/products",
+    component: _containers_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Main);
@@ -141,6 +146,30 @@ var Products = function Products(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Products);
+
+/***/ }),
+
+/***/ "./components/SingleProduct.jsx":
+/*!**************************************!*\
+  !*** ./components/SingleProduct.jsx ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var SingleProduct = function SingleProduct(_ref) {
+  var singleProduct = _ref.singleProduct;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "product"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, singleProduct.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, singleProduct.brand), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, singleProduct.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, singleProduct.description));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SingleProduct);
 
 /***/ }),
 
@@ -180,6 +209,45 @@ var ProductContainer = function ProductContainer() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ProductContainer);
+
+/***/ }),
+
+/***/ "./containers/SingleProductContainer.jsx":
+/*!***********************************************!*\
+  !*** ./containers/SingleProductContainer.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SingleProduct__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SingleProduct */ "./components/SingleProduct.jsx");
+/* harmony import */ var _src_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/store/actions/productAction */ "./src/store/actions/productAction.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+
+
+var SingleProductContainer = function SingleProductContainer() {
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+
+  var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useSelector"])(function (state) {
+    return state.singleProduct;
+  }),
+      singleProduct = _useSelector.singleProduct;
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    dispatch(Object(_src_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["fetchSingleProduct"])(ACA_VA_EL_ID_DEL_PRODUCTO));
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SingleProduct__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    singleProduct: singleProduct
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SingleProductContainer);
 
 /***/ }),
 
