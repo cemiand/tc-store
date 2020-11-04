@@ -35,6 +35,7 @@ const productSchema = new Schema({
     type: Schema.Types.String,
     ref: "brand",
     require: true
+
   },
 
   description: {
