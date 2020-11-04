@@ -10,4 +10,7 @@ router.route("/:id") //individual product
   .put(updateProduct)
   .delete(deleteProduct)
 
-  
+
+
+module.exports = router;
+
