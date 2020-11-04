@@ -31,12 +31,6 @@ const productSchema = new Schema({
   pictures: [{
     type: Schema.Types.String,
   }],
-  brand: {
-    type: Schema.Types.String,
-    ref: "brand",
-    require: true
-
-  },
 
   description: {
     type: String,
