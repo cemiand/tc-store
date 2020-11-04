@@ -1,4 +1,4 @@
-module.exports = function (app) {
+module.exports = (app) => {
   app.setValue = app.set.bind(app);
 
   app.getValue = (path) => app.get(path);

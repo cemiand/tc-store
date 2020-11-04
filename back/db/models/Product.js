@@ -16,6 +16,7 @@ const productSchema = new Schema({
       type: Schema.Types.String,
       ref: "category",
     },
+
   ],
   price: {
     type: Number,
@@ -26,6 +27,15 @@ const productSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "review",
+
+    pictures: [{
+        type: Schema.Types.String,
+        }]    ,
+    brand: {
+        type: Schema.Types.String,
+        ref: "brand",
+        require: true
+
     },
   ],
   description: {
