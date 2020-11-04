@@ -8,13 +8,11 @@ const ProductContainer = () => {
 
     const dispatch = useDispatch()
 
-    const { products } = useSelector(state => state.products);
+    const { products } = useSelector(state => state.productsReducer);
 
     useEffect(() => {
         dispatch(fetchProducts())
       }, [])
-
-    
 
     return (
         <Products products={products}/>

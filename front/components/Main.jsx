@@ -2,8 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import ProductsContainer from "../containers/ProductsContainer"
 import SingleProductContainer from '../containers/SingleProductContainer';
-// import SingleProductContainer from "../containers/SingleProductContainer"
-
 
 const Main = () => {
     return ( 

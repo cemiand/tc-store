@@ -11,12 +11,10 @@ const singleProduct = (data) => ({
   payload: data,
 });
 
-
 export const fetchProducts = () => (dispatch) =>
   axios
     .get("/api/products") //ACA VA LA DIR DE LOS PRODUCTS
     .then(({ data }) => dispatch(products(data)));
-
 
 export const fetchSingleProduct = (id) => (dispatch) =>
   axios

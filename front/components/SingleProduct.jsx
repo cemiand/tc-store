@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SingleProduct = ({singleProduct}) => {
+    // console.log("DESDE EL COMP TONTO", singleProduct)
     return (
         <div className="product">
             <h1>{singleProduct.name}</h1>

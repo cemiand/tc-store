@@ -4,21 +4,21 @@ import {fetchSingleProduct} from "../src/store/actions/productAction"
 import { useDispatch, useSelector } from 'react-redux'
 
 
-const SingleProductContainer = () => {
-
-    const dispatch = useDispatch()
-
-    const { singleProduct } = useSelector(state => state.singleProduct);
-
-    useEffect(() => {
-        dispatch(fetchSingleProduct(ACA_VA_EL_ID_DEL_PRODUCTO))
-      }, [])
-
+const SingleProductContainer = ({match}) => {
     
-
+    const dispatch = useDispatch()
+    
+    const {singleProduct}  = useSelector((state) => state.productsReducer);
+    
+    
+    useEffect(() => {
+        dispatch(fetchSingleProduct(match.params.id))
+        console.log("DESDE EL CONTAINER", {singleProduct})
+    }, [])
+    
     return (
         <SingleProduct singleProduct={singleProduct}/>
-    )
-}
+        )
+    }
 
-export default SingleProductContainer;
+export default SingleProductContainer;  
