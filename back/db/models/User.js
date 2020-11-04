@@ -8,6 +8,16 @@ const validateEmail = function (email) {
   return re.test(email);
 };
 
+const orderSchema = new Schema({
+ 
+  quantity: { type: Number, required: true },
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: 'product',
+    required: true
+  },
+});
+
 const userSchema = new Schema({
   name: {
     type: String,
