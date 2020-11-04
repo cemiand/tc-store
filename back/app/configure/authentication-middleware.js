@@ -28,16 +28,22 @@ module.exports = (app) => {
         User.findOne({ email })
           .then((user) => {
             if (!user) return done(null, false, { message: "Incorrect email" });
-            // user.hash(password, user.salt).then((hash) => {
-            if (password !== user.password)
-              return done(null, false, { message: "Incorrect password" });
-            return done(null, user, { message: "User logged in" });
-            // });
+
+            user.comparePassword(password, function (err, isMatch) {
+              if (err) throw err;
+              if (!isMatch)
+                return done(null, false, { message: "Incorrect password" });
+              return done(null, user, { message: "User logged in" });
+            });
           })
           .catch(done);
       }
     )
   );
+
+  // ESTRATEGIA FACEBOOK DE AUTENTICACIÓN
+
+  // ESTRATEGIA GOOGLE DE AUTENTICACIÓN
 
   // CONECTAR PASSPORT CON LAS SESSIONS CONFIGURADAS EN EXRESS
   passport.serializeUser((user, done) => done(null, user.id));
