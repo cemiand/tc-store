@@ -9,5 +9,4 @@ router.route("/")
 router.route("/:id")
   .put(accesLevel, changeAccesLevel)
 
-
 module.exports = router;
