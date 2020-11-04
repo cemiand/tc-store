@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import SingleProduct from "../components/SingleProduct"
 import {fetchSingleProduct} from "../src/store/actions/productAction"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 const SingleProductContainer = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const { singleProduct } = useSelector(state => state.singleProduct);
 

@@ -11,9 +11,9 @@
   "dependencies": {
     "axios": "^0.21.0",
     "node-sass": "^5.0.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-redux": "^5.1.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "latest",
     "react-router-dom": "^4.3.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
