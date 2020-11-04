@@ -8,6 +8,16 @@ const validateEmail = function (email) {
   return re.test(email);
 };
 
+const orderSchema = new Schema({
+ 
+  quantity: { type: Number, required: true, default: 1, },
+  product: {
+    type: Schema.Types.ObjectId,
+    ref: 'product',
+    required: true
+  },
+});
+
 const userSchema = new Schema({
   name: {
     type: String,
@@ -32,10 +42,7 @@ const userSchema = new Schema({
     },
   ],
   cart: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "product",
-    },
+    orderSchema
   ],
   accessLevel: {
     type: String,
