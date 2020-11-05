@@ -10,7 +10,7 @@ const Main = () => {
     return (
         <React.Fragment>
             {/*<Navbar /> ACA IRIA LA NAVBAR */}
-            {/* <CarruselContainer/> */}
+            <CarruselContainer/>
             <Switch>
                 <Route exact path="/product/:id" component={SingleProductContainer} />
                 <Route exact path="/products" component={ProductsContainer} />
