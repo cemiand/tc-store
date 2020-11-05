@@ -4,8 +4,7 @@ import {Carousel} from "react-bootstrap"
 //FALTA CORREGIR TAMANIO DE LAS IMGS
 
 export default () => (
-  <div className="carousel">
-  <Carousel >
+    <Carousel className="carousel">
   <Carousel.Item interval={1500} className="carouselItem" >
     <img
       className="d-block w-100 align-middle maxHeight"
@@ -50,6 +49,5 @@ export default () => (
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  </Carousel>
-</div>
+</Carousel>
 )
