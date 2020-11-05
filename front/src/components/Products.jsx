@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const Products = ({ products }) => {
 
     return (
-        <Container style={{ marginTop: "10px", maxWidth: "90%", display: "flex", justifyContent: "center" }}>
+        <Container fluid className="productsContainer">
             <Row>
                 {products.map(product => {
                     return (
                     <Col xs={3} className="mb-4" key={product._id}>
-                    <Card style={{ width: '18rem'}}>
-                        <Card.Img variant="top" src={product.pictures[0]} style={{height:"220px"}} />
+                    <Card style={{ width: '18rem'}} className="mx-auto">
+                        <Card.Img variant="top" src={product.pictures[0]} className="productImg" />
                         <Card.Body>
                         <Card.Title>{product.name}</Card.Title>
                         <Card.Text>{product.brand}</Card.Text>
