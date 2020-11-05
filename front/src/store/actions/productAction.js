@@ -14,7 +14,7 @@ const singleProduct = (data) => ({
 export const fetchProducts = () => (dispatch) =>
   axios
     .get("/api/products") //ACA VA LA DIR DE LOS PRODUCTS
-    .then(({ data }) => dispatch(products(data)));
+    .then(({ data }) => {console.log("DATA",data); dispatch(products(data))});
 
 export const fetchSingleProduct = (id) => (dispatch) =>
   axios
