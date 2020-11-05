@@ -10,8 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
     "node-sass": "^5.0.0",
     "react": "latest",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "latest",
     "react-redux": "latest",
     "react-router-dom": "^4.3.1",

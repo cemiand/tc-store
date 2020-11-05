@@ -13,7 +13,6 @@ const SingleProductContainer = ({match}) => {
     
     useEffect(() => {
         dispatch(fetchSingleProduct(match.params.id))
-        console.log("DESDE EL CONTAINER", {singleProduct})
     }, [])
     
     return (
