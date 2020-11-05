@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Button, Modal, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Button, Modal, Nav, Navbar, Form, FormControl, Dropdown } from 'react-bootstrap'
 import LoginContainer from '../containers/LoginContainer'
 
-export default () => {
+export default ({ userlog, logout }) => {
+  console.log("aca iria el userlog en navbar", userlog)
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -23,14 +25,14 @@ export default () => {
             <Button variant="outline-success">Search</Button>
           </Form>
         </div>
-        {userlog ? <>
+        {userlog && userlog.name ? <>
           <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic">
-              <Link to="#" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}> {userlog}  <i className="fas fa-user-circle"> </i></Link>
+              <Link to="" variant="outline" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}> {userlog.name} <i className="fas fa-user-circle"> </i> </Link>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{ backgroundColor: "#343a40" }}>
-              <Dropdown.Item ><Link to="#" style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}><b> Favoritos</b></Link></Dropdown.Item>
-              <Dropdown.Item ><Link to="#" onClick={logout} style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}>Log Out</Link></Dropdown.Item>
+              <Dropdown.Item ><Link to="/" style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}><b> Favoritos</b></Link></Dropdown.Item>
+              <Dropdown.Item ><Link to="" onClick={logout} style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}>Log Out</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </>
