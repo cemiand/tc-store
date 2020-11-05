@@ -1,7 +1,7 @@
 import React from "react";
 
 export default ({
-  handleSign,
+  handleButton,
   handleChange,
   handleSignUp,
   handleSingIn,
@@ -54,7 +54,7 @@ export default ({
           <p>If you already has an account, just sign in. We've missed you!</p>
         </div>
 
-        <div className="img-btn" onClick={handleSign}>
+        <div className="img-btn" onClick={handleButton}>
           <span className="m-up">Sign Up</span>
           <span className="m-in">Sign In</span>
         </div>

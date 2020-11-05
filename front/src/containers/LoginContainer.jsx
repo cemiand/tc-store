@@ -7,7 +7,7 @@ import { createUser, loginUser } from "../store/actions/usersAction";
 export default () => {
   const dispatch = useDispatch();
 
-  const handleSign = () => {
+  const handleButton = () => {
     document.querySelector(".cont").classList.toggle("s-signup");
   };
 
@@ -19,17 +19,17 @@ export default () => {
       email: inputs.email,
       password: inputs.password,
     };
-    dispatch(createUser(user)).then((user) => console.log(user));
+    createUser(user).then(() => handleButton());
   };
 
   const handleSingIn = () => {
     const user = { email: inputs.email, password: inputs.password };
-    dispatch(loginUser(user)).then((user) => console.log(user));
+    dispatch(loginUser(user));
   };
 
   return (
     <Login
-      handleSign={handleSign}
+      handleButton={handleButton}
       handleChange={handleChange}
       handleSignUp={handleSignUp}
       handleSingIn={handleSingIn}
