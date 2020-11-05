@@ -4,21 +4,25 @@ import { Link } from 'react-router-dom';
 
 
 const SingleProduct = ({singleProduct}) => {
+    console.log("SINGLEPRODUCT", singleProduct)
     return (
+
         <Container style={{marginTop:"10px", maxWidth:"90%", display:"flex", justifyContent:"center"}}>
             <Row>
-                <Col xs={3} className="mb-4" key={singleProduct._id}>
-                <Card style={{ width: '18rem'}}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                    <Card.Title>{singleProduct.name}</Card.Title>
-                    <Card.Text>{singleProduct.brand}</Card.Text>
-                    <Card.Text>{singleProduct.description}</Card.Text>
-                    <Card.Text>{singleProduct.price}</Card.Text>
-                    <Link to="/purchase"><img src="shopping-cart.png" alt="add to cart" width="45px" height="50px"></img></Link>
-                    </Card.Body>
-                </Card>
-                </Col>
+        <div>
+            <img src={singleProduct.pictures} alt="img"/>
+        </div>
+            </Row>
+            <Row>
+                <div>
+                <ul>
+                    <li><Card.Title>{singleProduct.name}</Card.Title></li>
+                    <li><Card.Text>{singleProduct.brand}</Card.Text></li>
+                    <li><Card.Text>{singleProduct.description}</Card.Text></li>
+                    <li><Card.Text>{singleProduct.price}</Card.Text></li>
+                    <li><Link to="/purchase"><img src="shopping-cart.png" alt="add to cart" width="45px" height="50px"></img></Link></li>
+                </ul>
+                </div>
             </Row>
         </Container>
             )
