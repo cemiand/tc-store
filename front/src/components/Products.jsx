@@ -1,11 +1,11 @@
 import React from 'react';
-import {Card, Button, Container, Row, Col} from "react-bootstrap";
+import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
-const Products = ({products}) => {
+const Products = ({ products }) => {
 
     return (
-        <Container style={{marginTop:"10px", maxWidth:"90%", display:"flex", justifyContent:"center"}}>
+        <Container style={{ marginTop: "10px", maxWidth: "90%", display: "flex", justifyContent: "center" }}>
             <Row>
                 {products.map(product => {
                     return (
