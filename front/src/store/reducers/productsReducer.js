@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS, FETCH_PRODUCT } from "../constants";
+import { SET_PRODUCT, SET_PRODUCTS } from "../constants";
 
 const inicialState = {
  
@@ -8,9 +8,9 @@ const inicialState = {
 
 export default (state = inicialState, action) => {
   switch (action.type) {
-    case FETCH_PRODUCTS:
+    case SET_PRODUCTS:
       return { ...state, products: action.payload };
-    case FETCH_PRODUCT:
+    case SET_PRODUCT:
       return { ...state, singleProduct: action.payload };
     default:
       return state;
