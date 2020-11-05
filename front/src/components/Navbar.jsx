@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"
-import { Button, Modal, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Button, Modal, Nav, Navbar, Form, FormControl, Dropdown } from 'react-bootstrap'
 import LoginContainer from '../containers/LoginContainer'
 
-export default () => {
+export default ({ userlog, logout }) => {
+  console.log("aca iria el userlog en navbar", userlog)
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -12,32 +13,40 @@ export default () => {
   return (
 
     <Navbar bg="dark" variant="dark" expand="lg">
-
       <Navbar.Brand href="#home">Tc-Store</Navbar.Brand>
-
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
-
         </Nav>
-        <div className="divSearchlupita">
-          <Form style={{ width: "100%", display: "flex", alignItems: "center" }}>
+        <div>
+          <Form inline style={{ width: "100%", }}>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Link to=""><span className="lupita"><img src="lupita2.png" className="lupitaimg" alt=""></img></span></Link>
+            <Button variant="outline-success">Search</Button>
           </Form>
         </div>
-
-        <Nav.Link href="#link" className="cart">
-          <Button variant="success" onClick={handleShow}>
-            Sign In
+        {userlog && userlog.name ? <>
+          <Dropdown>
+            <Dropdown.Toggle variant="" id="dropdown-basic">
+              <Link to="" variant="outline" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}> {userlog.name} <i className="fas fa-user-circle"> </i> </Link>
+            </Dropdown.Toggle>
+            <Dropdown.Menu style={{ backgroundColor: "#343a40" }}>
+              <Dropdown.Item ><Link to="/" style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}><b> Favoritos</b></Link></Dropdown.Item>
+              <Dropdown.Item ><Link to="" onClick={logout} style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}>Log Out</Link></Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </>
+          :
+          <>
+            <Button variant="success" onClick={handleShow}>
+              Sign In
           </Button>
-          <Modal show={show} onHide={handleClose}>
-            {<LoginContainer handleClose={handleClose} />}
+            <Modal show={show} onHide={handleClose}>
+              {<LoginContainer handleClose={handleClose} />}
 
-          </Modal>
-
-        </Nav.Link>
+            </Modal>
+          </>
+        }
         <Nav.Link href="#link" className="cart">Cart</Nav.Link>
       </Navbar.Collapse>
 
@@ -47,6 +56,27 @@ export default () => {
 
   );
 }
+
+
+/* {userlog ? <>
+            <Dropdown>
+              <Dropdown.Toggle variant="" id="dropdown-basic">
+                <Link to="/movies" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}> {userlog}  <i className="fas fa-user-circle"> </i></Link>
+              </Dropdown.Toggle>
+              <Dropdown.Menu style={{ backgroundColor: "#343a40" }}>
+                <Dropdown.Item ><Link to="/movies/favorites" style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}><b> Favoritos</b></Link></Dropdown.Item>
+                <Dropdown.Item ><Link to="/login" onClick={logout} style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}>Log Out</Link></Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </>
+            :
+            <>
+              <Link to="/movies/login" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}>Log In <i className="fas fa-user-circle"></i></Link>
+              <Link to="/movies/register" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}>Sign In</Link>
+            </>
+          } */
+
+
 
 /*   <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
