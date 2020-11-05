@@ -8,6 +8,7 @@ import NavbarContainer from '../containers/NavbarContainer';
 import RoundedImages from './Categories';
 import Categories from './Categories';
 import '../assets/style.scss'
+import FilteredProductsContainer from '../containers/FilteredProductsContainer'
 
 
 const Main = () => {
@@ -19,8 +20,10 @@ const Main = () => {
             <CarruselContainer />
             {/* <Categories /> */}
             <Switch>
-                <Route exact path="/product/:id" component={SingleProductContainer} />
+                <Route exact path="/products/:id" component={SingleProductContainer} />
                 <Route exact path="/products" component={ProductsContainer} />
+                <Route exact path="/products/search/:search/" component={FilteredProductsContainer} />
+
                 {/* <Route exact path="/login" component={LoginContainer} /> */}
             </Switch>
             {/* <Footer /> ACA IRIA EL FOOTER */}

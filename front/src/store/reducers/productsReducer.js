@@ -1,6 +1,7 @@
 import { SET_PRODUCT, SET_PRODUCTS } from "../constants";
 
 const inicialState = {
+ 
   products: [],
   singleProduct: {},
 };

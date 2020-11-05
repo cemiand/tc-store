@@ -8,7 +8,7 @@ const removeUser = () => ({ type: REMOVE_USER });
 const setUsers = (data) => ({ type: SET_USERS, payload: data });
 
 const createUser = (user) =>
-  axios.post("/api/auth/users", user).then(({ data }) => console.log(data));
+  axios.post("/api/users", user).then(({ data }) => console.log(data));
 
 const loginUser = (user) => (dispatch) =>
   axios.post("/api/auth/login", user).then(({ data }) => {
