@@ -20,25 +20,25 @@ export default ({ userlog, logout }) => {
           <Nav.Link href="#home">Home</Nav.Link>
         </Nav>
         <div>
-          <Form inline style={{ width: "100%", }}>
+          <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
+            <Button className="buttonsearch" variant="outline-success"><img src="lupita2.png" className="lupitapng" /></Button>
           </Form>
         </div>
         {userlog && userlog.name ? <>
           <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic">
-              <Link to="" variant="outline" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}> {userlog.name} <i className="fas fa-user-circle"> </i> </Link>
+              <Link to="" variant="outline" style={{ textDecoration: "none", color: "white", margin: " 0 5px" }}> {userlog.name} <img src="usericon.png" className="navicon" /> </Link>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{ backgroundColor: "#343a40" }}>
-              <Dropdown.Item ><Link to="/" style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}><b> Favoritos</b></Link></Dropdown.Item>
-              <Dropdown.Item ><Link to="" onClick={logout} style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }}>Log Out</Link></Dropdown.Item>
+              <Link to="/" className="dropdownbutton" ><Dropdown.Item ><b> Favoritos</b></Dropdown.Item></Link>
+              <Link to="" onClick={logout} className="dropdownbutton"> <Dropdown.Item >Log Out</Dropdown.Item></Link>
             </Dropdown.Menu>
           </Dropdown>
         </>
           :
           <>
-            <Button variant="success" onClick={handleShow}>
+            <Button variant="outline-success" onClick={handleShow}>
               Sign In
           </Button>
             <Modal show={show} onHide={handleClose}>
@@ -47,7 +47,7 @@ export default ({ userlog, logout }) => {
             </Modal>
           </>
         }
-        <Nav.Link href="#link" className="cart">Cart</Nav.Link>
+        <Nav.Link href="#link" ><img src="cart2.png" className="cart" /></Nav.Link>
       </Navbar.Collapse>
 
 

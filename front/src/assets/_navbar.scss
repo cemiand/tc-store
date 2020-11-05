@@ -1,13 +1,44 @@
+
+//ICONOS
 .cart{
   color: #fff;
   text-decoration: none;
+  width:30px;
+  height:30px;
 }
 .cart:hover{
   color: rgba(196, 193, 193, 0.988);
   text-decoration: none;
 }
 
+.lupitapng{
+  width:25px;
+  height:25px
+}
+
+.navicon{
+  width:25px;
+  height: 25px;
+}
+
 .divSearchlupita{
   width:50%;
   display:flex
 }
+
+.buttonsearch {
+  width:50px;
+background: #fff
+}
+.navbar{
+  display:flex;
+  justify-content: space-around;
+}
+
+//dropwdownbutton
+.dropdownbutton{
+  color:"white";
+  background-Color: "#343a40";
+  text-Decoration: "none"
+}
+/* style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }} */
