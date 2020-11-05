@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import SingleProduct from "../components/SingleProduct"
-import {fetchSingleProduct} from "../src/store/actions/productAction"
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchSingleProduct } from '../store/actions/productAction';
 
 
 const SingleProductContainer = ({match}) => {
