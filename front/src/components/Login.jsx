@@ -1,18 +1,34 @@
 import React from "react";
 
-export default ({ handleSign }) => (
+export default ({
+  handleSign,
+  handleChange,
+  handleSignUp,
+  handleSingIn,
+  inputs,
+}) => (
   <div className="cont">
     <div className="form sign-in">
       <h2>Sign In</h2>
       <label>
         <span>Email Address</span>
-        <input type="email" name="email" />
+        <input
+          type="email"
+          name="email"
+          onChange={handleChange}
+          value={inputs.email}
+        />
       </label>
       <label>
         <span>Password</span>
-        <input type="password" name="password" />
+        <input
+          type="password"
+          name="password"
+          onChange={handleChange}
+          value={inputs.password}
+        />
       </label>
-      <button className="submit" type="button">
+      <button className="submit" type="button" onClick={handleSingIn}>
         Sign In
       </button>
 
@@ -47,25 +63,45 @@ export default ({ handleSign }) => (
         <h2>Sign Up</h2>
         <label>
           <span>Name</span>
-          <input type="text" />
+          <input
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={inputs.name}
+          />
         </label>
         <label>
           <span>Email</span>
-          <input type="email" />
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={inputs.email}
+          />
         </label>
         <label>
           <span>Password</span>
-          <input type="password" />
+          <input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={inputs.password}
+          />
         </label>
         <label>
           <span>Confirm Password</span>
-          <input type="password" />
+          <input
+            type="password"
+            name="confirmPassword"
+            onChange={handleChange}
+            onChange={handleChange}
+            value={inputs.confirmPassword}
+          />
         </label>
-        <button type="button" className="submit">
+        <button type="button" className="submit" onClick={handleSignUp}>
           Sign Up Now
         </button>
       </div>
     </div>
-
   </div>
 );
