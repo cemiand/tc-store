@@ -3,11 +3,29 @@ import { Link } from "react-router-dom"
 import { Button, Modal, Nav, Navbar, Form, FormControl } from 'react-bootstrap'
 import LoginContainer from '../containers/LoginContainer'
 
+
 export default () => {
   const [show, setShow] = useState(false);
 
+  const useInput = () => {
+  const [inputs, setInputs] = useState({
+   search: ""
+  });
+
+  const handleChange = (e) => {
+    setInputs({ ...inputs, [e.target.search]: e.target.value });
+  };
+
+  return {
+    inputs,
+    handleChange,
+  };
+};
+
+  const { handleChange, inputs } = useInput()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+ 
 
   return (
 
@@ -23,8 +41,8 @@ export default () => {
         </Nav>
         <div className="divSearchlupita">
           <Form style={{ width: "100%", display: "flex", alignItems: "center" }}>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Link to=""><span className="lupita"><img src="lupita2.png" className="lupitaimg" alt=""></img></span></Link>
+            <FormControl onChange={handleChange} value={inputs.search} type="text" placeholder="Search" className="mr-sm-2" />
+            <Link to="http://localhost:1337/products/search/"><span className="lupita" ><img src="lupita2.png" className="lupitaimg" alt=""></img></span></Link>
           </Form>
         </div>
 

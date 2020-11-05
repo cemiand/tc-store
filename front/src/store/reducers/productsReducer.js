@@ -1,6 +1,7 @@
 import { FETCH_PRODUCTS, FETCH_PRODUCT } from "../constants";
 
 const inicialState = {
+ 
   products: [],
   singleProduct: {},
 };

@@ -21,6 +21,8 @@ const Main = () => {
             <Switch>
                 <Route exact path="/product/:id" component={SingleProductContainer} />
                 <Route exact path="/products" component={ProductsContainer} />
+                <Route exact path="/products/search/" component={FilteredProductsContainer} />
+
                 {/* <Route exact path="/login" component={LoginContainer} /> */}
             </Switch>
             {/* <Footer /> ACA IRIA EL FOOTER */}
