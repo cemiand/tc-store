@@ -1,4 +1,5 @@
-@import "./sing.scss";
+@import "./login.scss";
+@import "./carrusel";
 
 body {
   width: 100%;
@@ -6,6 +7,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: -webkit-linear-gradient(left, #7579ff, #5e4855);
+  background: -webkit-linear-gradient(left, #000000, #000000);
   font-family: "Nunito", sans-serif;
 }
