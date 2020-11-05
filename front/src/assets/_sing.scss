@@ -7,6 +7,10 @@
   font-family: "Nunito", sans-serif;
 }
 
+
+
+
+
 input,
 button {
   border: none;
@@ -76,7 +80,12 @@ button {
   cursor: pointer;
 }
 
+.socialP{
+text-align: center;
+}
 .submit {
+  width: 370px;
+  height: 36px;
   margin-top: 40px;
   margin-bottom: 30px;
   text-transform: uppercase;

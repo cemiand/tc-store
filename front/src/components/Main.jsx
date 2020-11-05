@@ -11,8 +11,8 @@ const Main = () => {
     return (
 
         <React.Fragment>
-            <Navbar /> 
-            <CarruselContainer/>
+            <Navbar />
+            {/*  <CarruselContainer /> */}
             <Switch>
                 <Route exact path="/product/:id" component={SingleProductContainer} />
                 <Route exact path="/products" component={ProductsContainer} />

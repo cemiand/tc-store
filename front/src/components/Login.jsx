@@ -15,7 +15,6 @@ export default ({ handleSign }) => (
       <button className="submit" type="button">
         Sign In
       </button>
-
       <div className="social-media">
         <ul>
           <li>
@@ -38,7 +37,9 @@ export default ({ handleSign }) => (
           <h2>One of us?</h2>
           <p>If you already has an account, just sign in. We've missed you!</p>
         </div>
+        
         <div className="img-btn" onClick={handleSign}>
+  
           <span className="m-up">Sign Up</span>
           <span className="m-in">Sign In</span>
         </div>
