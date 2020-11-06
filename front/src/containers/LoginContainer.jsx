@@ -2,7 +2,7 @@ import React from "react";
 import Login from "../components/Login";
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
-import { createUser, loginUser } from "../store/actions/usersAction";
+import { createUser, loginUser, loginUserGoogle } from "../store/actions/usersAction";
 
 export default () => {
   const dispatch = useDispatch();
@@ -27,12 +27,17 @@ export default () => {
     dispatch(loginUser(user));
   };
 
+  const handleSignGoogle = () => {
+    dispatch(loginUserGoogle())
+  }
+
   return (
     <Login
       handleButton={handleButton}
       handleChange={handleChange}
       handleSignUp={handleSignUp}
       handleSingIn={handleSingIn}
+      handleSignGoogle={handleSignGoogle}
       inputs={inputs}
     />
   );
