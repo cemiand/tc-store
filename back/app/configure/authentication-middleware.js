@@ -42,7 +42,9 @@ module.exports = (app) => {
     )
   );
   // FACEBOOK
+
   // GOOGLE
+
 
   // CONECTAR PASSPORT CON LAS SESSIONS CONFIGURADAS EN EXRESS
   passport.serializeUser((user, done) => done(null, user.id));

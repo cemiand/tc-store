@@ -70,15 +70,17 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Dropdown>
           </>
         ) : (
-          <>
-            <Button variant="outline-success" onClick={handleShow}>
-              Sign In
+            <>
+              <Button variant="outline-success" onClick={handleShow}>
+                Sign In
             </Button>
-            <Modal show={show} onHide={handleClose}>
-              {<LoginContainer />}
-            </Modal>
-          </>
-        )}
+              <Modal show={show} onHide={handleClose}>
+                {<LoginContainer />}
+              </Modal>
+
+
+            </>
+          )}
         <Nav.Link href="#link">
           <img src="cart2.png" className="cart" />
         </Nav.Link>
