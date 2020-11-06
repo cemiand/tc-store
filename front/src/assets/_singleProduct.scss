@@ -1,0 +1,88 @@
+.container {
+  width: 85%;
+  margin: 0px auto;
+  display: flex;
+  border: 2px solid gray;
+  padding: 20px;
+
+  .images {
+    position: relative;
+    margin: 0;
+    width: 80%;
+    height: 500px;
+    display: flex;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      width: 15%;
+      margin: 10px auto;
+
+      .imgContainer {
+        position: relative;
+        width: 100%;
+        height: 25%;
+        margin: 3px 0;
+        border: 1px solid grey;
+        border-radius: 20px;
+
+        img {
+          height: 80%;
+          width: 80%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          object-fit: cover;
+        }
+      }
+    }
+
+    .principal {
+      position: relative;
+      width: 85%;
+      height: 500px;
+      margin: auto 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border: 1px solid grey;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: contain;
+        background-color: white;
+      }
+    }
+  }
+
+  .data {
+    width: 20%;
+    margin: 0 10px;
+    color: white;
+    h1 {
+      margin-bottom: 3px;
+    }
+    h4 {
+      margin: 3px;
+    }
+  }
+}
+
+hr {
+  width: 95%;
+  height: 1px;
+  margin: 30px auto;
+  background-color: grey;
+  border: 0;
+}
+
+.description {
+  width: 100%;
+  height: 100%;
+  padding: 50px 7%;
+  background-color: white;
+  color: black;
+}
