@@ -40,10 +40,13 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             <Button variant="outline-success" onClick={handleShow}>
               Sign In
           </Button>
-            <Modal show={show} onHide={handleClose}>
+
+            <Modal show={show} onHide={handleClose} className="divmodal">
               {<LoginContainer />}
 
             </Modal>
+
+
           </>
         }
         <Nav.Link href="#link" ><img src="cart2.png" className="cart" /></Nav.Link>

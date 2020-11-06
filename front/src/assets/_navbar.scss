@@ -42,3 +42,10 @@ background: #fff
   text-Decoration: "none"
 }
 /* style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }} */
+
+.modal-content{
+  margin-top:30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
