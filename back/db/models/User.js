@@ -9,7 +9,7 @@ const validateEmail = function (email) {
 };
 
 const orderSchema = new Schema({
- 
+
   quantity: { type: Number, required: true, default: 1, },
   product: {
     type: Schema.Types.ObjectId,
@@ -34,6 +34,9 @@ const userSchema = new Schema({
     unique: true,
     required: "Email address is required",
     validate: [validateEmail, "Please fill a valid email address"],
+  },
+  googleId: {
+    type: String
   },
   orders: [
     {
@@ -72,11 +75,11 @@ userSchema.pre("save", function (next) {
   });
 });
 
- userSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-        if (err) return cb(err);
-        cb(null, isMatch);
-    });
+userSchema.methods.comparePassword = function (candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
+    if (err) return cb(err);
+    cb(null, isMatch);
+  });
 };
 
 const User = mongoose.model("user", userSchema);

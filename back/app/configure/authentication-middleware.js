@@ -1,10 +1,15 @@
+
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session");
 const LocalStrategy = require("passport-local").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const keys = require("../configure/keys")
 const { User } = require("../../db/models");
 
+
 module.exports = (app) => {
+
   // CONECTANDO PASSPORT
   app.use(cookieParser());
   app.use(
@@ -16,6 +21,15 @@ module.exports = (app) => {
   );
   app.use(passport.initialize());
   app.use(passport.session());
+
+
+  // CONECTAR PASSPORT CON LAS SESSIONS CONFIGURADAS EN EXRESS
+  passport.serializeUser((user, done) => done(null, user.id));
+  passport.deserializeUser((id, done) =>
+    User.findById(id)
+      .then((user) => done(null, user)) // req.user = user
+      .catch(done)
+  );
 
   // ESTRATEGIAS DE AUTENTICACIÓN
   //LOCAL
@@ -41,16 +55,33 @@ module.exports = (app) => {
       }
     )
   );
-  // FACEBOOK
+  //google
+  // Google Strategy
 
-  // GOOGLE
-
-
-  // CONECTAR PASSPORT CON LAS SESSIONS CONFIGURADAS EN EXRESS
-  passport.serializeUser((user, done) => done(null, user.id));
-  passport.deserializeUser((id, done) =>
-    User.findById(id)
-      .then((user) => done(null, user)) // req.user = user
-      .catch(done)
+  passport.use(
+    new GoogleStrategy({
+      clientID: keys.google.clientID,
+      clientSecret: keys.google.clientSecret,
+      callbackURL: '/auth/google/redirect'
+    }, (accessToken, refreshToken, profile, done) => {
+      // passport callback function
+      //check if user already exists in our db with the given profile ID
+      User.findOne({ googleId: profile.id }).then((currentUser) => {
+        if (currentUser) {
+          //if we already have a record with the given profile ID
+          done(null, currentUser);
+        } else {
+          //if not, create a new user 
+          new User({
+            googleId: profile.id,
+          }).save().then((newUser) => {
+            done(null, newUser);
+          });
+        }
+      })
+    })
   );
-};
+
+}
+
+
