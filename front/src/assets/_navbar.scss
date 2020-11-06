@@ -1,51 +1,63 @@
+.brand {
+  margin: 0px 20px;
+}
+
+.searcher {
+  width: 50%;
+  display: flex;
+  align-items: baseline;
+  margin: auto;
+
+  button {
+    height: 100%;
+    width: 50px;
+    background: #fff;
+  }
+}
 
 //ICONOS
-.cart{
+.cart {
   color: #fff;
   text-decoration: none;
-  width:30px;
-  height:30px;
-}
-.cart:hover{
-  color: rgba(196, 193, 193, 0.988);
-  text-decoration: none;
+  width: 30px;
+  height: 30px;
+
+  &:hover {
+    color: rgba(196, 193, 193, 0.988);
+    text-decoration: none;
+  }
 }
 
-.lupitapng{
-  width:25px;
-  height:25px
-}
-
-.navicon{
-  width:25px;
+.lupitapng {
+  width: 25px;
   height: 25px;
 }
 
-.divSearchlupita{
-  width:50%;
-  display:flex
+.navicon {
+  width: 25px;
+  height: 25px;
 }
 
-.buttonsearch {
-  width:50px;
-background: #fff
+.divSearchlupita {
+  width: 50%;
+  display: flex;
 }
-.navbar{
-  display:flex;
+
+.navbar {
+  display: flex;
   justify-content: space-around;
 }
 
 //dropwdownbutton
-.dropdownbutton{
-  color:"white";
-  background-Color: "#343a40";
-  text-Decoration: "none"
+.dropdownbutton {
+  color: "white";
+  background-color: "#343a40";
+  text-decoration: "none";
 }
 /* style={{ textDecoration: "none", color: "white", backgroundColor: "#343a40" }} */
 
-.modal-content{
-  margin-top:30%;
+.modal-content {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-top: 15%;
 }
