@@ -15,17 +15,13 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
   return (
 
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#home">Tc-Store</Navbar.Brand>
+      <Navbar.Brand href="/">Tc-Store</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-
-        </Nav>
         <div>
           <Form inline>
             <FormControl onChange={handleChange} value={filterValue} name="search" type="text" placeholder="Search" className="mr-sm-2" />
-            <Link to={`/products/search/${filterValue}`}> <Button className="buttonsearch" variant="outline-success"><img src="lupita2.png" className="lupitapng" /></Button></Link>
+            <Link to={`/${filterValue}`}> <Button type="button" className="buttonsearch" variant="outline-success"><img src="lupita2.png" className="lupitapng" /></Button></Link>
           </Form>
         </div>
         {userlog && userlog.name ? <>
