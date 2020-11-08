@@ -1,26 +1,23 @@
 import React from "react";
 
 const SingleProduct = ({ singleProduct }) => {
-  console.log("SINGLEPRODUCT", singleProduct);
   return (
     <div>
       <div className="container">
-        <div className="images">
-          <div className="row">
-            {singleProduct && singleProduct.pictures
-              ? singleProduct.pictures.map((img) => (
-                  <div key={img} className="imgContainer">
-                    <img src={img} alt="img" />
-                  </div>
-                ))
-              : null}
-          </div>
-          {singleProduct && singleProduct.pictures ? (
+        {singleProduct && singleProduct.pictures ? (
+          <div className="images">
+            <div className="row">
+              {singleProduct.pictures.map((img) => (
+                <div key={img} className="imgContainer">
+                  <img src={img} alt="img" />
+                </div>
+              ))}
+            </div>
             <div className="principal">
               <img src={singleProduct.pictures[0]} alt="img" />
             </div>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
         <div className="data">
           <h1>{singleProduct.name}</h1>
           <h4>{singleProduct.brand}</h4>
