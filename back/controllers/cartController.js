@@ -7,12 +7,12 @@ const cartController = {
             .then(user => {
                 Product.findById(req.body.id)//CHEQUEAR SI ES _ID
                     .then(product => {//VALIDAR QUE NO EXISTA EL PRODUCTO
-                        user.cart.push({product})
+                        user.cart.push({ product })
                         user.save()
                         res.status(201).send(user.cart)
                     })
             })
-            .catch(err=>res.status(500).send(err))
+            .catch(err => res.status(500).send(err))
     },
     deleteProduct(req, res) {
         User.findById(req.user.id)//CHEQUEAR SI ES _ID
@@ -23,21 +23,21 @@ const cartController = {
                 user.save()
                 res.status(200).send(user.cart)
             })
-            res.status(200).send(user.cart)
-            .catch(err=>res.status(500).send(err))
+        res.status(200).send(user.cart)
+            .catch(err => res.status(500).send(err))
     },
     updateProduct(req, res) {
         User.findById(req.user.id)//CHEQUEAR SI ES _ID
             .then(user => {
-                user.cart.map(order =>{
-                    if(order.product.id == req.body.id){
+                user.cart.map(order => {
+                    if (order.product.id == req.body.id) {
                         order.quantity = req.body.quantity
                     }
-                }) 
+                })
                 user.save()
                 res.status(200).send(user.cart)
             })
-            .catch(err=>res.status(500).send(err))
+            .catch(err => res.status(500).send(err))
     }
 }
 

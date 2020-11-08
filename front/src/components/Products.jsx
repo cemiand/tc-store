@@ -9,8 +9,16 @@ const Products = ({ products }) => {
         {products.map((product) => {
           return (
             <Col xs={3} className="mb-4" key={product._id}>
-              <Card style={{ width: "18rem" }} className="mx-auto">
-                <Card.Img
+              <Card className="mx-auto card">
+                <div className="view view-eighth">
+                  <img src={product.pictures[0]} />
+                  <div className="mask">
+                    <h2>{product.name}</h2>
+                    <p>{product.brand}</p>
+                    <Link to={`/products/${product._id}`} className="info">Read More</Link>
+                  </div>
+                </div>
+                {/* <Card.Img
                   variant="top"
                   src={product.pictures[0]}
                   className="productImg"
@@ -35,7 +43,8 @@ const Products = ({ products }) => {
                       height="50px"
                     ></img>
                   </Link>
-                </Card.Body>
+                </Card.Body> */}
+
               </Card>
             </Col>
           );
