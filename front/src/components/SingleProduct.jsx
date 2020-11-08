@@ -1,6 +1,6 @@
 import React from "react";
 
-const SingleProduct = ({ singleProduct }) => {
+const SingleProduct = ({ singleProduct, addToCart }) => {
   console.log("SINGLEPRODUCT", singleProduct);
   return (
     <div>
@@ -25,6 +25,7 @@ const SingleProduct = ({ singleProduct }) => {
           <h1>{singleProduct.name}</h1>
           <h4>{singleProduct.brand}</h4>
           <h4>$ {singleProduct.price}</h4>
+          <button onClick={()=> {addToCart()}} style={{border:"1px solid white"}}>Add to cart</button>
         </div>
       </div>
 

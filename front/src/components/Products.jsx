@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Products = ({ products }) => {
@@ -9,8 +9,16 @@ const Products = ({ products }) => {
         {products.map((product) => {
           return (
             <Col xs={3} className="mb-4" key={product._id}>
-              <Card style={{ width: "18rem" }} className="mx-auto">
-                <Card.Img
+              <Card className="mx-auto card">
+                <div className="view view-eighth">
+                  <img src={product.pictures[0]} />
+                  <div className="mask">
+                    <h2>{product.name}</h2>
+                    <p>{product.brand}</p>
+                    <Link to={`/products/${product._id}`} className="info">More info</Link>
+                  </div>
+                </div>
+                {/* <Card.Img
                   variant="top"
                   src={product.pictures[0]}
                   className="productImg"
@@ -19,7 +27,7 @@ const Products = ({ products }) => {
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>{product.brand}</Card.Text>
                   <Card.Text>${product.price}</Card.Text>
-                  <Link to={`/products/${product._id}`}>
+                  <Link to={/products/${product._id}}>
                     <Button
                       variant="primary"
                       style={{ width: "100px", margin: "10px" }}
@@ -35,7 +43,8 @@ const Products = ({ products }) => {
                       height="50px"
                     ></img>
                   </Link>
-                </Card.Body>
+                </Card.Body> */}
+
               </Card>
             </Col>
           );
