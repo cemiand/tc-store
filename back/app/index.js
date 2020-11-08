@@ -1,7 +1,17 @@
 const express = require("express");
 const app = express();
 const cors = require("cors")
-app.use(cors())
+
+app.use(
+  cors({
+    origin: '*',
+    methods: "GET, POST, PATCH, DELETE, PUT",
+    allowedHeaders: "Content-Type, Authorization",
+
+  }))
+
+
+
 require("./configure")(app);
 
 // ROUTES MIDDLEWARE

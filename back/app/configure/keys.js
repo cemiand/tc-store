@@ -1,8 +1,8 @@
 //add this file to .gitignore
 
 const google = {
-  clientID: "64441544676-g3k7q1et6hahs1a668a68ekqspleukoq.apps.googleusercontent.com",
-  clientSecret: "8S9Io5pBHPYrvqi5odpQ7yqm"
+  clientID: "64441544676-00tpgh2nqr3ud3jhjmkkobrjt7f6k33c.apps.googleusercontent.com",
+  clientSecret: "4ebkGapru_hhMF_rC2gBA5JL"
 }
 
 module.exports = { google }
