@@ -19,7 +19,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="/" className="brand">
-        Tc-Store
+        <img style={{width:"40%"}} src="/logoTC2.png" alt="TC-Store"/>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

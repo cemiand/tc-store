@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Products = ({ products }) => {
@@ -15,7 +15,7 @@ const Products = ({ products }) => {
                   <div className="mask">
                     <h2>{product.name}</h2>
                     <p>{product.brand}</p>
-                    <Link to={`/products/${product._id}`} className="info">Read More</Link>
+                    <Link to={`/products/${product._id}`} className="info">More info</Link>
                   </div>
                 </div>
                 {/* <Card.Img
@@ -27,7 +27,7 @@ const Products = ({ products }) => {
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>{product.brand}</Card.Text>
                   <Card.Text>${product.price}</Card.Text>
-                  <Link to={`/products/${product._id}`}>
+                  <Link to={/products/${product._id}}>
                     <Button
                       variant="primary"
                       style={{ width: "100px", margin: "10px" }}
