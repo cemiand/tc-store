@@ -18,11 +18,11 @@ const loginUser = (user) => (dispatch) =>
     dispatch(setUser(data));
   });
 
-const loginUserGoogle = (user) => (dispatch) =>
+const loginUserGoogle = (user) => (dispatch) => {
   axios.get("/api/auth/google", user).then(({ data }) => {
     dispatch(setUser(data))
   })
-
+}
 
 const logoutUser = () => (dispatch) =>
   axios.post("/api/auth/logout").then(() => dispatch(removeUser()));
