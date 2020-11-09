@@ -19,11 +19,25 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="/" className="brand">
-        <img style={{width:"40%"}} src="/logoTC2.png" alt="TC-Store"/>
+        <img style={{ width: "40%" }} src="/logoTC2.png" alt="TC-Store" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Form className="searcher">
+        <div className="search_wrap search_wrap_3">
+          <div className="search_box">
+            <input type="text" onChange={handleChange}
+              value={filterValue}
+              name="search" className="input" placeholder="Search..." />
+            <Link to={`/${filterValue}`}>
+              {" "}
+              <div className="btn btn_common">
+                <img src="lupita1.png" className="lupitapng" />
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* <Form className="searcher">
           <FormControl
             onChange={handleChange}
             value={filterValue}
@@ -38,7 +52,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
               <img src="lupita2.png" className="lupitapng" />
             </Button>
           </Link>
-        </Form>
+        </Form> */}
         {userlog && userlog.name ? (
           <>
             <Dropdown>
@@ -56,7 +70,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                   {userlog.name} <img src="usericon.png" className="navicon" />{" "}
                 </Link>
               </Dropdown.Toggle>
-              <Dropdown.Menu style={{ backgroundColor: "#343a40" }}>
+              <Dropdown.Menu style={{ backgroundColor: "#343a40", margin: "-8px 48px", padding: "0 4px" }}>
                 <Link to="/" className="dropdownbutton">
                   <Dropdown.Item>
                     <b> Favoritos</b>
@@ -77,14 +91,15 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
               <Modal show={show} onHide={handleClose}>
                 {<LoginContainer />}
               </Modal>
-
-
             </>
           )}
         <Nav.Link href="#link">
-          <img src="cart2.png" className="cart" />
+          <Button variant="outline-sucess" className="cartButton">
+            <img src="cart2.png" className="cart" />
+          </Button>
+
         </Nav.Link>
       </Navbar.Collapse>
-    </Navbar>
+    </Navbar >
   );
 };
