@@ -17,10 +17,10 @@ const Main = () => {
       {/* <CarruselContainer /> */}
       {/* <Categories /> */}
       <Switch>
+        <Route exact path="/cart" component={CartContainer} />
         <Route path="/products/:id" component={SingleProductContainer} />
         <Route exact path="/products" component={ProductsContainer} />
-        <Route path="/:search" component={FilteredProductsContainer}/>
-        <Route exact path="/cart" component={CartContainer} />
+        <Route path="/:search" component={FilteredProductsContainer} />
         <Redirect from="/" to="/products" />
       </Switch>
       {/* <Footer /> ACA IRIA EL FOOTER */}

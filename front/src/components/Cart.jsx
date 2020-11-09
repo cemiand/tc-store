@@ -1,7 +1,6 @@
 import React from "react";
-import { Alert } from "react-bootstrap";
 
-const Cart = ({cartProducts}) => {
+const Cart = ({singleUser}) => {
   return (
     <div>
       <div className="shopping-cart">
@@ -11,7 +10,7 @@ const Cart = ({cartProducts}) => {
       </div>
       </div>
 
-    {cartProducts ? cartProducts.map(order => {
+    {singleUser.cart ? singleUser.cart.map(order => {
       {/* <!-- orders --> */}
       <div className="item">
         <div className="buttons">
@@ -40,7 +39,7 @@ const Cart = ({cartProducts}) => {
         <div className="total-price">{order.product.price}</div>
       </div>
     })
-    : null
+    : console.log("ACA NO HAY NINGUN PRODUCTO")
     }
     </div>
    )
