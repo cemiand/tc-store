@@ -8,6 +8,7 @@ const cartController = {
       .then((user) => {
         Product.findById(req.body._id).then((product) => {
           let exist = false;
+          console.log(user);
 
           user.cart.map((order) => {
             if (order.product._id.toString() === product._id.toString()) {

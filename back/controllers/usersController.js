@@ -16,12 +16,19 @@ const usuariosController = {
   },
 
   userLogin(req, res) {
-    res.status(200).json({
-      name: req.user.name,
-      email: req.user.email,
-      id: req.user.id,
-      cart: req.user.cart,
-    });
+    User.findById(req.user._id)
+      .populate({
+        path: "cart",
+        populate: { path: "product" },
+      })
+      .then((user) =>
+        res.status(200).json({
+          name: user.name,
+          email: user.email,
+          id: user.id,
+          cart: user.cart,
+        })
+      );
   },
 
   userLogout(req, res) {
