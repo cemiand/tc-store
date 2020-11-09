@@ -18,8 +18,8 @@ const loginUser = (user) => (dispatch) =>
     dispatch(setUser(data));
   });
 
-const loginUserGoogle = (user) => (dispatch) => {
-  axios.get("/api/auth/google", user).then(({ data }) => {
+const loginUserGoogle = () => (dispatch) => {
+  axios.get("/api/auth/google", { withCredentials: true }).then(({ data }) => {
     dispatch(setUser(data))
   })
 }
