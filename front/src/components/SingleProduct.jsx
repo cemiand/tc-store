@@ -1,6 +1,7 @@
 import React from "react";
 
-const SingleProduct = ({ singleProduct }) => {
+const SingleProduct = ({ singleProduct, addToCart }) => {
+  console.log("SINGLEPRODUCT", singleProduct);
   return (
     <div>
       <div className="container">
@@ -22,6 +23,7 @@ const SingleProduct = ({ singleProduct }) => {
           <h1>{singleProduct.name}</h1>
           <h4>{singleProduct.brand}</h4>
           <h4>$ {singleProduct.price}</h4>
+          <button onClick={addToCart}>Add to cart</button>
         </div>
       </div>
 
@@ -36,12 +38,3 @@ const SingleProduct = ({ singleProduct }) => {
 };
 
 export default SingleProduct;
-
-{
-  /* <img
-  src="shopping-cart.png"
-  alt="add to cart"
-  width="45px"
-  height="50px"
-></img> */
-}
