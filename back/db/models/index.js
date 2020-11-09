@@ -4,7 +4,7 @@ const Order = require("./Order");
 const Product = require("./Product");
 const Review = require("./Review");
 const User = require("./User");
-const productOrder = require("./productOrder");
+const ProductOrder = require("./ProductOrder");
 
 module.exports = {
   Brand,
@@ -13,5 +13,5 @@ module.exports = {
   Order,
   Review,
   Product,
-  productOrder,
+  ProductOrder,
 };

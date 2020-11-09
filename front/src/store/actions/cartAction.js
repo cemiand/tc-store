@@ -1,9 +1,8 @@
 import axios from "axios";
+import { setUser } from "./usersAction";
 
-export const addProductToCart = (producto) =>
-  axios
-    .post("/api/cart/add", producto)
-    .then(({ data }) => console.log("POST_ADD_PRODUCT", data));
+export const addProductToCart = (product) =>
+  axios.post("/api/cart/add", product).then(({ data }) => console.log(data));
 
 export const deleteProductFromCart = (id) =>
-  axios.delete(`/api/cart/delete/${id}`); // CHEQUEAR RUTA DE BACK !!!
+  axios.delete(`/api/cart/delete/${id}`).then(({ data }) => console.log(data));

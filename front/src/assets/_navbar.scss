@@ -2,7 +2,7 @@
   margin: 0px 20px;
 }
 
-.searcher {
+/* .searcher {
   width: 50%;
   display: flex;
   align-items: baseline;
@@ -13,7 +13,19 @@
     width: 50px;
     background: #fff;
   }
+} */
+.btn{
+  margin-right:76px;
+  margin-left:0px;
+  width:100px
 }
+.cartButton{
+  border: 1px solid #29a745;
+  &:hover{
+    background:#29a745;
+  }
+}
+
 
 //ICONOS
 .cart {
@@ -21,6 +33,9 @@
   text-decoration: none;
   width: 30px;
   height: 30px;
+  position: absolute;
+  right:142px;
+  top:30px;
 
   &:hover {
     color: rgba(196, 193, 193, 0.988);
@@ -29,8 +44,11 @@
 }
 
 .lupitapng {
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
+  position: relative;
+  top:5px;
+  
 }
 
 .navicon {
@@ -60,4 +78,12 @@
   display: flex;
   align-items: center;
   margin-top: 15%;
+}
+
+.navbar{
+  height:87px
+}
+.dropdown-item{
+  color:#fff;
+  list-style: none;
 }

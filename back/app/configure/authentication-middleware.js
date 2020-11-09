@@ -24,6 +24,7 @@ module.exports = (app) => {
   passport.deserializeUser((id, done) =>
     User.findById(id)
       .populate("cart")
+      .populate("product")
       .then((user) => done(null, user)) // req.user = user
       .catch(done)
   );
@@ -60,19 +61,22 @@ module.exports = (app) => {
       {
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL: "/auth/google/redirect",
+        callbackURL: "/api/auth/google/redirect",
       },
       (accessToken, refreshToken, profile, done) => {
+        console.log("profile", profile._json.name);
         // passport callback function
         //check if user already exists in our db with the given profile ID
-        User.findOne({ googleId: profile.id }).then((currentUser) => {
+        User.findOne({ email: profile._json.email }).then((currentUser) => {
           if (currentUser) {
             //if we already have a record with the given profile ID
+            console.log("currentUser", currentUser);
             done(null, currentUser);
           } else {
             //if not, create a new user
             new User({
-              googleId: profile.id,
+              email: profile._json.email,
+              name: profile._json.name,
             })
               .save()
               .then((newUser) => {
