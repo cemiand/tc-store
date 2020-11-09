@@ -3,8 +3,7 @@ const { Product, User, ProductOrder } = require("../db/models");
 const cartController = {
   addProduct(req, res) {
     User.findById(req.user._id)
-      .populate("cart")
-      .populate("product")
+      .populate({path: "cart", populate :{path: 'product'}})
       .then((user) => {
         Product.findById(req.body._id).then((product) => {
           let exist = false;

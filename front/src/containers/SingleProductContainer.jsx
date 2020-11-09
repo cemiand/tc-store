@@ -11,9 +11,9 @@ const SingleProductContainer = ({match}) => {
     const {singleProduct}  = useSelector((state) => state.productsReducer);
     
     const addToCart = () => {
+        console.log("PRODUCTO AGREGADO", singleProduct)
         addProductToCart(singleProduct)
     }
-    
     
     useEffect(() => {
         dispatch(fetchSingleProduct(match.params.id))
