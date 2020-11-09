@@ -18,11 +18,11 @@ const loginUser = (user) => (dispatch) =>
     dispatch(setUser(data));
   });
 
-const loginUserGoogle = () => (dispatch) => {
-  axios.get("/api/auth/google", { withCredentials: true }).then(({ data }) => {
-    dispatch(setUser(data))
-  })
-}
+const loginUserGoogle = (user) => (dispatch) => {
+  axios.get("/api/auth/google", user).then(({ data }) => {
+    dispatch(setUser(data));
+  });
+};
 
 const logoutUser = () => (dispatch) =>
   axios.post("/api/auth/logout").then(() => dispatch(removeUser()));
@@ -30,4 +30,12 @@ const logoutUser = () => (dispatch) =>
 const fetchUser = () => (dispatch) =>
   axios.get("/api/auth/me").then(({ data }) => dispatch(setUser(data)));
 
-export { fetchUsers, loginUser, logoutUser, createUser, fetchUser, loginUserGoogle };
+export {
+  fetchUsers,
+  loginUser,
+  logoutUser,
+  createUser,
+  fetchUser,
+  loginUserGoogle,
+  setUser,
+};

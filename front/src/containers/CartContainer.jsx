@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Cart from '../components/Cart'
-import { showCartProducts }  from '../store/actions/cartAction'
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const CartContainer = () => {
     
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const { cartProducts } = useSelector((state) => state.cartReducer);
-    
-    useEffect(() => {
-        dispatch(showCartProducts());
-      }, []);
+    const { singleUser } = useSelector((state) => state.usersReducer);
+    console.log("CARRITO DEL USER", singleUser)
+
+    // useEffect(() => {
+    //     singleUser.cart;
+    //   }, []);
     
     return (
-        <Cart cartProducts={cartProducts}/>
+        <Cart singleUser={singleUser}/>
     )
 }
 

@@ -93,7 +93,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
               </Modal>
             </>
           )}
-        <Nav.Link href="#link">
+        <Nav.Link href="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />
           </Button>
