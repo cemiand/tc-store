@@ -1,16 +1,8 @@
 import axios from "axios";
-import { SHOW_CART } from "../constants";
+import { setUser } from "./usersAction";
 
-const showCart = (data) => ({
-    type: SHOW_CART,
-    payload: data,
-  });
-  
-export const addProductToCart = (producto) => axios.post("/api/cart/add", producto)
-  .then(()=>console.log("PRODUCTO",producto))
+export const addProductToCart = (product) =>
+  axios.post("/api/cart/add", product).then(({ data }) => console.log(data));
 
-export const deleteProductFromCart = (id) => axios.delete(`/api/cart/delete/${id}`) // CHEQUEAR RUTA DE BACK !!!
-
-export const showCartProducts = (userId) => dispatch => axios.get(`/api/users/${userId}`) // CHEQUEAR RUTA DE BACK !!!
-.then((res) => res.data)
-.then((cart) => dispatch(showCart(cart))) 
+export const deleteProductFromCart = (id) =>
+  axios.delete(`/api/cart/delete/${id}`).then(({ data }) => console.log(data));
