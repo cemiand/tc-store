@@ -14,13 +14,13 @@ const Main = () => {
     <React.Fragment>
       <NavbarContainer />
       <br />
-      <CarruselContainer />
+    
       {/* <Categories /> */}
       <Switch>
+        <Route exact path="/admin" component={AdminContainer}/>
         <Route path="/products/:id" component={SingleProductContainer} />
-        <Route exact path="/products" component={ProductsContainer} />
+        <Route exact path="/products" render={() =><div><CarruselContainer/><ProductsContainer/></div>}/>
         <Route path="/:search" component={FilteredProductsContainer}/>
-        <Route path="/admin" component={AdminContainer}/>
         <Redirect from="/" to="/products" />
       </Switch>
       {/* <Footer /> ACA IRIA EL FOOTER */}
