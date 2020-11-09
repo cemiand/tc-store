@@ -36,13 +36,8 @@ const usuariosController = {
       res.status(401).end();
     }
   },
-  accesLevel(req, res, next) {
-    if (req.user.accesLevel !== "admin")
-      return res.status(401).send(console.log("Acceso no autorizado"));
-    next();
-  },
-  changeAccesLevel(req, res) {
-    User.findByIdAndUpdate(req.params.id, req.body)
+    changeAccesLevel(req, res) {
+    User.findOneAndUpdate(req.body.email, req.body)
       .then((user) => {
         res.send(user);
       })
@@ -59,6 +54,11 @@ const usuariosController = {
         res.status(500).send(err);
       });
   },
+  deleteUser (req, res) {
+    User.deleteOne({email: req.body.email})
+    .then(() => res.status(200).send(console.log("Usuario eliminado")))
+    //.then(()=> res.redirect("http://localhost:1337/"))
+  }
 };
 
 module.exports = usuariosController;

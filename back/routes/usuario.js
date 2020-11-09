@@ -1,12 +1,13 @@
 const router = require("express").Router();
-const { usuarioCreate, accesLevel, changeAccesLevel, findAll } = require("../controllers/usuariosController")
+const { usuarioCreate, changeAccesLevel, findAll, deleteUser } = require("../controllers/usuariosController")
+const authRole = require("./admin")
 
 
 router.route("/")
   .post(usuarioCreate)
   .get(findAll)
+  .put(authRole("admin"), changeAccesLevel)
+  .delete(authRole("admin"), deleteUser)
 
-router.route("/:id")
-  .put(accesLevel, changeAccesLevel)
-
+ 
 module.exports = router;

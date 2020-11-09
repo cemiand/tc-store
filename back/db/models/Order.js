@@ -9,7 +9,7 @@ const orderSchema = new Schema({
     },
     state: {
         type: String,
-        enum: ["Confirmado", "En Camino", "Entregado", "Reclamo en proceso"],
+        enum: ["Confirmado", "En Camino", "Entregado"],
         default: "Confirmado",
     },
     products: [{
