@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { findAll, findProduct, createProduct, updateProduct, deleteProduct } = require("../controllers/productosController")
-const authRole = require("./admin")
+const {authRole} = require("./admin")
 
 router.route("/") //all products
   .get(findAll)

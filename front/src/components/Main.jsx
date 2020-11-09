@@ -7,6 +7,7 @@ import NavbarContainer from "../containers/NavbarContainer";
 import RoundedImages from "./Categories";
 import Categories from "./Categories";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
+import AdminContainer from "../containers/AdminContainer"
 
 const Main = () => {
   return (
@@ -19,6 +20,7 @@ const Main = () => {
         <Route path="/products/:id" component={SingleProductContainer} />
         <Route exact path="/products" component={ProductsContainer} />
         <Route path="/:search" component={FilteredProductsContainer}/>
+        <Route path="/admin" component={AdminContainer}/>
         <Redirect from="/" to="/products" />
       </Switch>
       {/* <Footer /> ACA IRIA EL FOOTER */}

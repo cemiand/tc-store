@@ -16,5 +16,7 @@ router.route("/")
     .get(authRole("admin"))
    
 //POR QUE NO FUNCIONA EN UN SOLO MODULE.EXPORTS?
-module.exports = router;
-module.exports = authRole;
+/* module.exports = router;
+module.exports = authRole; */
+
+module.exports = {router, authRole}

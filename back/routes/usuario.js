@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { usuarioCreate, changeAccesLevel, findAll, deleteUser } = require("../controllers/usuariosController")
-const authRole = require("./admin")
+const {authRole} = require("./admin")
 
 
 router.route("/")

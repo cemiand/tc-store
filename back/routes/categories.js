@@ -1,5 +1,5 @@
  const router = require("express").Router()
-const authRole = require("./admin")
+const {authRole} = require("./admin")
 const { findAll, createCategory, updateCategory, deleteCategory } = require("../controllers/categoriesController")
 
 

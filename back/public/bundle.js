@@ -55299,6 +55299,17 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Admin.jsx":
+/*!**********************************!*\
+  !*** ./src/components/Admin.jsx ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./src/components/Carrusel.jsx":
 /*!*************************************!*\
   !*** ./src/components/Carrusel.jsx ***!
@@ -55510,6 +55521,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _containers_NavbarContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../containers/NavbarContainer */ "./src/containers/NavbarContainer.jsx");
 /* harmony import */ var _Categories__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Categories */ "./src/components/Categories.jsx");
 /* harmony import */ var _containers_FilteredProductsContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../containers/FilteredProductsContainer */ "./src/containers/FilteredProductsContainer.jsx");
+/* harmony import */ var _containers_AdminContainer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../containers/AdminContainer */ "./src/containers/AdminContainer.jsx");
+
 
 
 
@@ -55531,6 +55544,9 @@ var Main = function Main() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/:search",
     component: _containers_FilteredProductsContainer__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/admin",
+    component: _containers_AdminContainer__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
     from: "/",
     to: "/products"
@@ -55776,6 +55792,21 @@ var SingleProduct = function SingleProduct(_ref) {
   height="50px"
   ></img> */
 }
+
+/***/ }),
+
+/***/ "./src/containers/AdminContainer.jsx":
+/*!*******************************************!*\
+  !*** ./src/containers/AdminContainer.jsx ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Admin */ "./src/components/Admin.jsx");
+/* harmony import */ var _components_Admin__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_Admin__WEBPACK_IMPORTED_MODULE_0__);
+
 
 /***/ }),
 
