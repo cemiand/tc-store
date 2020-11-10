@@ -43,6 +43,15 @@ const usuariosController = {
       res.status(401).end();
     }
   },
+    changeAccesLevel(req, res) {
+    User.findOneAndUpdate(req.body.email, {accessLevel: req.body.accessLevel})
+      .then((user) => {
+        res.send(user);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+    },
 
   getAccessLevel(req, res, next) {
     if (req.user.accesLevel !== "admin")
@@ -50,17 +59,17 @@ const usuariosController = {
     next();
   },
 
-  changeAccessLevel(req, res) {
-    User.findByIdAndUpdate(req.params.id, req.body)
-      .then((user) => res.send(user))
-      .catch((err) => res.status(500).send(err));
-  },
 
   findAll(req, res) {
     User.find({})
       .then((users) => res.send(users))
       .catch((err) => res.status(500).send(err));
   },
+  deleteUser (req, res) {
+    console.log("REQ BODY DE BACK",req.params)
+        User.findOneAndDelete({email: req.params.email})
+    .then((user) => res.status(200).send(user))
+     }
 };
 
 module.exports = usuariosController;
