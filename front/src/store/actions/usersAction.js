@@ -24,10 +24,20 @@ const loginUserGoogle = (user) => (dispatch) => {
   })
 }
 
+const updateUser = (user) => {
+  axios.put("/api/users", user)
+  .then(user => console.log(user))
+}
+
+const deleteUser = (user) => {
+  axios.delete("/api/users", user)
+  .then(user => console.log(user))
+}
+
 const logoutUser = () => (dispatch) =>
   axios.post("/api/auth/logout").then(() => dispatch(removeUser()));
 
 const fetchUser = () => (dispatch) =>
   axios.get("/api/auth/me").then(({ data }) => dispatch(setUser(data)));
 
-export { fetchUsers, loginUser, logoutUser, createUser, fetchUser, loginUserGoogle };
+export { fetchUsers, loginUser, logoutUser, createUser, fetchUser, loginUserGoogle, deleteUser, updateUser };

@@ -1,27 +1,34 @@
-import React from "react"
-import {Form, Row, Col, Button, Jumbotron} from "react-bootstrap"
+import React, {useState} from "react"
+import {Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card} from "react-bootstrap"
+import FormAccess from "./FormAccess"
 
-export default () => {
-    return(
+
+export default ({users, handleChange, filterValue}) => {
+    const [key, setKey] = useState('Users');
+
+  return (
     <Jumbotron fluid > 
-        <Form>
-            <h1>Niveles de acceso</h1>
-  <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" />
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Label>Example select</Form.Label>
-    <Form.Control as="select">
-      <option>Admin</option>
-      <option>User</option>
-    </Form.Control>
-  </Form.Group>
-  <Form.Group as={Row}>
-    <Col sm={{ span: 10, offset: 2 }}>
-      <Button type="submit">Submit</Button>
-    </Col>
-  </Form.Group></Form>
+    <Tabs
+id="controlled-tab-example"
+activeKey={key}
+onSelect={(k) => setKey(k)}
+>
+<Tab eventKey="Users" title="Users">
+<FormAccess handleChange={handleChange} users={users} filterValue={filterValue}/>
+</Tab>
+<Tab eventKey="Products" title="Products">
+
+</Tab>
+<Tab eventKey="Categories" title="Categories">
+
+</Tab>
+<Tab eventKey="Orders" title="Orders">
+
+</Tab>
+
+</Tabs> 
 </Jumbotron>
-    )
+
+  );
+    
 }
