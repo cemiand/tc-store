@@ -5,27 +5,25 @@ const SingleProduct = ({ singleProduct, addToCart }) => {
   return (
     <div>
       <div className="container">
-        <div className="images">
-          <div className="row">
-            {singleProduct && singleProduct.pictures
-              ? singleProduct.pictures.map((img) => (
-                  <div key={img} className="imgContainer">
-                    <img src={img} alt="img" />
-                  </div>
-                ))
-              : null}
-          </div>
-          {singleProduct && singleProduct.pictures ? (
+        {singleProduct && singleProduct.pictures ? (
+          <div className="images">
+            <div className="row">
+              {singleProduct.pictures.map((img) => (
+                <div key={img} className="imgContainer">
+                  <img src={img} alt="img" />
+                </div>
+              ))}
+            </div>
             <div className="principal">
               <img src={singleProduct.pictures[0]} alt="img" />
             </div>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
         <div className="data">
           <h1>{singleProduct.name}</h1>
           <h4>{singleProduct.brand}</h4>
           <h4>$ {singleProduct.price}</h4>
-          <button onClick={()=> {addToCart()}} style={{border:"1px solid white"}}>Add to cart</button>
+          <button onClick={addToCart}>Add to cart</button>
         </div>
       </div>
 
@@ -40,12 +38,3 @@ const SingleProduct = ({ singleProduct, addToCart }) => {
 };
 
 export default SingleProduct;
-
-{
-  /* <img
-  src="shopping-cart.png"
-  alt="add to cart"
-  width="45px"
-  height="50px"
-></img> */
-}

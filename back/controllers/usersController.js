@@ -1,30 +1,37 @@
 const { User } = require("../db/models");
 
 const usuariosController = {
-  usuarioCreate(req, res) {
+  userCreate(req, res) {
     User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     })
-      .then((userCreado) => {
-        res.status(201).send(userCreado);
+      .then((newUser) => {
+        res.status(201).send(newUser);
       })
       .catch((error) => {
         res.status(404).send(error);
       });
   },
+
   userLogin(req, res) {
+    User.findById(req.user._id)
+    .populate({path: "cart", populate :{path: 'product'}})
+    .then(user => 
     res.status(200).json({
-      name: req.user.name,
-      email: req.user.email,
-      id: req.user.id,
-    });
+      name: user.name,
+      email: user.email,
+      id: user.id,
+      cart: user.cart,
+    }));
   },
+
   userLogout(req, res) {
     req.logOut();
     res.sendStatus(200);
   },
+
   userMe(req, res) {
     if (req.isAuthenticated()) {
       res.json({
@@ -44,15 +51,19 @@ const usuariosController = {
       .catch((err) => {
         res.status(500).send(err);
       });
+    },
+
+  getAccessLevel(req, res, next) {
+    if (req.user.accesLevel !== "admin")
+      return res.status(401).send("Acceso no autorizado");
+    next();
   },
+
+
   findAll(req, res) {
     User.find({})
-      .then((users) => {
-        res.send(users);
-      })
-       .catch((err) => {
-        res.status(500).send(err);
-      });
+      .then((users) => res.send(users))
+      .catch((err) => res.status(500).send(err));
   },
   deleteUser (req, res) {
     console.log("REQ BODY DE BACK",req.params)
