@@ -37,7 +37,7 @@ const usuariosController = {
     }
   },
     changeAccesLevel(req, res) {
-    User.findOneAndUpdate(req.body.email, req.body)
+    User.findOneAndUpdate(req.body.email, {accessLevel: req.body.accessLevel})
       .then((user) => {
         res.send(user);
       })
@@ -50,15 +50,15 @@ const usuariosController = {
       .then((users) => {
         res.send(users);
       })
-      .catch((err) => {
+       .catch((err) => {
         res.status(500).send(err);
       });
   },
   deleteUser (req, res) {
-    User.deleteOne({email: req.body.email})
-    .then(() => res.status(200).send(console.log("Usuario eliminado")))
-    //.then(()=> res.redirect("http://localhost:1337/"))
-  }
+    console.log("REQ BODY DE BACK",req.params)
+        User.findOneAndDelete({email: req.params.email})
+    .then((user) => res.status(200).send(user))
+     }
 };
 
 module.exports = usuariosController;

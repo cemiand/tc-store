@@ -7,7 +7,6 @@ const UseInput = () => {
     password: "",
     confirmPassword: "",
     search: "",
-    select: "",
     });
 
   const handleChange = (e) => {

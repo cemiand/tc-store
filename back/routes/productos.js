@@ -4,12 +4,12 @@ const {authRole} = require("./admin")
 
 router.route("/") //all products
   .get(findAll)
-  .post(authRole("admin"), createProduct)
+  .post(createProduct)
 
 router.route("/:id") //individual product
   .get(findProduct)
-  .put(authRole("admin"), updateProduct)
-  .delete(authRole("admin"), deleteProduct)
+  .put(updateProduct)
+  .delete(deleteProduct)
 
 
 module.exports = router;

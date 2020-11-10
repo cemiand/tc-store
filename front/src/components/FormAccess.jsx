@@ -1,8 +1,20 @@
-import React, {useState} from "react"
+import React, {useState, useRef} from "react"
 import {Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card} from "react-bootstrap"
 import {deleteUser, updateUser} from "../store/actions/usersAction"
 
 export default ({users, handleChange, filterValue}) => {
+  const [options, setOptions] = useState("")
+  function setUser (e){
+    e.preventDefault()
+    updateUser({email: filterValue, accessLevel: options})
+  } 
+
+  function setDelete(e){
+    e.preventDefault()
+    deleteUser({email: filterValue})
+  }
+
+
     return(
         <Form>
             <h1>Niveles de acceso</h1>
@@ -28,15 +40,15 @@ export default ({users, handleChange, filterValue}) => {
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect1">
     <Form.Label>Levels of Access</Form.Label>
-    <Form.Control name="select" as="select">
+    <Form.Control as="select" onClick={(e) => {setOptions(e.target.value)}}>
       <option value="admin">Admin</option>
       <option value="user">User</option>
     </Form.Control>
   </Form.Group>
   <Form.Group as={Row}>
     <Col sm={{ span: 10, offset: 2 }}>
-      <Button onClick={console.log(event)} type="submit" variant="info">Update</Button>
-      <Button onClick={deleteUser({email: filterValue})} type="delete" variant="warning">Delete</Button>
+      <Button onClick={setUser} type="submit" variant="info">Update</Button>
+      <Button onClick={setDelete} type="submit" variant="warning">Delete</Button>
     </Col>
   </Form.Group></Form>
     )
