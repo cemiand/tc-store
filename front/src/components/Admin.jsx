@@ -52,7 +52,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
-                    <h1 className="adminUserForm">CREATE A PRODUCT</h1>
+                    <h1 className="adminUserForm">Create a Product</h1>
                     <Form>
                       <FormProductsCreate />
                       <Button className="buttonsDiv" type="submit">
@@ -62,7 +62,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
                     <Form>
-                      <h1 className="adminUserForm">UPDATE A PRODUCT</h1>
+                      <h1 className="adminUserForm">Update a Product</h1>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
@@ -81,7 +81,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
                     <Form>
-                      <h1 className="adminUserForm">DELETE A PRODUCT</h1>
+                      <h1 className="adminUserForm">Delete a Product</h1>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
@@ -121,6 +121,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                   {/* //-------------CREATE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="first">
                     <Form>
+                      <h1 className="adminUserForm">Create a category</h1>
                       <Form.Group >
                         <Form.Label><b>Name</b></Form.Label>
                         <Form.Control name="name" type="text" placeholder="Name" onChange={handleChange} value={filterValue.name} />

@@ -82,11 +82,6 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                   padding: "0 4px",
                 }}
               >
-                <Link to="/" className="dropdownbutton">
-                  <Dropdown.Item>
-                    <b> Favoritos</b>
-                  </Dropdown.Item>
-                </Link>
                 <Link to="" onClick={logout} className="dropdownbutton">
                   {" "}
                   <Dropdown.Item>Log Out</Dropdown.Item>
