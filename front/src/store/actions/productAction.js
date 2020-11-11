@@ -11,6 +11,10 @@ const singleProduct = (data) => ({
   payload: data,
 });
 
+export const createProduct = (product) =>
+  axios.post("/api/products", product).then(({ data }) => console.log(data));
+
+
 export const fetchProducts = () => (dispatch) =>
   axios.get("/api/products").then(({ data }) => dispatch(products(data)));
 

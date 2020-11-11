@@ -44,9 +44,9 @@ const usuariosController = {
     }
   },
   changeAccessLevel(req, res) {
-    User.findOneAndUpdate(req.body.email, { accessLevel: req.body.accessLevel })
+    User.findOneAndUpdate({ email: req.body.email }, { accessLevel: req.body.accessLevel })
       .then((user) => {
-        res.send(user);
+        res.send(console.log("user level Updated", user));
       })
       .catch((err) => {
         res.status(500).send(err);
@@ -66,9 +66,9 @@ const usuariosController = {
       .catch((err) => res.status(500).send(err));
   },
   deleteUser(req, res) {
-    console.log("REQ BODY DE BACK", req.params)
+    console.log("REQ PARAMS DE BACK", req.params)
     User.findOneAndDelete({ email: req.params.email })
-      .then((user) => res.status(200).send(user))
+      .then((user) => res.status(200).send(console.log("user deleted", user)))
   }
 };
 
