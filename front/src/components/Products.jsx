@@ -15,7 +15,9 @@ const Products = ({ products }) => {
                   <div className="mask">
                     <h2>{product.name}</h2>
                     <p>{product.brand}</p>
-                    <Link to={`/products/${product._id}`} className="info">More info</Link>
+                    <Link to={`/products/${product._id}`} className="info">
+                      More info
+                    </Link>
                   </div>
                 </div>
               </Card>

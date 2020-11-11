@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card } from "react-bootstrap"
+import { Form, Row, Col, Button, Card } from "react-bootstrap"
 import {updateOrder, fetchSingleOrder} from "../store/actions/ordersAction"
 import {useDispatch} from "react-redux"
 
@@ -8,16 +8,11 @@ export default ({ orders, singleOrder }) => {
   const dispatch = useDispatch()
     const [options, setOptions] = useState("")
     const [newOptions, setNewOptions] = useState("")
-    //const [id, setId] = useState("")
 
     function setOrder(e, id) {
       e.preventDefault()
-      console.log("OPTIONSSSSSS",id)
       dispatch(fetchSingleOrder(id))
-      console.log("SINGLE ORDER", newOptions)
     }
-
-    
 
   const handleSubmit = (e) => {
     e.preventDefault()

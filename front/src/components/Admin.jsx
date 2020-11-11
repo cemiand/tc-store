@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import {
-  Row,
-  Col,
-  Button,
-  Jumbotron,
-  Tabs,
-  Tab,
-  Nav,
-  Form,
-} from "react-bootstrap";
+import { useDispatch } from "react-redux"
+import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
 import FormProductsDelete from "./FormProductsDelete";
@@ -16,8 +8,10 @@ import FormProductsUpdate from "./FormProductsUpdate";
 import FormProductSearch from "./FormProductSearch";
 import FormOrders from "./FormOrders"
 
+
+
+
 export default ({
-  users,
   handleChange,
   filterValue,
   products,
@@ -25,8 +19,14 @@ export default ({
   singleUser,
   orders,
   singleOrder,
-}) => {
-  
+  handleOptions,
+  setProduct,
+  users,
+  handleSubmitCat,
+  handleDeleteCat,
+ deleteProduct,
+ categories}) => {
+
   const [key, setKey] = useState("Users");
 
   return (
@@ -35,8 +35,8 @@ export default ({
       <Tabs
         id="controlled-tab-example"
         activeKey={key}
-        onSelect={(k) => setKey(k)}
-      >
+        onSelect={(k) => setKey(k)}>
+        {/* //------------PESTAÑA USER----------- */}
         <Tab eventKey="Users" title="Users">
           <FormAccess
             handleChange={handleChange}
@@ -44,6 +44,7 @@ export default ({
             filterValue={filterValue.email}
           />
         </Tab>
+        {/* //----------PESTAÑA PRODUCTS--------- */}
         <Tab eventKey="Products" title="Products">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row className="adminRow">
@@ -70,11 +71,13 @@ export default ({
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div>
-                      <FormProductsCreate />
+                    <h1 className="adminUserForm">CREATE A PRODUCT</h1>
+                     <FormProductsCreate />
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
                     <div>
+                    <h1 className="adminUserForm">UPDATE A PRODUCT</h1>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
@@ -85,6 +88,8 @@ export default ({
                      </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
+
+                      <h1 className="adminUserForm">DELETE A PRODUCT</h1>
                     <div>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
@@ -98,14 +103,78 @@ export default ({
             </Row>
           </Tab.Container>
         </Tab>
+        {/* //----------PESTAÑA CATEGORIES-------- */}
         <Tab eventKey="Categories" title="Categories">
-          
+          <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+            <Row className="adminRow">
+              <Col sm={3}>
+                <Nav className="flex-column">
+                  <Nav.Item>
+                    <Nav.Link variant="success" eventKey="first">
+                      <Button variant="outline-success">Create</Button>
+                    </Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="third">
+                      <Button variant="outline-warning">Delete</Button>
+                    </Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Col>
+              {/*  //---------FUNCIONALIDADES DE CREATE Y DELETE---------------- */}
+              <Col sm={9}>
+                <Tab.Content>
+                  {/* //-------------CREATE CATEGORY------------------------ */}
+                  <Tab.Pane eventKey="first">
+                    <Form>
+                      <Form.Group >
+                        <Form.Label><b>Name</b></Form.Label>
+                        <Form.Control name="name" type="text" placeholder="Name" onChange={handleChange} value={filterValue.name} />
+                      </Form.Group>
+                      <Form.Group >
+                        <Form.Label><b>Pictures</b></Form.Label>
+                        <Form.Control name="image" type="text" placeholder="Pictures" onChange={handleChange} value={filterValue.image} />
+                      </Form.Group>
+                      <Button className="buttonsDiv" type="submit" onClick={handleSubmitCat}>
+                        Submit
+                      </Button>
+                    </Form>
+
+                  </Tab.Pane>
+                  {/*  //------------DELETE CATEGORY------------------------ */}
+                  <Tab.Pane eventKey="third">
+                    <Form>
+                      <Form.Group controlId="exampleForm.ControlInput1">
+                        <Form.Label>Categories</Form.Label>
+                        <Form.Control as="select" onClick={handleOptions}>
+                          {categories &&
+                            categories.map(category => {
+                              return (
+                                <option key={category._id} value={category._id}>{category.name}</option>
+                              )
+                            })
+                          }
+                        </Form.Control>
+                      </Form.Group>
+                      <Button className="buttonsDiv" variant="warning" type="submit" onClick={handleDeleteCat}>
+                        Delete
+                      </Button>
+                    </Form>
+                  </Tab.Pane>
+                </Tab.Content>
+              </Col>
+            </Row>
+          </Tab.Container>
         </Tab>
+
+        {/*------------------PESTAÑA ORDERS ------------------------*/}
+
         <Tab eventKey="Orders" title="Orders">
           <div>
           <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders}/>
           </div>
         </Tab>
+
       </Tabs>
     </Jumbotron>
   );
