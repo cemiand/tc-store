@@ -1,53 +1,83 @@
 const { Product, User, ProductOrder } = require("../db/models");
 
 const cartController = {
+  getCart(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "cart", populate: { path: "product" } })
+      .then((user) => res.status(200).send(user.cart))
+      .catch((err) => res.status(500).send(err));
+  },
+  setCart(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "cart", populate: { path: "product" } })
+      .then((user) => {
+        const newCart = req.body.map((order) => ProductOrder.create(order));
+        Promise.all(newCart).then((cart) => {
+          user.cart = cart;
+          user.save();
+          res.status(201).send(user.cart);
+        });
+      });
+  },
+  // resetCart(req, res) {
+  //   // ¿QUEDAN LAS ORDERS EN LA DATABASE?
+  //   User.findByIdAndUpdate(req.user._id, req.body)
+  //     .then(() => res.status(200))
+  //     .catch((err) => res.status(500).send(err));
+  // },
+  resetCart(req, res) {
+    User.findById(req.user._id)
+      .then((user) => {
+        const cart = user.cart.map((order) =>
+          ProductOrder.deleteOne({ _id: order._id })
+        );
+        Promise.all(cart).then((cart) => {
+          console.log("CARRITO POST PROMISE ALL", cart);
+          res.status(200).send(cart);
+        });
+      })
+      .catch((err) => res.status(500).send(err));
+  },
   addProduct(req, res) {
     User.findById(req.user._id)
-      .populate("cart")
-      .populate("product")
+      .populate({ path: "cart", populate: { path: "product" } })
       .then((user) => {
-        Product.findById(req.body._id).then((product) => {
-          let exist = false;
-          console.log(user);
+        let exist = false;
 
-          user.cart.map((order) => {
-            if (order.product._id.toString() === product._id.toString()) {
-              order.quantity += 1;
-              exist = true;
-              order.save();
-              return res.status(201).send(user);
-            }
-          });
-
-          if (!exist) {
-            ProductOrder.create({ product }).then((order) => {
-              user.cart.push(order);
-              user.save();
-              res.status(201).send(user);
-            });
+        user.cart.map((order) => {
+          if (
+            order.product._id.toString() === req.body.product._id.toString()
+          ) {
+            order.quantity = req.body.quantity;
+            exist = true;
+            order.save();
+            return res.status(201).send(user.cart);
           }
         });
+
+        if (!exist) {
+          ProductOrder.create({
+            product: req.body.product,
+            quantity: req.body.quantity,
+          }).then((order) => {
+            user.cart.push(order);
+            user.save();
+            res.status(201).send(user.cart);
+          });
+        }
       })
       .catch((err) => res.status(500).send(err));
   },
   deleteProduct(req, res) {
     User.findById(req.user._id)
-      .populate("cart")
-      .populate("product")
+      .populate({ path: "cart", populate: { path: "product" } })
       .then((user) => {
         user.cart.map((order, index) => {
           if (order.product._id.toString() === req.params.id) {
-            if (order.quantity > 1) {
-              order.quantity -= 1;
-              order.save();
-              user.save();
-              res.status(201).send(user);
-            } else {
-              order.delete(); // ¿se elimina así ? sino utilizar ProductOrder.deleteOne({ _id: order._id })
-              user.cart.splice(index, 1);
-              user.save();
-              res.status(201).send(user);
-            }
+            ProductOrder.deleteOne({ _id: order._id });
+            user.cart.splice(index, 1);
+            user.save();
+            res.status(201).send(user.cart);
           }
         });
       })

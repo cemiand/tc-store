@@ -16,19 +16,13 @@ const usuariosController = {
   },
 
   userLogin(req, res) {
-    User.findById(req.user._id)
-      .populate({
-        path: "cart",
-        populate: { path: "product" },
+    User.findById(req.user._id).then((user) =>
+      res.status(200).json({
+        name: user.name,
+        email: user.email,
+        id: user.id,
       })
-      .then((user) =>
-        res.status(200).json({
-          name: user.name,
-          email: user.email,
-          id: user.id,
-          cart: user.cart,
-        })
-      );
+    );
   },
 
   userLogout(req, res) {
@@ -38,11 +32,13 @@ const usuariosController = {
 
   userMe(req, res) {
     if (req.isAuthenticated()) {
-      res.json({
-        name: req.user.name,
-        email: req.user.email,
-        id: req.user.id,
-      });
+      User.findById(req.user._id).then((user) =>
+        res.status(200).json({
+          name: user.name,
+          email: user.email,
+          id: user.id,
+        })
+      );
     } else {
       res.status(401).end();
     }
@@ -62,6 +58,7 @@ const usuariosController = {
 
   findAll(req, res) {
     User.find({})
+      .populate("cart")
       .then((users) => res.send(users))
       .catch((err) => res.status(500).send(err));
   },
