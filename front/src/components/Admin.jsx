@@ -24,7 +24,7 @@ export default ({ users, handleChange, filterValue, products, singleProduct }) =
         </Tab>
         <Tab eventKey="Products" title="Products">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-            <Row>
+            <Row className="adminRow">
               <Col sm={3}>
                 <Nav className="flex-column">
                   <Nav.Item>
