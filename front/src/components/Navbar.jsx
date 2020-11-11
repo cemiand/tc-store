@@ -18,9 +18,9 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="/" className="brand">
+      <Link to="/" className="brand">
         <img style={{ width: "40%" }} src="/logoTC2.png" alt="TC-Store" />
-      </Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="search_wrap search_wrap_3">
@@ -104,11 +104,11 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Modal>
           </>
         )}
-        <Nav.Link href="/cart">
+        <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />
           </Button>
-        </Nav.Link>
+        </Link>
       </Navbar.Collapse>
     </Navbar>
   );

@@ -3,7 +3,7 @@ import { SET_USER, REMOVE_USER, SET_USERS } from "../constants";
 
 const setUser = (data) => ({ type: SET_USER, payload: data });
 
-const removeUser = () => ({ type: REMOVE_USER });
+const cleanUser = () => ({ type: REMOVE_USER });
 
 const setUsers = (data) => ({ type: SET_USERS, payload: data });
 
@@ -24,18 +24,32 @@ const loginUserGoogle = (user) => (dispatch) => {
   });
 };
 
+const updateUser = (user) => {
+  axios.put("/api/users", user)
+    .then(res => res.data)
+}
+
+const deleteUser = (user) => {
+  axios.delete(`/api/users/${user.email}`)
+}
+
+export const deletCategory = (id) => (dispatch)=>{
+  axios.delete(`/api/categories/${id}`)
+  .then(({data})=>dispatch(categories(data)))
+}
+
+
+
 const logoutUser = () => (dispatch) =>
-  axios.post("/api/auth/logout").then(() => dispatch(removeUser()));
+  axios.post("/api/auth/logout").then(() => dispatch(cleanUser()));
 
 const fetchUser = () => (dispatch) =>
-  axios.get("/api/auth/me").then(({ data }) => dispatch(setUser(data)));
+  axios.get("/api/auth/me").then(({ data }) => {
+    dispatch(setUser(data));
+    return data;
+  });
 
-export {
-  fetchUsers,
-  loginUser,
-  logoutUser,
-  createUser,
-  fetchUser,
-  loginUserGoogle,
-  setUser,
-};
+
+
+export { fetchUsers, loginUser, logoutUser, createUser, fetchUser, loginUserGoogle, deleteUser, updateUser, setUser };
+

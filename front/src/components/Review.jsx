@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import StarRatingContainer from "../containers/StarRatingContainer";
+import StarRating from "./StarRating";
 
 const Review = ({
   singleUser,
@@ -28,7 +28,7 @@ const Review = ({
         <form onSubmit={onSubmiteHandler}>
           <div className="pinfo">Rate our product</div>
 
-          <StarRatingContainer />
+          <StarRating />
 
           <div className="pinfo">Write your feedback</div>
           <textarea

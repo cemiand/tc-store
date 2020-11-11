@@ -16,15 +16,13 @@ const usuariosController = {
   },
 
   userLogin(req, res) {
-    User.findById(req.user._id)
-    .populate({path: "cart", populate :{path: 'product'}})
-    .then(user => 
-    res.status(200).json({
-      name: user.name,
-      email: user.email,
-      id: user.id,
-      cart: user.cart,
-    }));
+    User.findById(req.user._id).then((user) =>
+      res.status(200).json({
+        name: user.name,
+        email: user.email,
+        id: user.id,
+      })
+    );
   },
 
   userLogout(req, res) {
@@ -34,32 +32,47 @@ const usuariosController = {
 
   userMe(req, res) {
     if (req.isAuthenticated()) {
-      res.json({
-        name: req.user.name,
-        email: req.user.email,
-        id: req.user.id,
-      });
+      User.findById(req.user._id).then((user) =>
+        res.status(200).json({
+          name: user.name,
+          email: user.email,
+          id: user.id,
+        })
+      );
     } else {
       res.status(401).end();
     }
   },
-
-  getAccessLevel(req, res, next) {
-    if (req.user.accesLevel !== "admin")
-      return res.status(401).send("Acceso no autorizado");
-    next();
-  },
-
   changeAccessLevel(req, res) {
-    User.findByIdAndUpdate(req.params.id, req.body)
-      .then((user) => res.send(user))
-      .catch((err) => res.status(500).send(err));
+    User.findOneAndUpdate(
+      { email: req.body.email },
+      { accessLevel: req.body.accessLevel }
+    )
+      .then((user) => {
+        res.send(console.log("user level Updated", user));
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
   },
+
+  /*   getAccessLevel(req, res, next) {
+      if (req.user.accesLevel !== "admin")
+        return res.status(401).send("Acceso no autorizado");
+      next();
+    }, */
 
   findAll(req, res) {
     User.find({})
+      .populate("cart")
       .then((users) => res.send(users))
       .catch((err) => res.status(500).send(err));
+  },
+  deleteUser(req, res) {
+    console.log("REQ PARAMS DE BACK", req.params);
+    User.findOneAndDelete({ email: req.params.email }).then((user) =>
+      res.status(200).send(console.log("user deleted", user))
+    );
   },
 };
 

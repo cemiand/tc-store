@@ -22,13 +22,14 @@ const productsController = {
       .catch((err) => res.status(404).send(err));
   },
   updateProduct(req, res) {
-    Product.findByIdAndUpdate(req.params.id, req.body) // duda con el _id
-      .then((product) => res.status(201).send(product))
+    Product.findOneAndUpdate({ _id: req.params.id }, req.body) // duda con el _id
+      .then((product) => res.status(201).send(console.log("product updated", product)))
       .catch((err) => res.status(500).send(err));
   },
   deleteProduct(req, res) {
-    Product.deleteOne({ _id: req.params.id })
-      .then((deletedProduct) => res.send(deletedProduct))
+
+    Product.findOneAndDelete({ _id: req.params.id })
+      .then((deletedProduct) => res.send(console.log("product deleted", deletedProduct)))
       .catch((err) => res.status(500).send(err));
   },
 };

@@ -4,9 +4,9 @@ import ProductsContainer from "../containers/ProductsContainer";
 import SingleProductContainer from "../containers/SingleProductContainer";
 import CarruselContainer from "../containers/CarruselContainer";
 import NavbarContainer from "../containers/NavbarContainer";
-// import RoundedImages from "./Categories";
-// import Categories from "./Categories";
+import CategoriesContainer from "../containers/CategoriesContainer";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
+import AdminContainer from "../containers/AdminContainer";
 import CartContainer from "../containers/CartContainer";
 import StarRatingContainer from "../containers/StarRatingContainer";
 import ReviewContainer from "../containers/ReviewContainer";
@@ -16,14 +16,31 @@ const Main = () => {
     <React.Fragment>
       <NavbarContainer />
       <br />
-      {/* <CarruselContainer /> */}
-      {/* <Categories /> */}
       <Switch>
         <Route exact path="/review" component={ReviewContainer} />
         {/* <Route exact path="/rating" component={StarRatingContainer} /> */}
+        <Route exact path="/admin" component={AdminContainer} />
+        <Route
+          exact
+          path="/products"
+          render={() => (
+            <div>
+              <CarruselContainer />
+              <ProductsContainer />
+            </div>
+          )}
+        />
         <Route exact path="/cart" component={CartContainer} />
         <Route path="/products/:id" component={SingleProductContainer} />
-        <Route exact path="/products" component={ProductsContainer} />
+        <Route
+          path="/categories"
+          render={() => (
+            <div>
+              <CarruselContainer />
+              <CategoriesContainer />
+            </div>
+          )}
+        />
         <Route path="/:search" component={FilteredProductsContainer} />
         <Redirect from="/" to="/products" />
       </Switch>
