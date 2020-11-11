@@ -4,8 +4,7 @@ import ProductsContainer from "../containers/ProductsContainer";
 import SingleProductContainer from "../containers/SingleProductContainer";
 import CarruselContainer from "../containers/CarruselContainer";
 import NavbarContainer from "../containers/NavbarContainer";
-// import RoundedImages from "./Categories";
-// import Categories from "./Categories";
+import CategoriesContainer from "../containers/CategoriesContainer";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
 import AdminContainer from "../containers/AdminContainer";
 import CartContainer from "../containers/CartContainer";
@@ -14,8 +13,7 @@ const Main = () => {
   return (
     <React.Fragment>
       <NavbarContainer />
-      {/* <CarruselContainer /> */}
-      {/* <Categories /> */}
+      <br />
       <Switch>
         <Route exact path="/admin" component={AdminContainer} />
         <Route
@@ -30,8 +28,14 @@ const Main = () => {
         />
         <Route exact path="/cart" component={CartContainer} />
         <Route path="/products/:id" component={SingleProductContainer} />
-        <Route exact path="/products" component={ProductsContainer} />
-        <Route path="/:search" component={FilteredProductsContainer} />
+        <Route path="/categories" 
+        render={() => (
+          <div>
+            <CarruselContainer />
+            <CategoriesContainer />
+          </div>
+        )}/>
+        <Route path="/:search" component={FilteredProductsContainer}/>
         <Redirect from="/" to="/products" />
       </Switch>
       {/* <Footer /> ACA IRIA EL FOOTER */}
