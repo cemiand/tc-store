@@ -7,7 +7,7 @@ const UseInput = () => {
     password: "",
     confirmPassword: "",
     search: "",
-    });
+  });
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
