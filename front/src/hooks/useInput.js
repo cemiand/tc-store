@@ -7,7 +7,7 @@ const UseInput = () => {
     password: "",
     confirmPassword: "",
     search: "",
-    pictures:""
+    image:""
   });
 
   const handleChange = (e) => {
@@ -16,6 +16,7 @@ const UseInput = () => {
 
   return {
     inputs,
+    setInputs,
     handleChange,
   };
 };

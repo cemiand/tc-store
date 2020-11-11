@@ -1,33 +1,15 @@
 import React, { useState } from "react";
-import {
-  Row,
-  Col,
-  Button,
-  Jumbotron,
-  Tabs,
-  Tab,
-  Nav,
-  Form,
-} from "react-bootstrap";
+import { useDispatch } from "react-redux"
+import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
 import FormProductSearch from "./FormProductSearch";
 import { updateProduct } from "../store/actions/productAction";
 
-export default ({
-  users,
-  handleChange,
-  handleSubmitCat,
-  filterValue,
-  products,
-  singleProduct,
-  deleteProduct,
-  categories,
-}) => {
-  function setProduct(e) {
-    e.preventDefault();
-    updateProduct(singleProduct);
-  }
+
+
+export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,handleDeleteCat,filterValue,products,singleProduct,deleteProduct,categories,}) => {
+
   const [key, setKey] = useState("Users");
 
   return (
@@ -35,8 +17,8 @@ export default ({
       <Tabs
         id="controlled-tab-example"
         activeKey={key}
-        onSelect={(k) => setKey(k)}
-      >
+        onSelect={(k) => setKey(k)}>
+        {/* //------------PESTAÑA USER----------- */}
         <Tab eventKey="Users" title="Users">
           <FormAccess
             handleChange={handleChange}
@@ -44,6 +26,7 @@ export default ({
             filterValue={filterValue.email}
           />
         </Tab>
+        {/* //----------PESTAÑA PRODUCTS--------- */}
         <Tab eventKey="Products" title="Products">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row className="adminRow">
@@ -114,6 +97,7 @@ export default ({
             </Row>
           </Tab.Container>
         </Tab>
+        {/* //----------PESTAÑA CATEGORIES-------- */}
         <Tab eventKey="Categories" title="Categories">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row className="adminRow">
@@ -131,30 +115,33 @@ export default ({
                   </Nav.Item>
                 </Nav>
               </Col>
+              {/*  //---------FUNCIONALIDADES DE CREATE Y DELETE---------------- */}
               <Col sm={9}>
                 <Tab.Content>
+                  {/* //-------------CREATE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="first">
                     <Form>
                       <Form.Group >
                         <Form.Label><b>Name</b></Form.Label>
-                        <Form.Control name="name" type="text" placeholder="Name" value={inputs.name} />
+                        <Form.Control name="name" type="text" placeholder="Name" onChange={handleChange} value={filterValue.name} />
                       </Form.Group>
                       <Form.Group >
                         <Form.Label><b>Pictures</b></Form.Label>
-                        <Form.Control name="pictures" type="text" placeholder="Pictures" value={inputs.pictures} />
+                        <Form.Control name="image" type="text" placeholder="Pictures" onChange={handleChange} value={filterValue.image} />
                       </Form.Group>
                       <Button className="buttonsDiv" type="submit" onClick={handleSubmitCat}>
                         Submit
                       </Button>
                     </Form>
                   </Tab.Pane>
+                  {/*  //------------DELETE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="third">
                     <Form>
                       <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Categories</Form.Label>
-                        <Form.Control as="select" onClick={(e) => { "aca iria un setOptions que tome el target value" }}>
+                        <Form.Control as="select" onClick={handleOptions}>
                           {categories &&
-                            categories.filter(category => category.name.includes(filterValue && filterValue.search)).map(category => {
+                            categories.map(category => {
                               return (
                                 <option key={category._id} value={category._id}>{category.name}</option>
                               )
@@ -162,7 +149,7 @@ export default ({
                           }
                         </Form.Control>
                       </Form.Group>
-                      <Button className="buttonsDiv" variant="warning" type="submit">
+                      <Button className="buttonsDiv" variant="warning" type="submit" onClick={handleDeleteCat}>
                         Delete
                       </Button>
                     </Form>
@@ -172,6 +159,7 @@ export default ({
             </Row>
           </Tab.Container>
         </Tab>
+        {/* //----------PESTAÑA ORDERS------------ */}
         <Tab eventKey="Orders" title="Orders"></Tab>
       </Tabs>
     </Jumbotron>
