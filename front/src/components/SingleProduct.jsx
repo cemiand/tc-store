@@ -1,31 +1,59 @@
 import React from "react";
 
-const SingleProduct = ({ singleProduct, addToCart }) => {
-  console.log("SINGLEPRODUCT", singleProduct);
+const SingleProduct = ({
+  singleProduct,
+  addToCart,
+  sumProduct,
+  restProduct,
+  quantity,
+}) => {
   return (
     <div>
-      <div className="container">
-        <div className="images">
-          <div className="row">
-            {singleProduct && singleProduct.pictures
-              ? singleProduct.pictures.map((img) => (
-                  <div key={img} className="imgContainer">
-                    <img src={img} alt="img" />
-                  </div>
-                ))
-              : null}
-          </div>
-          {singleProduct && singleProduct.pictures ? (
-            <div className="principal">
+      <div className="product-container">
+        {singleProduct && singleProduct.pictures ? (
+          <div className="images">
+            <div className="list-images">
+              {singleProduct.pictures.map((img) => (
+                <div key={img} className="imgContainer">
+                  <img src={img} alt="img" />
+                </div>
+              ))}
+            </div>
+            <div className="principal-image">
               <img src={singleProduct.pictures[0]} alt="img" />
             </div>
-          ) : null}
-        </div>
-        <div className="data">
-          <h1>{singleProduct.name}</h1>
-          <h4>{singleProduct.brand}</h4>
-          <h4>$ {singleProduct.price}</h4>
-          <button onClick={()=> {addToCart()}} style={{border:"1px solid white"}}>Add to cart</button>
+          </div>
+        ) : null}
+
+        <div className="data-container">
+          <div className="data">
+            <h1>{singleProduct.name}</h1>
+            <h4>{singleProduct.brand}</h4>
+            <h4 className="price"> {singleProduct.price}</h4>
+          </div>
+
+          <div className="order">
+            <div className="quantity">
+              <button
+                className="quantity-btn"
+                type="button"
+                onClick={restProduct}
+              >
+                -
+              </button>
+              <div> {quantity} </div>
+              <button
+                className="quantity-btn"
+                type="button"
+                onClick={sumProduct}
+              >
+                +
+              </button>
+            </div>
+            <button className="add-btn" onClick={() => addToCart()}>
+              Add to cart
+            </button>
+          </div>
         </div>
       </div>
 
@@ -40,12 +68,3 @@ const SingleProduct = ({ singleProduct, addToCart }) => {
 };
 
 export default SingleProduct;
-
-{
-  /* <img
-  src="shopping-cart.png"
-  alt="add to cart"
-  width="45px"
-  height="50px"
-></img> */
-}

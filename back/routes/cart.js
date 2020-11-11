@@ -1,19 +1,14 @@
-const router = require("express").Router()
-const {addProduct,deleteProduct,updateProduct,showCart} = require("../controllers/cartController")
+const router = require("express").Router();
+const {
+  addProduct,
+  deleteProduct,
+  getCart,
+  setCart,
+  resetCart,
+} = require("../controllers/cartController");
 
-// UPDATED 8/11
+router.route("/").get(getCart).post(setCart).put(resetCart);
+router.route("/add").post(addProduct);
+router.route("/delete/:id").delete(deleteProduct);
 
-router.route("/")
-    .get(showCart)
-
-router.route("/add")
-    .post(addProduct)
-
-router.route("/delete/:id")
-    .delete(deleteProduct)
-
-router.route("/update/:id")
-    .put(updateProduct)
-
-module.exports =  router;
- 
+module.exports = router;

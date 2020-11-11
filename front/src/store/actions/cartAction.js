@@ -1,16 +1,77 @@
 import axios from "axios";
-import { SHOW_CART } from "../constants";
+import { SET_CART, RESET_CART } from "../constants";
 
-const showCart = (data) => ({
-    type: SHOW_CART,
-    payload: data,
+const setCart = (data) => ({ type: SET_CART, payload: data });
+
+const resetCart = () => ({ type: RESET_CART });
+
+const addProductToCart = (order) => (dispatch) =>
+  axios
+    .post("/api/cart/add", order)
+    .then(({ data }) => dispatch(setCart(data)));
+
+const deleteProductFromCart = (product) => (dispatch) =>
+  axios
+    .delete(`/api/cart/delete/${product._id}`)
+    .then(({ data }) => dispatch(setCart(data)));
+
+const fetchCartUser = () => (dispatch) =>
+  axios.get("/api/cart").then(({ data }) => {
+    data.length ? dispatch(setCart(data)) : dispatch(setCartUser());
   });
-  
-export const addProductToCart = (producto) => axios.post("/api/cart/add", producto)
-  .then(()=>console.log("PRODUCTO",producto))
 
-export const deleteProductFromCart = (id) => axios.delete(`/api/cart/delete/${id}`) // CHEQUEAR RUTA DE BACK !!!
+const setCartUser = () => (dispatch) =>
+  axios
+    .post("/api/cart", cartStorage)
+    .then(({ data }) => dispatch(setCart(data)));
 
-export const showCartProducts = (userId) => dispatch => axios.get(`/api/users/${userId}`) // CHEQUEAR RUTA DE BACK !!!
-.then((res) => res.data)
-.then((cart) => dispatch(showCart(cart))) 
+const resetCartUser = () => (dispatch) =>
+  axios.put("/api/cart", {}).then(({ data }) => {
+    console.log("CARRITO BORRADO", data);
+    dispatch(resetCart());
+  });
+
+///////////// LOCAL STORAGE ////////////////////
+const cartStorage = JSON.parse(localStorage.getItem("cart")) || [];
+
+const addProductStorage = (charge) => (dispatch) => {
+  let exist = false;
+
+  cartStorage.map((order) => {
+    if (order.product._id == charge.product._id) {
+      order.quantity = charge.quantity;
+      exist = true;
+    }
+  });
+
+  if (!exist) cartStorage.push(charge);
+
+  localStorage.setItem("cart", JSON.stringify(cartStorage));
+  dispatch(setCart(cartStorage));
+};
+
+const deleteProductStorage = (product) => (dispatch) => {
+  cartStorage.map((order, index) => {
+    if (order.product._id == product._id) cartStorage.splice(index, 1);
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cartStorage));
+  dispatch(setCart(cartStorage));
+};
+
+const resetCartStorage = () => (dispatch) => {
+  localStorage.setItem("cart", JSON.stringify([]));
+  dispatch(resetCart());
+};
+
+export {
+  setCart,
+  addProductToCart,
+  deleteProductFromCart,
+  fetchCartUser,
+  resetCartUser,
+  addProductStorage,
+  deleteProductStorage,
+  resetCartStorage,
+  cartStorage,
+};

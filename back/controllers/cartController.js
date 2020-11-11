@@ -1,53 +1,88 @@
-const { Product, User } = require("../db/models")
-
-//CHEQUEAR LOS _ !!!
+const { Product, User, ProductOrder } = require("../db/models");
 
 const cartController = {
-    addProduct(req, res) {
-        User.findById(req.user._id)//CHEQUEAR SI ES _ID
-            .then(user => {
-                Product.findById(req.body._id)//CHEQUEAR SI ES _ID
-                    .then(product => {//VALIDAR QUE NO EXISTA EL PRODUCTO
-                        user.cart.push({product})
-                        user.save()
-                        res.status(201).send(user.cart)
-                    })
-            })
-            .catch(err=>res.status(500).send(err))
-    },
-    deleteProduct(req, res) {
-        User.findById(req.user._id)//CHEQUEAR SI ES _ID
-            .then(user => {
-                user.cart = user.cart.filter(order => {
-                    order.product._id !== req.body._id
-                })
-                user.save()
-                res.status(200).send(user.cart)
-            })
-            res.status(200).send(user.cart)
-            .catch(err=>res.status(500).send(err))
-    },
-    updateProduct(req, res) {
-        User.findById(req.user._id)//CHEQUEAR SI ES _ID
-            .then(user => {
-                user.cart.map(order =>{
-                    if(order.product._id == req.body._id){
-                        order.quantity = req.body.quantity
-                    }
-                }) 
-                user.save()
-                res.status(200).send(user.cart)
-            })
-            .catch(err=>res.status(500).send(err))
-    },
-    showCart(req,res) {
-        User.findById(req.user._id)//CHEQUEAR SI ES _ID
-            .then(user => {
-                console.log("CARRO", user.cart)
-                res.send(user.cart)
-            })
-            .catch(err=>res.status(500).send(err))
-    }
-}
+  getCart(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "cart", populate: { path: "product" } })
+      .then((user) => res.status(200).send(user.cart))
+      .catch((err) => res.status(500).send(err));
+  },
+  setCart(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "cart", populate: { path: "product" } })
+      .then((user) => {
+        const newCart = req.body.map((order) => ProductOrder.create(order));
+        Promise.all(newCart).then((cart) => {
+          user.cart = cart;
+          user.save();
+          res.status(201).send(user.cart);
+        });
+      });
+  },
+  // resetCart(req, res) {
+  //   // ¿QUEDAN LAS ORDERS EN LA DATABASE?
+  //   User.findByIdAndUpdate(req.user._id, req.body)
+  //     .then(() => res.status(200))
+  //     .catch((err) => res.status(500).send(err));
+  // },
+  resetCart(req, res) {
+    User.findById(req.user._id)
+      .then((user) => {
+        const cart = user.cart.map((order) =>
+          ProductOrder.deleteOne({ _id: order._id })
+        );
+        Promise.all(cart).then(() => {
+          user.save();
+          res.status(200).send(user.cart);
+        });
+      })
+      .catch((err) => res.status(500).send(err));
+  },
+  addProduct(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "cart", populate: { path: "product" } })
+      .then((user) => {
+        let exist = false;
+
+        user.cart.map((order) => {
+          if (
+            order.product._id.toString() === req.body.product._id.toString()
+          ) {
+            order.quantity = req.body.quantity;
+            exist = true;
+            order.save();
+            return res.status(201).send(user.cart);
+          }
+        });
+
+        if (!exist) {
+          ProductOrder.create({
+            product: req.body.product,
+            quantity: req.body.quantity,
+          }).then((order) => {
+            user.cart.push(order);
+            user.save();
+            res.status(201).send(user.cart);
+          });
+        }
+      })
+      .catch((err) => res.status(500).send(err));
+  },
+  deleteProduct(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "cart", populate: { path: "product" } })
+      .then((user) => {
+        user.cart.map((order, index) => {
+          if (order.product._id.toString() === req.params.id) {
+            ProductOrder.deleteOne({ _id: order._id });
+            user.cart.splice(index, 1);
+            user.save();
+            res.status(201).send(user.cart);
+          }
+        });
+      })
+      .catch((err) => res.status(500).send(err));
+  },
+};
 
 module.exports = cartController;
