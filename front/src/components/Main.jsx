@@ -7,17 +7,27 @@ import NavbarContainer from "../containers/NavbarContainer";
 // import RoundedImages from "./Categories";
 // import Categories from "./Categories";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
-import AdminContainer from "../containers/AdminContainer"
+import AdminContainer from "../containers/AdminContainer";
 import CartContainer from "../containers/CartContainer";
 
 const Main = () => {
   return (
     <React.Fragment>
       <NavbarContainer />
-      <br />
+      {/* <CarruselContainer /> */}
+      {/* <Categories /> */}
       <Switch>
-        <Route exact path="/admin" component={AdminContainer}/>
-        <Route exact path="/products" render={() =><div><CarruselContainer/><ProductsContainer/></div>}/>
+        <Route exact path="/admin" component={AdminContainer} />
+        <Route
+          exact
+          path="/products"
+          render={() => (
+            <div>
+              <CarruselContainer />
+              <ProductsContainer />
+            </div>
+          )}
+        />
         <Route exact path="/cart" component={CartContainer} />
         <Route path="/products/:id" component={SingleProductContainer} />
         <Route exact path="/products" component={ProductsContainer} />
