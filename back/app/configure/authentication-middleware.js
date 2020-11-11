@@ -23,8 +23,6 @@ module.exports = (app) => {
   passport.serializeUser((user, done) => done(null, user.id));
   passport.deserializeUser((id, done) =>
     User.findById(id)
-      .populate({path: "cart" , populate: {path: "product"}})
-      
       .then((user) => done(null, user)) // req.user = user
       .catch(done)
   );

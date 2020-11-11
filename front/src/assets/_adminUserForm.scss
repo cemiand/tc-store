@@ -1,27 +1,30 @@
-.adminUserForm{
-  width:50%;
+.adminUserForm {
+  width: 50%;
   margin: 0 auto;
-  h1{
+  h1 {
     text-align: center;
     margin: 0 auto;
   }
 }
-
-.form-control{
+.form-control {
   width: 60%;
-  margin: 0 auto
-}
-.form-group{
-  text-align: center;
-}
-.col-3{
   margin: 0 auto;
 }
-.buttonsDIv{
+.form-group {
+  text-align: center;
+}
+.col-3 {
+  margin: 0 auto;
+}
+.buttonsDivUser {
   margin: 15px auto;
   display: flex;
  width:50%;
-
+}
+.buttonsDiv {
+  margin: 15px auto;
+  display: flex;
+justify-content: center;
 }
 .adminRow{
   width:50%;

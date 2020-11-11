@@ -46,7 +46,7 @@ export default ({ users, handleChange, filterValue }) => {
       </Form.Group>
       <Form.Group as={Row}>
         <Col sm={{ span: 10, offset: 2 }} >
-          <div className="buttonsDIv">
+          <div className="buttonsDivUser">
             <Button className="buttonformAdmin" onClick={setUser} type="submit" variant="info">Update</Button>
             <Button className="buttonformAdmin" onClick={setDelete} type="submit" variant="warning">Delete</Button>
           </div>
