@@ -26,8 +26,16 @@ export default () => {
     deleteProduct()
   }
 
+  const handleSubmitCat = ()=>{
+    const category={
+      name:inputs.name,
+      pictures:inputs.pictures
+    }
+    //hay que poner el action de la store aca
+  }
+
   return (
-    <Admin users={users} handleChange={handleChange} filterValue={inputs} products={products} singleProduct={singleProduct} deleteProduct={setDelete} />
+    <Admin users={users} handleChange={handleChange} handleSubmitCat={handleSubmitCat} filterValue={inputs} products={products} singleProduct={singleProduct} deleteProduct={setDelete} />
   )
 
 }

@@ -17,11 +17,12 @@ import { updateProduct } from "../store/actions/productAction";
 export default ({
   users,
   handleChange,
+  handleSubmitCat,
   filterValue,
   products,
   singleProduct,
   deleteProduct,
-  categories
+  categories,
 }) => {
   function setProduct(e) {
     e.preventDefault();
@@ -136,13 +137,13 @@ export default ({
                     <Form>
                       <Form.Group >
                         <Form.Label><b>Name</b></Form.Label>
-                        <Form.Control name="name" type="text" placeholder="Name" value="" />
+                        <Form.Control name="name" type="text" placeholder="Name" value={inputs.name} />
                       </Form.Group>
                       <Form.Group >
                         <Form.Label><b>Pictures</b></Form.Label>
-                        <Form.Control name="pictures" type="text" placeholder="Pictures" value="" />
+                        <Form.Control name="pictures" type="text" placeholder="Pictures" value={inputs.pictures} />
                       </Form.Group>
-                      <Button className="buttonsDiv" type="submit">
+                      <Button className="buttonsDiv" type="submit" onClick={handleSubmitCat}>
                         Submit
                       </Button>
                     </Form>
