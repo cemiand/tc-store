@@ -6,8 +6,8 @@ import { postReview } from "../store/actions/reviewsAction";
 import ContenedorDeReviews from "../components/ContenedorDeReviews";
 
 const ReviewContainer = () => {
-  const [rate, setRate] = useState(null); //CONECTAR CON LA REVIEW!!
   const [review, SetReview] = useState("");
+  const [rating, setRating] = useState(0);
 
   const { singleProduct } = useSelector((state) => state.productsReducer);
   const { singleUser } = useSelector((state) => state.usersReducer);
@@ -16,15 +16,10 @@ const ReviewContainer = () => {
     SetReview(e.target.value);
   };
 
-  //CONECTAR CON LA REVIEW!!
-  const starHandler = (e) => {
-    setRate(e.target.value);
-  };
-
   const onSubmiteHandler = (e) => {
     e.preventDefault();
     <ContenedorDeReviews />;
-    postReview(singleProduct, { review });
+    postReview(singleProduct, { review, rating });
   };
 
   return (
@@ -33,7 +28,8 @@ const ReviewContainer = () => {
       singleUser={singleUser}
       singleProductReviews={singleProduct.reviews}
       textAreaHandler={textAreaHandler}
-      starHandler={starHandler} //CONECTAR CON LA REVIEW!!
+      rating={rating}
+      setRating={setRating}
     />
   );
 };
