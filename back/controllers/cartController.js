@@ -31,9 +31,9 @@ const cartController = {
         const cart = user.cart.map((order) =>
           ProductOrder.deleteOne({ _id: order._id })
         );
-        Promise.all(cart).then((cart) => {
-          console.log("CARRITO POST PROMISE ALL", cart);
-          res.status(200).send(cart);
+        Promise.all(cart).then(() => {
+          user.save();
+          res.status(200).send(user.cart);
         });
       })
       .catch((err) => res.status(500).send(err));

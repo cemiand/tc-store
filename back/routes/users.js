@@ -1,13 +1,15 @@
 const router = require("express").Router();
-const {
-  userCreate,
-  getAccessLevel,
-  changeAccessLevel,
-  findAll,
-} = require("../controllers/usersController");
+const { deleteUser, userCreate, getAccessLevel, changeAccessLevel, findAll } = require("../controllers/usersController");
+const { authRole } = require("./admin")
 
-router.route("/").post(userCreate).get(findAll);
+//agregar el authRole authRole("admin")
+router.route("/")
+  .post(userCreate)
+  .get(findAll)
+  .put(changeAccessLevel)
 
-router.route("/:id").put(getAccessLevel, changeAccessLevel);
+router.route("/:email")
+  .delete(deleteUser)
 
 module.exports = router;
+

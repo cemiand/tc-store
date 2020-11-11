@@ -1,12 +1,7 @@
 const router = require("express").Router();
-const {
-  findAll,
-  findProduct,
-  createProduct,
-  updateProduct,
-  deleteProduct,
-} = require("../controllers/productsController");
-
+const { findAll, findProduct, createProduct, updateProduct, deleteProduct } = require("../controllers/productsController");
+const { authRole } = require("./admin")
+//agregar el authRole
 router
   .route("/") //all products
   .get(findAll)
