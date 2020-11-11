@@ -68,7 +68,7 @@ export default ({
                   <Tab.Pane eventKey="first">
                     <Form>
                       <FormProductsCreate />
-                      <Button className="buttonsDIv" type="submit">
+                      <Button className="buttonsDiv" type="submit">
                         Submit
                       </Button>
                     </Form>
@@ -83,7 +83,7 @@ export default ({
                       />
                       <FormProductsCreate singleProduct={singleProduct} />
                       <Button
-                        className="buttonsDIv"
+                        className="buttonsDiv"
                         onClick={setProduct}
                         type="submit"
                       >
@@ -95,7 +95,7 @@ export default ({
                     <Form>
                       <FormProductSearch />
                       <FormProductsCreate />
-                      <Button className="buttonsDIv" type="submit">
+                      <Button className="buttonsDiv" type="submit">
                         Submit
                       </Button>
                     </Form>

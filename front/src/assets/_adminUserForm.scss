@@ -16,12 +16,18 @@
 .col-3 {
   margin: 0 auto;
 }
-.buttonsDIv {
+.buttonsDivUser {
   margin: 15px auto;
   display: flex;
-  justify-content: center;
+ width:50%;
 }
-.adminRow {
-  width: 50%;
+.buttonsDiv {
+  margin: 15px auto;
+  display: flex;
+justify-content: center;
+}
+.adminRow{
+  width:50%;
   margin: 0 auto;
 }
+
