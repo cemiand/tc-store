@@ -11,8 +11,10 @@ import {
 } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
+import FormProductsDelete from "./FormProductsDelete";
+import FormProductsUpdate from "./FormProductsUpdate";
 import FormProductSearch from "./FormProductSearch";
-import { updateProduct } from "../store/actions/productAction";
+import FormOrders from "./FormOrders"
 
 export default ({
   users,
@@ -20,14 +22,15 @@ export default ({
   filterValue,
   products,
   singleProduct,
+  singleUser,
+  orders,
+  singleOrder,
 }) => {
-  function setProduct(e) {
-    e.preventDefault();
-    updateProduct(singleProduct);
-  }
+  
   const [key, setKey] = useState("Users");
 
   return (
+    
     <Jumbotron fluid>
       <Tabs
         id="controlled-tab-example"
@@ -66,47 +69,43 @@ export default ({
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
-                    <Form>
+                    <div>
                       <FormProductsCreate />
-                      <Button className="buttonsDiv" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <Form>
+                    <div>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
                         singleProduct={singleProduct}
                       />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button
-                        className="buttonsDiv"
-                        onClick={setProduct}
-                        type="submit"
-                      >
-                        Submit
-                      </Button>
-                    </Form>
+                      <FormProductsUpdate singleProduct={singleProduct} />
+                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
-                    <Form>
-                      <FormProductSearch />
-                      <FormProductsCreate />
-                      <Button className="buttonsDiv" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
+                    <div>
+                      <FormProductSearch handleChange={handleChange}
+                        products={products}
+                        filterValue={filterValue}
+                        singleProduct={singleProduct}/>
+                      <FormProductsDelete singleProduct={singleProduct}/>
+                    </div>
                   </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>
           </Tab.Container>
         </Tab>
-        <Tab eventKey="Categories" title="Categories"></Tab>
-        <Tab eventKey="Orders" title="Orders"></Tab>
+        <Tab eventKey="Categories" title="Categories">
+          
+        </Tab>
+        <Tab eventKey="Orders" title="Orders">
+          <div>
+          <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders}/>
+          </div>
+        </Tab>
       </Tabs>
     </Jumbotron>
   );

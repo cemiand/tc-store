@@ -99,6 +99,9 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             <Button variant="outline-success" onClick={handleShow}>
               Sign In
             </Button>
+            <Button variant="outline-success" href="/admin">
+                Admin
+            </Button>
             <Modal show={show} onHide={handleClose}>
               {<LoginContainer />}
             </Modal>

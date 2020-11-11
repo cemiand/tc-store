@@ -16,7 +16,7 @@ const orderController = {
         })
       },
       updateOrder(req,res) {
-        Product.findByIdAndUpdate(req.params.id, req.body)   // duda con el _id
+        Order.findByIdAndUpdate(req.params.id, req.body)   // duda con el _id
         .then(product => res.status(201).send(product))
         .catch(err => res.status(500).send(err))
       }

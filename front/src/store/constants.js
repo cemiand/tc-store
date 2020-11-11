@@ -16,3 +16,7 @@ export const SET_CATEGORY = "SET_CATEGORY"
 // CART
 export const SET_CART = "SET_CART";
 export const RESET_CART = "RESET_CART";
+
+//ORDERS
+export const SET_ORDER = "SET_ORDER"
+export const SET_ORDERS = "SET_ORDERS"
