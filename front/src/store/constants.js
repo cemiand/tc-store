@@ -10,3 +10,8 @@ export const SET_USERS = "SET_USERS";
 
 // CART
 export const SHOW_CART = "SHOW_CART"
+
+//CATEGORY
+export const SET_CATEGORIES = "SET_CATEGORIES"
+export const SET_CATEGORY = "SET_CATEGORY"
+

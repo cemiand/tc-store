@@ -7,6 +7,9 @@ const categorySchema = new Schema({
         require: true,
         unique: true
     },
+    image: {
+        type: String,
+    },
 
 })
 
