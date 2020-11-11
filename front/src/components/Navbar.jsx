@@ -25,9 +25,14 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="search_wrap search_wrap_3">
           <div className="search_box">
-            <input type="text" onChange={handleChange}
+            <input
+              type="text"
+              onChange={handleChange}
               value={filterValue}
-              name="search" className="input" placeholder="Search..." />
+              name="search"
+              className="input"
+              placeholder="Search..."
+            />
             <Link to={`/${filterValue}`}>
               {" "}
               <div className="btn btn_common">
@@ -70,7 +75,13 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                   {userlog.name} <img src="usericon.png" className="navicon" />{" "}
                 </Link>
               </Dropdown.Toggle>
-              <Dropdown.Menu style={{ backgroundColor: "#343a40", margin: "-8px 48px", padding: "0 4px" }}>
+              <Dropdown.Menu
+                style={{
+                  backgroundColor: "#343a40",
+                  margin: "-8px 48px",
+                  padding: "0 4px",
+                }}
+              >
                 <Link to="/" className="dropdownbutton">
                   <Dropdown.Item>
                     <b> Favoritos</b>
@@ -84,22 +95,21 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Dropdown>
           </>
         ) : (
-            <>
-              <Button variant="outline-success" onClick={handleShow}>
-                Sign In
+          <>
+            <Button variant="outline-success" onClick={handleShow}>
+              Sign In
             </Button>
-              <Modal show={show} onHide={handleClose}>
-                {<LoginContainer />}
-              </Modal>
-            </>
-          )}
+            <Modal show={show} onHide={handleClose}>
+              {<LoginContainer />}
+            </Modal>
+          </>
+        )}
         <Nav.Link href="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />
           </Button>
-
         </Nav.Link>
       </Navbar.Collapse>
-    </Navbar >
+    </Navbar>
   );
 };

@@ -8,6 +8,8 @@ import NavbarContainer from "../containers/NavbarContainer";
 // import Categories from "./Categories";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
 import CartContainer from "../containers/CartContainer";
+import StarRatingContainer from "../containers/StarRatingContainer";
+import ReviewContainer from "../containers/ReviewContainer";
 
 const Main = () => {
   return (
@@ -17,6 +19,8 @@ const Main = () => {
       {/* <CarruselContainer /> */}
       {/* <Categories /> */}
       <Switch>
+        <Route exact path="/review" component={ReviewContainer} />
+        {/* <Route exact path="/rating" component={StarRatingContainer} /> */}
         <Route exact path="/cart" component={CartContainer} />
         <Route path="/products/:id" component={SingleProductContainer} />
         <Route exact path="/products" component={ProductsContainer} />

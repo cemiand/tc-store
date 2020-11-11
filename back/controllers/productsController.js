@@ -9,7 +9,8 @@ const productsController = {
       });
   },
   findProduct(req, res) {
-    Product.findById(req.params.id)
+    Product.findById(req.params.id)    
+    .populate({path: "reviews", populate :{path: 'user'}})
       .then((producto) => res.send(producto))
       .catch((err) => {
         res.status(404).send(err);

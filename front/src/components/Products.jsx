@@ -15,36 +15,11 @@ const Products = ({ products }) => {
                   <div className="mask">
                     <h2>{product.name}</h2>
                     <p>{product.brand}</p>
-                    <Link to={`/products/${product._id}`} className="info">More info</Link>
+                    <Link to={`/products/${product._id}`} className="info">
+                      More info
+                    </Link>
                   </div>
                 </div>
-                {/* <Card.Img
-                  variant="top"
-                  src={product.pictures[0]}
-                  className="productImg"
-                />
-                <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
-                  <Card.Text>{product.brand}</Card.Text>
-                  <Card.Text>${product.price}</Card.Text>
-                  <Link to={/products/${product._id}}>
-                    <Button
-                      variant="primary"
-                      style={{ width: "100px", margin: "10px" }}
-                    >
-                      Mas info
-                    </Button>
-                  </Link>
-                  <Link to="/purchase">
-                    <img
-                      src="shopping-cart.png"
-                      alt="add to cart"
-                      width="45px"
-                      height="50px"
-                    ></img>
-                  </Link>
-                </Card.Body> */}
-
               </Card>
             </Col>
           );
