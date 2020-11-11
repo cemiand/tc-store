@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Form } from "react-bootstrap"
-import { deleteUser } from "../store/actions/usersAction"
+
 
 
 export default ({ filterValue, singleProduct, inputs }) => {
