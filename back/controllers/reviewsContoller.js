@@ -6,7 +6,7 @@ const reviewsController = {
             .then(product => {
                 Review.create(
                     {
-                        user: "5fa201a05178d4a1763866b7",
+                        user: req.user._id,
                         rating: req.body.rating,
                         description: req.body.description,
                     },
