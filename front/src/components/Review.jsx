@@ -8,7 +8,8 @@ const Review = ({
   onSubmiteHandler,
   textAreaHandler,
   singleProductReviews,
-  //   starHandler
+  rating,
+  setRating,
 }) => {
   const [dejoReview, setDejoReview] = useState(false);
 
@@ -26,11 +27,11 @@ const Review = ({
         <h2 className="h2">Did you buy this product {singleUser.name}?</h2>
         <h3 className="h3">Then, please, leave us a review</h3>
         <form onSubmit={onSubmiteHandler}>
-          <div className="pinfo">Rate our product</div>
+          <div>Rate our product</div>
 
-          <StarRating />
+          <StarRating rating={rating} setRating={setRating} />
 
-          <div className="pinfo">Write your feedback</div>
+          <div>Write your feedback</div>
           <textarea
             onChange={textAreaHandler}
             className="textarea"
