@@ -2,7 +2,11 @@ import React from "react";
 import Login from "../components/Login";
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
-import { createUser, loginUser, loginUserGoogle } from "../store/actions/usersAction";
+import {
+  createUser,
+  loginUser,
+  loginUserGoogle,
+} from "../store/actions/usersAction";
 
 export default () => {
   const dispatch = useDispatch();
@@ -28,8 +32,8 @@ export default () => {
   };
 
   const handleSignGoogle = () => {
-    dispatch(loginUserGoogle())
-  }
+    dispatch(loginUserGoogle());
+  };
 
   return (
     <Login

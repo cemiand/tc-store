@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {createReview} = require("../controllers/reviewsContoller")
 
 
-router.route("/")
+router.route("/:productId")
 .post(createReview)
 
 

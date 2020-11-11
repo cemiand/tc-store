@@ -6,6 +6,8 @@ import {
   addProductToCart,
   addProductStorage,
 } from "../store/actions/cartAction";
+import ReviewContainer from "./ReviewContainer";
+import ContenedorDeReviews from "../components/ContenedorDeReviews";
 
 const SingleProductContainer = ({ match }) => {
   const dispatch = useDispatch();
@@ -33,13 +35,17 @@ const SingleProductContainer = ({ match }) => {
   }, []);
 
   return (
-    <SingleProduct
-      singleProduct={singleProduct}
-      addToCart={addToCart}
-      sumProduct={sumProduct}
-      restProduct={restProduct}
-      quantity={count}
-    />
+    <div>
+      <SingleProduct
+        singleProduct={singleProduct}
+        addToCart={addToCart}
+        sumProduct={sumProduct}
+        restProduct={restProduct}
+        quantity={count}
+      />
+      <ReviewContainer />
+      <ContenedorDeReviews singleProductReviews={singleProduct.reviews} />
+    </div>
   );
 };
 
