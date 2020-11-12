@@ -7,7 +7,6 @@ export default ({ singleProduct }) => {
 
   const handleSubmit = (e) => {
  
-    
     e.preventDefault()
     updateProduct({   
     name: e.target[0].value,
