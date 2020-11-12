@@ -61933,27 +61933,35 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     className: "adminUserForm"
   }, "CREATE A PRODUCT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsCreate__WEBPACK_IMPORTED_MODULE_4__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
     eventKey: "second"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "adminUserForm"
   }, "UPDATE A PRODUCT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
     handleChange: handleChange,
     products: products,
     filterValue: filterValue,
     singleProduct: singleProduct
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsUpdate__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsCreate__WEBPACK_IMPORTED_MODULE_4__["default"], {
     singleProduct: singleProduct
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    className: "buttonsDiv",
+    onClick: setProduct,
+    type: "submit"
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
     eventKey: "third"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "adminUserForm"
-  }, "DELETE A PRODUCT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, "DELETE A PRODUCT"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
     handleChange: handleChange,
     products: products,
     filterValue: filterValue,
     singleProduct: singleProduct
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsDelete__WEBPACK_IMPORTED_MODULE_5__["default"], {
     singleProduct: singleProduct
-  })))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    className: "buttonsDiv",
+    type: "submit",
+    onClick: deleteProduct
+  }, "Submit")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"], {
     eventKey: "Categories",
     title: "Categories"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Container, {
@@ -62552,61 +62560,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   !*** ./src/components/FormProductsCreate.jsx ***!
   \***********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions/productAction */ "./src/store/actions/productAction.js");
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["createProduct"])({
-      name: e.target[0].value,
-      brand: e.target[1].value,
-      categories: e.target[2].value,
-      price: e.target[3].value,
-      pictures: e.target[4].value,
-      description: e.target[5].value
-    });
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
-    name: "name",
-    type: "text",
-    placeholder: "Name"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Brand")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
-    name: "brand",
-    type: "text",
-    placeholder: "Brand"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Categories")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
-    name: "categories",
-    type: "text",
-    placeholder: "Categories"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Price")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
-    name: "price",
-    type: "text",
-    placeholder: "Price"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Pictures")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
-    name: "pictures",
-    type: "text",
-    placeholder: "Pictures"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Description")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
-    name: "description",
-    type: "text",
-    placeholder: "Description"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    variant: "success",
-    type: "submit"
-  }, "Submit"));
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/d_garber/ECOMMERCE/new/tc-store/front/src/components/FormProductsCreate.jsx: Unexpected token (2:0)\n\n\u001b[0m \u001b[90m 1 | \u001b[39m\u001b[36mimport\u001b[39m \u001b[33mReact\u001b[39m\u001b[33m,\u001b[39m { useState } from \u001b[32m\"react\"\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 2 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 | \u001b[39m\u001b[36mimport\u001b[39m { \u001b[33mForm\u001b[39m\u001b[33m,\u001b[39m \u001b[33mButton\u001b[39m } from \u001b[32m\"react-bootstrap\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 | \u001b[39m\u001b[36mimport\u001b[39m {createProduct} from \u001b[32m\"../store/actions/productAction\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n    at Object._raise (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:799:17)\n    at Object.raiseWithData (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:792:17)\n    at Object.raise (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:786:17)\n    at Object.unexpected (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9089:16)\n    at Object.parseExprAtom (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:10416:20)\n    at Object.parseExprAtom (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:4748:20)\n    at Object.parseExprSubscripts (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9976:23)\n    at Object.parseUpdate (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9956:21)\n    at Object.parseMaybeUnary (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9945:17)\n    at Object.parseExprOps (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9815:23)\n    at Object.parseMaybeConditional (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9789:23)\n    at Object.parseMaybeAssign (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9752:21)\n    at Object.parseExpressionBase (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9696:23)\n    at allowInAnd (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9690:39)\n    at Object.allowInAnd (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:11442:16)\n    at Object.parseExpression (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:9690:17)\n    at Object.parseStatementContent (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:11708:23)\n    at Object.parseStatement (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:11577:17)\n    at Object.parseBlockOrModuleBlockBody (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:12159:25)\n    at Object.parseBlockBody (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:12145:10)\n    at Object.parseTopLevel (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:11508:10)\n    at Object.parse (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:13328:10)\n    at parse (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/parser/lib/index.js:13381:38)\n    at parser (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/core/lib/transformation/normalize-file.js:99:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/home/d_garber/ECOMMERCE/new/tc-store/front/node_modules/@babel/core/lib/transform.js:27:41)");
 
 /***/ }),
 
@@ -62636,7 +62592,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     name: "name",
     type: "text",
     placeholder: "Name",
@@ -62673,7 +62631,6 @@ __webpack_require__.r(__webpack_exports__);
     defaultValue: singleProduct && singleProduct._id,
     disabled: true
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    onClick: handleSubmit,
     variant: "success",
     type: "submit"
   }, "Submit"));
@@ -64452,6 +64409,7 @@ var updateProduct = function updateProduct(product) {
   });
 };
 var deleteProduct = function deleteProduct(product) {
+  console.log(product);
   axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/products/".concat(product._id));
 };
 

@@ -76,27 +76,38 @@ export default ({
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <div>
-                    <h1 className="adminUserForm">UPDATE A PRODUCT</h1>
+                  <Form>
+                      <h1 className="adminUserForm">UPDATE A PRODUCT</h1>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
                         singleProduct={singleProduct}
                       />
-                      <FormProductsUpdate singleProduct={singleProduct} />
-                     </div>
+                      <FormProductsCreate singleProduct={singleProduct} />
+                      <Button
+                        className="buttonsDiv"
+                        onClick={setProduct}
+                        type="submit"
+                      >
+                        Submit
+                      </Button>
+                    </Form>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
 
+                     
+                      <Form>
                       <h1 className="adminUserForm">DELETE A PRODUCT</h1>
-                    <div>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct}/>
-                      <FormProductsDelete singleProduct={singleProduct}/>
-                    </div>
+                        singleProduct={singleProduct} />
+                      <FormProductsDelete singleProduct={singleProduct} />
+                      <Button className="buttonsDiv" type="submit" onClick={deleteProduct}>
+                        Submit
+                      </Button>
+                    </Form>
                   </Tab.Pane>
                 </Tab.Content>
               </Col>

@@ -14,7 +14,7 @@ export default ({ singleProduct }) => {
 
   return (
 
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group >
         <Form.Label><b>Name</b></Form.Label>
         <Form.Control name="name" type="text" placeholder="Name" defaultValue={singleProduct && singleProduct.name} />
@@ -53,7 +53,7 @@ export default ({ singleProduct }) => {
         <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled/>
       </Form.Group>
 
-     <Button onClick={handleSubmit} variant="success" type="submit">Submit</Button> 
+     <Button variant="success" type="submit">Submit</Button> 
 
     </Form>
 

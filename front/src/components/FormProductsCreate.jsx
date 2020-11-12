@@ -1,6 +1,11 @@
 import React, { useState } from "react"
+<<<<<<< HEAD
 import { Form, Button } from "react-bootstrap"
 import {createProduct} from "../store/actions/productAction"
+=======
+import { Form } from "react-bootstrap"
+
+>>>>>>> 4fd7862ae1f5b79fa221ec19c60255f07263923f
 
 
 export default () => {

@@ -29,6 +29,7 @@ export const updateProduct = (product) => {
 }
 
 export const deleteProduct = (product) => {
+  console.log(product)
   axios.delete(`/api/products/${product._id}`)
 }
 
