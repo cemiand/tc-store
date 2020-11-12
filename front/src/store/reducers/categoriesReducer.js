@@ -1,8 +1,8 @@
-import { SET_CATEGORIES,SET_CATEGORY ,REMOVE_CATEGORY,NEW_CATEGORY} from "../constants";
+import { SET_CATEGORIES, SET_CATEGORY, REMOVE_CATEGORY, NEW_CATEGORY } from "../constants";
 
 const inicialState = {
     categories: [],
-    singleCategory:{}
+    singleCategory: {}
 };
 
 export default (state = inicialState, action) => {
@@ -12,10 +12,10 @@ export default (state = inicialState, action) => {
         case SET_CATEGORY:
             return { ...state, singleCategory: action.payload };
         case REMOVE_CATEGORY:
-               const categories = state.categories.filter(e => e._id === action.payload)
-            return {...state, categories }
+            const categories = state.categories.filter(e => e._id !== action.payload)
+            return { ...state, categories }
         case NEW_CATEGORY:
-            return{...state, categories: [...state.categories,action.payload]}    
+            return { ...state, categories: [...state.categories, action.payload] }
         default:
             return state;
     }

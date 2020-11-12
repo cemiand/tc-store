@@ -26,7 +26,6 @@ export default () => {
     dispatch(fetchCategories())
   }, []);
 
-
   //PRODUCTOS
   function setProduct(e) {
     e.preventDefault();
@@ -40,7 +39,9 @@ export default () => {
 
   //CATEGORIES
   const handleOptions = (e) => {
-    setOptions(e.target.value)
+    const value = e.target.value
+    setOptions(value)
+    console.log("options en handleOptions", options)
   }
 
   const handleSubmitCat = (e) => {
@@ -55,7 +56,8 @@ export default () => {
   const handleDeleteCat = (e) => {
     e.preventDefault();
     console.log("options", options)
-    dispatch(deleteCategory(options.toString()))
+    dispatch(deleteCategory(options))
+    setOptions("")
   }
 
 

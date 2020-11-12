@@ -135,10 +135,10 @@ export default ({
                   </Tab.Pane>
                   {/*  //------------DELETE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="third">
-                    <Form>
+                    <Form onSubmit={handleDeleteCat}>
                       <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Categories</Form.Label>
-                        <Form.Control as="select" onClick={handleOptions}>
+                        <Form.Control as="select" onChange={handleOptions}>
                           {categories &&
                             categories.map(category => {
                               return (
@@ -148,7 +148,7 @@ export default ({
                           }
                         </Form.Control>
                       </Form.Group>
-                      <Button className="buttonsDiv" variant="warning" type="submit" onClick={handleDeleteCat}>
+                      <Button className="buttonsDiv" variant="warning" type="submit">
                         Delete
                       </Button>
                     </Form>
