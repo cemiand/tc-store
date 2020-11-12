@@ -24,13 +24,13 @@ export const fetchSingleProduct = (id) => (dispatch) =>
     .get(`/api/products/${id}`)
     .then(({ data }) => dispatch(singleProduct(data)))
 
-export const updateProduct = (product) => {
+export const updateProduct = (product) => (dispatch) => {
   axios.put(`/api/products/${product._id}`, product)
     .then(res => res.data)
     .then(data => { dispatch(fetchSingleProduct(data._id)) })
 }
 
-export const deleteProduct = (product) => {
+export const deleteProduct = (product) => (dispatch) => {
   axios.delete(`/api/products/${product._id}`)
     .then(() => { dispatch(fetchProducts()) })
 }

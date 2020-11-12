@@ -1,12 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import { Form, Button } from "react-bootstrap"
-import { createProduct } from "../store/actions/productAction"
 
+export default ({ handleSubmitCreate, categories, handleOptions }) => {
 
-
-export default ({handleSubmitCreate, categories, handleOptions}) => {
-
-  
   return (
 
     <Form onSubmit={handleSubmitCreate}>
@@ -40,7 +36,6 @@ export default ({handleSubmitCreate, categories, handleOptions}) => {
         <Form.Label><b>Price:</b></Form.Label>
         <Form.Control name="price" type="text" placeholder="Price" />
       </Form.Group>
-
 
       <Form.Group >
         <Form.Label><b>Pictures:</b></Form.Label>
