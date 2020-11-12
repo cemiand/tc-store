@@ -1,6 +1,5 @@
-import React, { useState, useRef } from "react"
-import { Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card } from "react-bootstrap"
-import { deleteUser, updateUser } from "../store/actions/usersAction"
+import React, { useState } from "react"
+import { Form, Row, Col, Button, Card } from "react-bootstrap"
 
 export default ({ users, handleChange, filterValue, handleUserDelete, handleUpdateUser }) => {
   const [options, setOptions] = useState("")
@@ -15,7 +14,7 @@ export default ({ users, handleChange, filterValue, handleUserDelete, handleUpda
         {(filterValue.length >= 3) && (
           users.filter(user => user.email.includes(filterValue)).map(user => {
             return (
-              <Col xs={3} className="mb-4" key={user._id}>
+              <Col xs={3} className="mb-4 paraCols" key={user._id}>
                 <Card.Body>
                   <Card.Text>Name: {user.name}</Card.Text>
                   <Card.Text>Email: {user.email}</Card.Text>
@@ -30,7 +29,8 @@ export default ({ users, handleChange, filterValue, handleUserDelete, handleUpda
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Levels of Access</Form.Label>
-        <Form.Control as="select" onClick={(e) => { setOptions(e.target.value) }}>
+        <Form.Control as="select" onChange={(e) => { setOptions(e.target.value) }}>
+          <option value=""></option>
           <option value="admin">Admin</option>
           <option value="user">User</option>
         </Form.Control>
@@ -38,10 +38,9 @@ export default ({ users, handleChange, filterValue, handleUserDelete, handleUpda
       <Form.Group as={Row}>
         <Col sm={{ span: 10, offset: 2 }} >
           <div className="buttonsDivUser">
-            <Button className="buttonformAdmin" onClick={(e) => handleUpdateUser(e, options)} type="submit" variant="info">Update</Button>
+            <Button className="buttonformAdmin" onClick={(e) => handleUpdateUser(e, filterValue, options)} type="submit" variant="info">Update</Button>
             <Button className="buttonformAdmin" onClick={handleUserDelete} type="submit" variant="warning">Delete</Button>
           </div>
-
         </Col>
       </Form.Group></Form>
   )

@@ -20,7 +20,7 @@ export default ({ handleChange, products, filterValue, setSingleProduct }) => {
           })
         }
       </Form.Control>
-      <Button className="buttonsDiv" onClick={(e) => setSingleProduct(e, options)}>Fill with data</Button>
+      <Button className="buttonsDiv" onClick={(e) => setSingleProduct(e, options)}>Fulfill</Button>
 
 
     </Form.Group>

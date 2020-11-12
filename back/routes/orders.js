@@ -8,6 +8,6 @@ router.route("/")
 
 router.route("/:id")
   .get(findOrder)
-  .put(updateOrder)
+  .put(authRole("admin"), updateOrder)
 
 module.exports = router;

@@ -9,9 +9,8 @@ import FormOrders from "./FormOrders"
 
 export default ({
   orders,
-  singleOrder,
-  handleOptions,  
-  setProduct,
+  singleOrder, 
+  handleOptions, 
   users,
   handleChange,
   handleSubmitCat,
@@ -26,14 +25,18 @@ handleSubmitUpdate,
 handleSubmitCreate,
 handleUpdateUser,
 handleUserDelete,
-handleSubmitOrder
+handleSubmitOrder,
+singleUser
 }) => {
 
 
   const [key, setKey] = useState("Users");
 
   return (
-    
+    <div>
+    {singleUser.accessLevel === "admin"
+                  ?
+
     <Jumbotron fluid>
       <Tabs
         id="controlled-tab-example"
@@ -77,7 +80,7 @@ handleSubmitOrder
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div>
-                      <FormProductsCreate handleSubmitCreate={handleSubmitCreate}/>
+                      <FormProductsCreate categories={categories} handleSubmitCreate={handleSubmitCreate} handleOptions={handleOptions}/>
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
@@ -103,14 +106,14 @@ handleSubmitOrder
                         />
                       <FormProductsDelete singleProduct={singleProduct} handleDeleteProduct={handleDeleteProduct}/>
                     </div>
-                    </Tab.Pane>
+                  </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>
           </Tab.Container>
         </Tab>
-         {/* //----------PESTAÑA CATEGORIES-------- */}
-         <Tab eventKey="Categories" title="Categories">
+        {/* //----------PESTAÑA CATEGORIES-------- */}
+        <Tab eventKey="Categories" title="Categories">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row className="adminRow">
               <Col sm={3}>
@@ -149,10 +152,10 @@ handleSubmitOrder
                   </Tab.Pane>
                   {/*  //------------DELETE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="third">
-                    <Form>
+                    <Form onSubmit={handleDeleteCat}>
                       <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Categories</Form.Label>
-                        <Form.Control as="select" onClick={handleOptions}>
+                        <Form.Control as="select" onChange={handleOptions}>
                           {categories &&
                             categories.map(category => {
                               return (
@@ -162,7 +165,7 @@ handleSubmitOrder
                           }
                         </Form.Control>
                       </Form.Group>
-                      <Button className="buttonsDiv" variant="warning" type="submit" onClick={handleDeleteCat}>
+                      <Button className="buttonsDiv" variant="warning" type="submit">
                         Delete
                       </Button>
                     </Form>
@@ -171,8 +174,8 @@ handleSubmitOrder
               </Col>
             </Row>
           </Tab.Container>
-        </Tab>          
-        
+        </Tab>
+
         {/* //----------PESTAÑA ORDERS------------ */}
         <Tab eventKey="Orders" title="Orders">
           <div>
@@ -181,5 +184,8 @@ handleSubmitOrder
         </Tab>
       </Tabs>
     </Jumbotron>
+    :
+    <div > <img src="https://i.pinimg.com/originals/41/78/6e/41786e0b3128dc977160edf08e40c7aa.jpg"></img>Puede ser pa? Puede ser que no seas admin?</div>}
+    </div>
   );
 };

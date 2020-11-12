@@ -42,10 +42,10 @@ export default ({ singleProduct, handleSubmit }) => {
 
       <Form.Group >
         <Form.Label><b>Product Id</b></Form.Label>
-        <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled/>
+        <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled />
       </Form.Group>
 
-     <Button variant="success" type="submit">Submit</Button> 
+      <Button variant="success" className="buttonsDiv" type="submit">Submit</Button>
 
     </Form>
 
