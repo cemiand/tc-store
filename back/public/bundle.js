@@ -61835,14 +61835,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _FormAccess__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FormAccess */ "./src/components/FormAccess.jsx");
-/* harmony import */ var _FormProductsCreate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FormProductsCreate */ "./src/components/FormProductsCreate.jsx");
-/* harmony import */ var _FormProductsDelete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormProductsDelete */ "./src/components/FormProductsDelete.jsx");
-/* harmony import */ var _FormProductsUpdate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./FormProductsUpdate */ "./src/components/FormProductsUpdate.jsx");
-/* harmony import */ var _FormProductSearch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FormProductSearch */ "./src/components/FormProductSearch.jsx");
-/* harmony import */ var _FormOrders__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FormOrders */ "./src/components/FormOrders.jsx");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _FormAccess__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FormAccess */ "./src/components/FormAccess.jsx");
+/* harmony import */ var _FormProductsCreate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FormProductsCreate */ "./src/components/FormProductsCreate.jsx");
+/* harmony import */ var _FormProductsDelete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FormProductsDelete */ "./src/components/FormProductsDelete.jsx");
+/* harmony import */ var _FormProductsUpdate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormProductsUpdate */ "./src/components/FormProductsUpdate.jsx");
+/* harmony import */ var _FormProductSearch__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./FormProductSearch */ "./src/components/FormProductSearch.jsx");
+/* harmony import */ var _FormOrders__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FormOrders */ "./src/components/FormOrders.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -61854,7 +61853,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -61876,124 +61874,136 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       filterValue = _ref.filterValue,
       products = _ref.products,
       singleProduct = _ref.singleProduct,
-      deleteProduct = _ref.deleteProduct,
-      categories = _ref.categories;
+      categories = _ref.categories,
+      setSingleProduct = _ref.setSingleProduct,
+      handleDeleteProduct = _ref.handleDeleteProduct,
+      handleSubmitUpdate = _ref.handleSubmitUpdate,
+      handleSubmitCreate = _ref.handleSubmitCreate,
+      handleUpdateUser = _ref.handleUpdateUser,
+      handleUserDelete = _ref.handleUserDelete,
+      handleSubmitOrder = _ref.handleSubmitOrder;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("Users"),
       _useState2 = _slicedToArray(_useState, 2),
       key = _useState2[0],
       setKey = _useState2[1];
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Jumbotron"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Jumbotron"], {
     fluid: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tabs"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tabs"], {
     id: "controlled-tab-example",
     activeKey: key,
     onSelect: function onSelect(k) {
       return setKey(k);
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"], {
     eventKey: "Users",
     title: "Users"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormAccess__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormAccess__WEBPACK_IMPORTED_MODULE_2__["default"], {
     handleChange: handleChange,
     users: users,
-    filterValue: filterValue.email
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"], {
+    filterValue: filterValue.email,
+    handleUpdateUser: handleUpdateUser,
+    handleUserDelete: handleUserDelete
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"], {
     eventKey: "Products",
     title: "Products"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Container, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Container, {
     id: "left-tabs-example",
     defaultActiveKey: "first"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
     className: "adminRow"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
     sm: 3
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"], {
     className: "flex-column"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Link, {
     variant: "success",
     eventKey: "first"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "outline-success"
-  }, "Create"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+  }, "Create"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Link, {
     eventKey: "second"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "outline-info"
-  }, "Update"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+  }, "Update"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Link, {
     eventKey: "third"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "outline-warning"
-  }, "Delete"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+  }, "Delete"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
     sm: 9
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Content, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Content, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Pane, {
     eventKey: "first"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsCreate__WEBPACK_IMPORTED_MODULE_4__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsCreate__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    handleSubmitCreate: handleSubmitCreate
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Pane, {
     eventKey: "second"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
     handleChange: handleChange,
     products: products,
     filterValue: filterValue,
-    singleProduct: singleProduct
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsUpdate__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    singleProduct: singleProduct
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
+    setSingleProduct: setSingleProduct
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsUpdate__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    singleProduct: singleProduct,
+    handleSubmit: handleSubmitUpdate
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Pane, {
     eventKey: "third"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductSearch__WEBPACK_IMPORTED_MODULE_6__["default"], {
     handleChange: handleChange,
     products: products,
     filterValue: filterValue,
-    singleProduct: singleProduct
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsDelete__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    singleProduct: singleProduct
-  })))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"], {
+    setSingleProduct: setSingleProduct
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormProductsDelete__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    singleProduct: singleProduct,
+    handleDeleteProduct: handleDeleteProduct
+  })))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"], {
     eventKey: "Categories",
     title: "Categories"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Container, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Container, {
     id: "left-tabs-example",
     defaultActiveKey: "first"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
     className: "adminRow"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
     sm: 3
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"], {
     className: "flex-column"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Link, {
     variant: "success",
     eventKey: "first"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "outline-success"
-  }, "Create"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+  }, "Create"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Nav"].Link, {
     eventKey: "third"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "outline-warning"
-  }, "Delete"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Col"], {
+  }, "Delete"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], {
     sm: 9
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Content, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Content, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Pane, {
     eventKey: "first"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "adminUserForm"
-  }, "Create a category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+  }, "Create a category"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     name: "name",
     type: "text",
     placeholder: "Name",
     onChange: handleChange,
     value: filterValue.name
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Pictures")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Pictures")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     name: "image",
     type: "text",
     placeholder: "Pictures",
     onChange: handleChange,
     value: filterValue.image
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     className: "buttonsDiv",
     type: "submit",
     onClick: handleSubmitCat
-  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"].Pane, {
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"].Pane, {
     eventKey: "third"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, {
     controlId: "exampleForm.ControlInput1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     as: "select",
     onClick: handleOptions
   }, categories && categories.map(function (category) {
@@ -62001,19 +62011,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       key: category._id,
       value: category._id
     }, category.name);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     className: "buttonsDiv",
     variant: "warning",
     type: "submit",
     onClick: handleDeleteCat
-  }, "Delete")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Tab"], {
+  }, "Delete")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Tab"], {
     eventKey: "Orders",
     title: "Orders"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormOrders__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FormOrders__WEBPACK_IMPORTED_MODULE_7__["default"], {
     filterValue: filterValue,
     handleChange: handleChange,
     singleOrder: singleOrder,
-    orders: orders
+    orders: orders,
+    handleSubmitOrder: handleSubmitOrder
   })))));
 });
 
@@ -62268,27 +62279,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var users = _ref.users,
       handleChange = _ref.handleChange,
-      filterValue = _ref.filterValue;
+      filterValue = _ref.filterValue,
+      handleUserDelete = _ref.handleUserDelete,
+      handleUpdateUser = _ref.handleUpdateUser;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
       options = _useState2[0],
       setOptions = _useState2[1];
-
-  function setUser(e) {
-    e.preventDefault();
-    Object(_store_actions_usersAction__WEBPACK_IMPORTED_MODULE_2__["updateUser"])({
-      email: filterValue,
-      accessLevel: options
-    });
-  }
-
-  function setDelete(e) {
-    e.preventDefault();
-    Object(_store_actions_usersAction__WEBPACK_IMPORTED_MODULE_2__["deleteUser"])({
-      email: filterValue
-    });
-  }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
     className: "adminUserForm"
@@ -62330,12 +62328,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     className: "buttonsDivUser"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     className: "buttonformAdmin",
-    onClick: setUser,
+    onClick: function onClick(e) {
+      return handleUpdateUser(e, options);
+    },
     type: "submit",
     variant: "info"
   }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     className: "buttonformAdmin",
-    onClick: setDelete,
+    onClick: handleUserDelete,
     type: "submit",
     variant: "warning"
   }, "Delete")))));
@@ -62375,7 +62375,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var orders = _ref.orders,
-      singleOrder = _ref.singleOrder;
+      singleOrder = _ref.singleOrder,
+      handleSubmitOrder = _ref.handleSubmitOrder;
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
@@ -62391,18 +62392,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
   function setOrder(e, id) {
     e.preventDefault();
-    console.log("OPTIONSSSSSS", id);
     dispatch(Object(_store_actions_ordersAction__WEBPACK_IMPORTED_MODULE_2__["fetchSingleOrder"])(id));
-    console.log("SINGLE ORDER", newOptions);
   }
-
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    Object(_store_actions_ordersAction__WEBPACK_IMPORTED_MODULE_2__["updateOrder"])({
-      _id: singleOrder._id,
-      state: newOptions
-    });
-  };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
     className: "adminUserForm"
@@ -62462,7 +62453,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "buttonsDivUser"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
-    onClick: handleSubmit,
+    onClick: function onClick(e) {
+      return handleSubmitOrder(e, newOptions);
+    },
     className: "buttonformAdmin",
     type: "submit",
     variant: "info"
@@ -62483,8 +62476,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions/productAction */ "./src/store/actions/productAction.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -62500,22 +62492,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var handleChange = _ref.handleChange,
       products = _ref.products,
-      filterValue = _ref.filterValue;
-  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
+      filterValue = _ref.filterValue,
+      setSingleProduct = _ref.setSingleProduct;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
       options = _useState2[0],
       setOptions = _useState2[1];
-
-  function setProduct(e) {
-    e.preventDefault();
-    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["fetchSingleProduct"])(options));
-  }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, {
     controlId: "exampleForm.ControlInput1"
@@ -62539,7 +62525,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }, product.name, product.brand);
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     className: "buttonsDiv",
-    onClick: setProduct
+    onClick: function onClick(e) {
+      return setSingleProduct(e, options);
+    }
   }, "Fill with data"));
 });
 
@@ -62561,21 +62549,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["createProduct"])({
-      name: e.target[0].value,
-      brand: e.target[1].value,
-      categories: e.target[2].value,
-      price: e.target[3].value,
-      pictures: e.target[4].value,
-      description: e.target[5].value
-    });
-  };
-
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var handleSubmitCreate = _ref.handleSubmitCreate;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
-    onSubmit: handleSubmit
+    onSubmit: handleSubmitCreate
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     name: "name",
     type: "text",
@@ -62625,15 +62602,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var singleProduct = _ref.singleProduct;
-
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["deleteProduct"])(singleProduct);
-  };
-
+  var singleProduct = _ref.singleProduct,
+      handleDeleteProduct = _ref.handleDeleteProduct;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
-    onSubmit: handleSubmit
+    onSubmit: handleDeleteProduct
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     name: "name",
     type: "text",
@@ -62690,26 +62662,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions/productAction */ "./src/store/actions/productAction.js");
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var singleProduct = _ref.singleProduct;
-
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["updateProduct"])({
-      name: e.target[0].value,
-      brand: e.target[1].value,
-      categories: e.target[2].value,
-      price: e.target[3].value,
-      pictures: e.target[4].value,
-      description: e.target[5].value,
-      _id: e.target[6].value
-    });
-  };
-
+  var singleProduct = _ref.singleProduct,
+      handleSubmit = _ref.handleSubmit;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Name")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
@@ -63385,8 +63342,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     return state.productsReducer;
   }),
       products = _useSelector2.products,
-      singleProduct = _useSelector2.singleProduct,
-      deleteProduct = _useSelector2.deleteProduct;
+      singleProduct = _useSelector2.singleProduct;
 
   var _useSelector3 = Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["useSelector"])(function (state) {
     return state.ordersReducer;
@@ -63414,17 +63370,64 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["fetchProducts"])());
     dispatch(Object(_store_actions_ordersAction__WEBPACK_IMPORTED_MODULE_4__["fetchOrders"])());
     dispatch(Object(_store_actions_categoriesAction__WEBPACK_IMPORTED_MODULE_5__["fetchCategories"])());
-  }, []); //PRODUCTOS
+  }, []); //USERS
+
+  function handleUpdateUser(e, val) {
+    e.preventDefault();
+    dispatch(updateUser({
+      email: filterValue,
+      accessLevel: val
+    }));
+  }
+
+  function handleUserDelete(e) {
+    e.preventDefault();
+    dispatch(deleteUser({
+      email: filterValue
+    }));
+  } //PRODUCTOS
+
 
   function setProduct(e) {
     e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["updateProduct"])(singleProduct);
+    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["updateProduct"])(singleProduct));
   }
 
-  function setDelete(e) {
+  function setSingleProduct(e, options) {
     e.preventDefault();
-    deleteProduct();
-  } //CATEGORIES
+    console.log(options);
+    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["fetchSingleProduct"])(options));
+  }
+
+  var handleDeleteProduct = function handleDeleteProduct(e) {
+    e.preventDefault();
+    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["deleteProduct"])(singleProduct));
+  };
+
+  var handleSubmitCreate = function handleSubmitCreate(e) {
+    e.preventDefault();
+    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["createProduct"])({
+      name: e.target[0].value,
+      brand: e.target[1].value,
+      categories: e.target[2].value,
+      price: e.target[3].value,
+      pictures: e.target[4].value,
+      description: e.target[5].value
+    });
+  };
+
+  var handleSubmitUpdate = function handleSubmitUpdate(e) {
+    e.preventDefault();
+    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["updateProduct"])({
+      name: e.target[0].value,
+      brand: e.target[1].value,
+      categories: e.target[2].value,
+      price: e.target[3].value,
+      pictures: e.target[4].value,
+      description: e.target[5].value,
+      _id: e.target[6].value
+    }));
+  }; //CATEGORIES
 
 
   var handleOptions = function handleOptions(e) {
@@ -63448,18 +63451,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     e.preventDefault();
     console.log("options", options);
     dispatch(Object(_store_actions_categoriesAction__WEBPACK_IMPORTED_MODULE_5__["deleteCategory"])(options.toString()));
-  }; //PRODUCTOS
+  }; //ORDERS
 
 
-  function setProduct(e) {
+  var handleSubmitOrder = function handleSubmitOrder(e, val) {
     e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["updateProduct"])(singleProduct);
-  }
-
-  function setDelete(e) {
-    e.preventDefault();
-    deleteProduct();
-  }
+    Object(_store_actions_ordersAction__WEBPACK_IMPORTED_MODULE_4__["updateOrder"])({
+      _id: singleOrder._id,
+      state: val
+    });
+  };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Admin__WEBPACK_IMPORTED_MODULE_1__["default"], {
     singleUser: singleUser,
@@ -63474,8 +63475,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     products: products,
     setProduct: setProduct,
     singleProduct: singleProduct,
-    deleteProduct: setDelete,
-    singleOrder: singleOrder
+    singleOrder: singleOrder,
+    setSingleProduct: setSingleProduct,
+    handleDeleteProduct: handleDeleteProduct,
+    handleSubmitUpdate: handleSubmitUpdate,
+    handleSubmitCreate: handleSubmitCreate,
+    handleUpdateUser: handleUpdateUser,
+    handleUserDelete: handleUserDelete,
+    handleSubmitOrder: handleSubmitOrder
   });
 });
 
@@ -64431,10 +64438,12 @@ var singleProduct = function singleProduct(data) {
 };
 
 var createProduct = function createProduct(product) {
-  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/products", product).then(function (_ref) {
-    var data = _ref.data;
-    return console.log(data);
-  });
+  return function (dispatch) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/products", product).then(function (_ref) {
+      var data = _ref.data;
+      return dispatch(fetchProducts());
+    });
+  };
 };
 var fetchProducts = function fetchProducts() {
   return function (dispatch) {
@@ -64453,12 +64462,20 @@ var fetchSingleProduct = function fetchSingleProduct(id) {
   };
 };
 var updateProduct = function updateProduct(product) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/products/".concat(product._id), product).then(function (res) {
-    return res.data;
-  });
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/products/".concat(product._id), product).then(function (res) {
+      return res.data;
+    }).then(function (data) {
+      dispatch(fetchSingleProduct(data._id));
+    });
+  };
 };
 var deleteProduct = function deleteProduct(product) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/products/".concat(product._id));
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/products/".concat(product._id)).then(function () {
+      dispatch(fetchProducts());
+    });
+  };
 };
 
 /***/ }),
@@ -64571,7 +64588,9 @@ var updateUser = function updateUser(user) {
 };
 
 var deleteUser = function deleteUser(user) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/users/".concat(user.email));
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/users/".concat(user.email));
+  };
 };
 
 var deletCategory = function deletCategory(id) {
