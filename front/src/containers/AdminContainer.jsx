@@ -52,8 +52,7 @@ export default ({history}) => {
   const handleDeleteProduct = (e) => {
     e.preventDefault()
     dispatch(deleteProduct(singleProduct))
-    history.push("/")
-  }
+    }
 
   const handleSubmitCreate = (e) => {
 
