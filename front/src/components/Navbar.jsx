@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Button,
-  Modal,
-  Nav,
-  Navbar,
-  Form,
-  FormControl,
-  Dropdown,
+  Button, Modal, Nav, Navbar, Form, FormControl, Dropdown,
 } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
@@ -82,12 +76,13 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                   padding: "0 4px",
                 }}
               >
-                <Link to="/" className="dropdownbutton">
-                  <Dropdown.Item>
-                    <b> Favoritos</b>
-                  </Dropdown.Item>
-                </Link>
-                <Link to="" onClick={logout} className="dropdownbutton">
+                <Dropdown.Item>
+                  <Link to="/shoppinghistory" className="dropdownbutton">
+                    Shopping
+                    </Link>
+                </Dropdown.Item>
+
+                <Link to="/" onClick={logout} className="dropdownbutton">
                   {" "}
                   <Dropdown.Item>Log Out</Dropdown.Item>
                 </Link>
@@ -95,18 +90,18 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Dropdown>
           </>
         ) : (
-          <>
-            <Button variant="outline-success" onClick={handleShow}>
-              Sign In
+            <>
+              <Button variant="outline-success" onClick={handleShow}>
+                Sign In
             </Button>
-            <Button variant="outline-success" href="/admin">
+              <Button variant="outline-success" href="/admin">
                 Admin
             </Button>
-            <Modal show={show} onHide={handleClose}>
-              {<LoginContainer />}
-            </Modal>
-          </>
-        )}
+              <Modal show={show} onHide={handleClose}>
+                {<LoginContainer />}
+              </Modal>
+            </>
+          )}
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />

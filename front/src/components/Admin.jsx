@@ -11,7 +11,7 @@ import FormOrders from "./FormOrders"
 export default ({
   orders,
   singleOrder,
-  handleOptions,  setProduct,
+  handleOptions, setProduct,
   users,
   handleChange,
   handleSubmitCat,
@@ -20,13 +20,13 @@ export default ({
   products,
   singleProduct,
   deleteProduct,
-  categories,}) => {
+  categories, }) => {
 
 
   const [key, setKey] = useState("Users");
 
   return (
-    
+
     <Jumbotron fluid>
       <Tabs
         id="controlled-tab-example"
@@ -79,24 +79,24 @@ export default ({
                         singleProduct={singleProduct}
                       />
                       <FormProductsUpdate singleProduct={singleProduct} />
-                     </div>
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
                     <div>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct}/>
-                      <FormProductsDelete singleProduct={singleProduct}/>
+                        singleProduct={singleProduct} />
+                      <FormProductsDelete singleProduct={singleProduct} />
                     </div>
-                    </Tab.Pane>
+                  </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>
           </Tab.Container>
         </Tab>
-         {/* //----------PESTAÑA CATEGORIES-------- */}
-         <Tab eventKey="Categories" title="Categories">
+        {/* //----------PESTAÑA CATEGORIES-------- */}
+        <Tab eventKey="Categories" title="Categories">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row className="adminRow">
               <Col sm={3}>
@@ -135,10 +135,10 @@ export default ({
                   </Tab.Pane>
                   {/*  //------------DELETE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="third">
-                    <Form>
+                    <Form onSubmit={handleDeleteCat}>
                       <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Categories</Form.Label>
-                        <Form.Control as="select" onClick={handleOptions}>
+                        <Form.Control as="select" onChange={handleOptions}>
                           {categories &&
                             categories.map(category => {
                               return (
@@ -148,7 +148,7 @@ export default ({
                           }
                         </Form.Control>
                       </Form.Group>
-                      <Button className="buttonsDiv" variant="warning" type="submit" onClick={handleDeleteCat}>
+                      <Button className="buttonsDiv" variant="warning" type="submit">
                         Delete
                       </Button>
                     </Form>
@@ -157,12 +157,12 @@ export default ({
               </Col>
             </Row>
           </Tab.Container>
-        </Tab>          
-        
+        </Tab>
+
         {/* //----------PESTAÑA ORDERS------------ */}
         <Tab eventKey="Orders" title="Orders">
           <div>
-          <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders}/>
+            <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders} />
           </div>
         </Tab>
       </Tabs>

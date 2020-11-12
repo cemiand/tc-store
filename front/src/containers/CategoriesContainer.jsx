@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import { fetchProducts } from "../store/actions/productAction";
 
 
-
-
 const CategoriesContainer = () => {
 
   const dispatch  = useDispatch()//useDispatch me permite ejecutar los axios creator
@@ -18,12 +16,11 @@ const CategoriesContainer = () => {
     dispatch(fetchCategories());
   }, []);
 
+  const category = useSelector((state) =>state.categoriesReducer.categories) 
 
-  const category = useSelector(state =>{
-    return state.categoriesReducer.categories
-  }) 
-     return <Categories categories={category} />;
-    };
+ 
+  return <Categories categories={category} />;
+};
   
   export default CategoriesContainer;
 
