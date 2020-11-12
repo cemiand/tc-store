@@ -1,20 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Button,
-  Modal,
-  Nav,
-  Navbar,
-  Form,
-  FormControl,
-  Dropdown,
+  Button, Modal, Nav, Navbar, Dropdown,
 } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
-export default ({ userlog, logout, handleChange, filterValue }) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+export default ({ userlog, logout, handleChange, filterValue, show, handleShow, handleClose }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -107,7 +98,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                 Sign In
             </Button>
               <Modal show={show} onHide={handleClose}>
-                {<LoginContainer />}
+                {<LoginContainer handleClose={handleClose} />}
               </Modal>
             </>
           )}

@@ -1,13 +1,15 @@
 const router = require("express").Router();
 const {findCategories,createCategories,deleteCategories} = require("../controllers/categoriesController")
+const { authRole } = require("./admin")
+
 
 
 router.route("/")
 .get(findCategories)
-.post(createCategories)
+.post(authRole("admin"), createCategories)
 
 router.route("/:id")
-.delete(deleteCategories)
+.delete(authRole("admin"), deleteCategories)
 // .get()
 
 
