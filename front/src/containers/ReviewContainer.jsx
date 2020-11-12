@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Review from "../components/Review";
-import { postReview } from "../store/actions/reviewsAction";
-import ContenedorDeReviews from "../components/ContenedorDeReviews";
+import { postReview } from "../store/actions/productAction";
 
 const ReviewContainer = () => {
+  const dispatch = useDispatch();
+
   const [review, SetReview] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -18,8 +19,7 @@ const ReviewContainer = () => {
 
   const onSubmiteHandler = (e) => {
     e.preventDefault();
-    <ContenedorDeReviews />;
-    postReview(singleProduct, { review, rating });
+    dispatch(postReview(singleProduct, { review, rating }));
   };
 
   return (
