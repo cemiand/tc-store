@@ -33,13 +33,13 @@
 	left: 90%;
 	width: 57px;
 	height: 83%;
-	background: #29a745;
+	background: -webkit-linear-gradient(left, #7579ff, #b224ef);
 	z-index: 1;
 	cursor: pointer;
 }
 
 .search_wrap .search_box .btn:hover{
-	background: #65d57e;	
+	background: -webkit-linear-gradient(right, #7579ff, #b224ef);	
 }
 
 .search_wrap .search_box .btn.btn_common .fas{

@@ -4,24 +4,12 @@ import { createProduct } from "../store/actions/productAction"
 
 
 
-export default ({ categories, handleOptions }) => {
+export default ({handleSubmitCreate, categories, handleOptions}) => {
 
-  const handleSubmit = (e) => {
-
-    e.preventDefault()
-    createProduct({
-      name: e.target[0].value,
-      brand: e.target[1].value,
-      categories: e.target[2].value,
-      price: e.target[3].value,
-      pictures: e.target[4].value,
-      description: e.target[5].value
-    })
-  }
-
+  
   return (
 
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmitCreate}>
       <Form.Group >
         <Form.Label><b>Name:</b></Form.Label>
         <Form.Control name="name" type="text" placeholder="Name" />

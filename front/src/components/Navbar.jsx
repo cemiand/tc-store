@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Modal,
-  Nav,
-  Navbar,
-  Form,
-  FormControl,
-  Dropdown,
-} from "react-bootstrap";
+import { Button, Modal, Navbar, Dropdown } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
 export default ({

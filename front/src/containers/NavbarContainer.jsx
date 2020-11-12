@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../store/actions/usersAction";
 import useInput from "../hooks/useInput";
 
-const NavbarContainer = () => {
+const NavbarContainer = ({ history }) => {
   const dispatch = useDispatch();
 
   const [show, setShow] = useState(false);
@@ -12,7 +12,7 @@ const NavbarContainer = () => {
   const handleShow = () => setShow(true);
 
   const logout = () => {
-    dispatch(logoutUser());
+    dispatch(logoutUser()).then(() => history.push("/"));
   };
 
   const { singleUser } = useSelector((state) => state.usersReducer);

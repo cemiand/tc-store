@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card } from "react-bootstrap"
-import { updateOrder, fetchSingleOrder } from "../store/actions/ordersAction"
-import { useDispatch } from "react-redux"
+import { Form, Row, Col, Button, Card } from "react-bootstrap"
+import { fetchSingleOrder} from "../store/actions/ordersAction"
+import {useDispatch} from "react-redux"
 
 
-export default ({ orders, singleOrder }) => {
+export default ({ orders, singleOrder, handleSubmitOrder }) => {
   const dispatch = useDispatch()
   const [options, setOptions] = useState("")
   const [newOptions, setNewOptions] = useState("")
@@ -17,15 +17,10 @@ export default ({ orders, singleOrder }) => {
     console.log("SINGLE ORDER", newOptions)
   }
 
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    updateOrder({
-      _id: singleOrder._id,
-      state: newOptions
-    })
-  }
+    function setOrder(e, id) {
+      e.preventDefault()
+      dispatch(fetchSingleOrder(id))  
+    }
 
   return (
 
@@ -58,21 +53,21 @@ export default ({ orders, singleOrder }) => {
             })
           )}
 
-        </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Select new status</Form.Label>
-          <Form.Control as="select" onClick={(e) => { setNewOptions(e.target.value) }}>
-            <option value="Confirmado">Confirmed</option>
-            <option value="En Camino">On Delivery</option>
-            <option value="Entregado">Delivered</option>
-            <option value="Devuelto">Rejected</option>
-          </Form.Control>
-        </Form.Group>
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }} >
-            <div style={{ width: "80%" }}>
-              <Button onClick={handleSubmit} className="buttonsDiv" type="submit" variant="info">Update</Button>
-            </div>
+      </Form.Group>
+      <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Label>Select new status</Form.Label>
+        <Form.Control as="select" onClick={(e) => { setNewOptions(e.target.value) }}>
+          <option value="Confirmado">Confirmed</option>
+          <option value="En Camino">On Delivery</option>
+          <option value="Entregado">Delivered</option>
+          <option value="Devuelto">Rejected</option>
+        </Form.Control>
+      </Form.Group>
+      <Form.Group as={Row}>
+        <Col sm={{ span: 10, offset: 2 }} >
+          <div className="buttonsDivUser">
+            <Button onClick={(e)=>handleSubmitOrder(e, newOptions)} className="buttonformAdmin" type="submit" variant="info">Update</Button>
+          </div>
 
           </Col>
         </Form.Group></Form>
