@@ -24,7 +24,7 @@ export default ({ users, handleChange, filterValue }) => {
         {(filterValue.length >= 3) && (
           users.filter(user => user.email.includes(filterValue)).map(user => {
             return (
-              <Col xs={3} className="mb-4" key={user._id}>
+              <Col xs={3} className="mb-4 paraCols" key={user._id}>
                 <Card.Body>
                   <Card.Text>Name: {user.name}</Card.Text>
                   <Card.Text>Email: {user.email}</Card.Text>

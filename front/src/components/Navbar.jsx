@@ -76,15 +76,26 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                   padding: "0 4px",
                 }}
               >
-                <Dropdown.Item>
-                  <Link to="/shoppinghistory" className="dropdownbutton">
-                    Shopping
-                    </Link>
+                <Dropdown.Item className="dropdownbutton">
+                  <Link to="/shoppinghistory" >
+                    <div>Shopping</div>
+                  </Link>
                 </Dropdown.Item>
-
-                <Link to="/" onClick={logout} className="dropdownbutton">
-                  {" "}
-                  <Dropdown.Item>Log Out</Dropdown.Item>
+                {userlog.accessLevel === "admin"
+                  ?
+                  <Dropdown.Item className="dropdownbutton">
+                    <Link bg="lg" to="/admin">
+                      <div>Admin</div>
+                    </Link>
+                  </Dropdown.Item>
+                  :
+                  null
+                }
+                <Link to="/" onClick={logout}>
+                  <Dropdown.Item>
+                    {" "}
+                    Log Out
+                </Dropdown.Item>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
@@ -93,9 +104,6 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             <>
               <Button variant="outline-success" onClick={handleShow}>
                 Sign In
-            </Button>
-              <Button variant="outline-success" href="/admin">
-                Admin
             </Button>
               <Modal show={show} onHide={handleClose}>
                 {<LoginContainer />}

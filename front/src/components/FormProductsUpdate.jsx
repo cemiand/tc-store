@@ -1,23 +1,23 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import {updateProduct} from "../store/actions/productAction"
+import { updateProduct } from "../store/actions/productAction"
 
 
 export default ({ singleProduct }) => {
 
   const handleSubmit = (e) => {
- 
+
     e.preventDefault()
-    updateProduct({   
-    name: e.target[0].value,
-    brand: e.target[1].value,
-    categories: e.target[2].value,
-    price: e.target[3].value,
-    pictures: e.target[4].value,
-    description: e.target[5].value,
-    _id: e.target[6].value,
+    updateProduct({
+      name: e.target[0].value,
+      brand: e.target[1].value,
+      categories: e.target[2].value,
+      price: e.target[3].value,
+      pictures: e.target[4].value,
+      description: e.target[5].value,
+      _id: e.target[6].value,
     })
-    }
+  }
 
   return (
 
@@ -57,10 +57,10 @@ export default ({ singleProduct }) => {
 
       <Form.Group >
         <Form.Label><b>Product Id</b></Form.Label>
-        <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled/>
+        <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled />
       </Form.Group>
 
-     <Button variant="success" type="submit">Submit</Button> 
+      <Button variant="success" className="buttonsDiv" type="submit">Submit</Button>
 
     </Form>
 

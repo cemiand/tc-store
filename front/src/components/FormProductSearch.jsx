@@ -24,7 +24,7 @@ export default ({ handleChange, products, filterValue }) => {
           })
         }
       </Form.Control>
-      <Button className="buttonsDiv" onClick={setProduct}>Fill with data</Button>
+      <Button className="buttonsDiv" onClick={setProduct}>Fullfill</Button>
 
 
     </Form.Group>
