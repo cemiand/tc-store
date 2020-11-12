@@ -1,15 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "react-bootstrap";
+import LoginContainer from "../containers/LoginContainer";
 
-const Cart = ({ cart, deleteProduct, resetCart }) => {
+const Cart = ({
+  cart,
+  deleteProduct,
+  resetCart,
+  user,
+  handleClose,
+  show,
+  createOrder,
+  buy,
+}) => {
   return (
     <div>
       <h4 className="title">Shopping Cart</h4>
-      <button onClick={resetCart}>Reset</button>
+      <div className="buttons">
+        <button onClick={resetCart}>Reset</button>
+        <button onClick={createOrder}>Buy</button>
+      </div>
       <div className="shopping-cart">
         {cart
           ? cart.map((order) => (
-              <div className="item" key={order._id}>
+              <div className="item" key={order._id || order.product._id}>
                 <button
                   className="delete-btn"
                   onClick={() => deleteProduct(order.product)}
@@ -17,9 +31,11 @@ const Cart = ({ cart, deleteProduct, resetCart }) => {
                   X
                 </button>
 
-                <Link to={`/products/${order.product._id}`} className="image">
+                <div className="image">
+                  {/* <Link to={`/products/${order.product._id}`} className="image"> */}
                   <img src={order.product.pictures} alt="Imagen del producto" />
-                </Link>
+                  {/* </Link> */}
+                </div>
 
                 <div className="description">
                   <span className="name">{order.product.name}</span>
@@ -34,6 +50,23 @@ const Cart = ({ cart, deleteProduct, resetCart }) => {
               </div>
             ))
           : null}
+        {user && user.name ? (
+          buy ? (
+            <Modal show={show} onHide={handleClose}>
+              <div className="confirmPurchase">
+                <h1>Thanks for your purchase {user.name}!!</h1>
+                <p>
+                  Check your email. Soon you will receive the confirmation of
+                  the purchase made.
+                </p>
+              </div>
+            </Modal>
+          ) : null
+        ) : (
+          <Modal show={show} onHide={handleClose}>
+            {<LoginContainer handleClose={handleClose} />}
+          </Modal>
+        )}
       </div>
     </div>
   );

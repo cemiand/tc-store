@@ -7,5 +7,7 @@ router.use("/cart", require("./cart")); //RECORDAR CREAR MIDDLEWARE user logeado
 router.use("/reviews", require("./reviews"));
 router.use("/admin", require("./admin").router);
 router.use("/categories", require("./categories"));
+router.use("/orders", require("./orders"));
+// router.use("/email");
 
 module.exports = router;

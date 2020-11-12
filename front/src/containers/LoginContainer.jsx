@@ -2,9 +2,13 @@ import React from "react";
 import Login from "../components/Login";
 import useInput from "../hooks/useInput";
 import { useDispatch } from "react-redux";
-import { createUser, loginUser, loginUserGoogle } from "../store/actions/usersAction";
+import {
+  createUser,
+  loginUser,
+  loginUserGoogle,
+} from "../store/actions/usersAction";
 
-export default () => {
+export default ({ handleClose }) => {
   const dispatch = useDispatch();
 
   const handleButton = () => {
@@ -25,11 +29,12 @@ export default () => {
   const handleSingIn = () => {
     const user = { email: inputs.email, password: inputs.password };
     dispatch(loginUser(user));
+    handleClose();
   };
 
   const handleSignGoogle = () => {
-    dispatch(loginUserGoogle())
-  }
+    dispatch(loginUserGoogle());
+  };
 
   return (
     <Login
