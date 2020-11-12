@@ -8,16 +8,17 @@ const cartController = {
       .catch((err) => res.status(500).send(err));
   },
   setCart(req, res) {
-    User.findById(req.user._id)
-      .populate({ path: "cart", populate: { path: "product" } })
-      .then((user) => {
-        const newCart = req.body.map((order) => ProductOrder.create(order));
-        Promise.all(newCart).then((cart) => {
-          user.cart = cart;
-          user.save();
-          res.status(201).send(user.cart);
+    User.findById(req.user._id).then((user) => {
+      const newCart = req.body.map((order) => ProductOrder.create(order));
+      Promise.all(newCart).then((cart) => {
+        user.cart = cart;
+        user.save().then(() => {
+          User.findById(req.user._id)
+            .populate({ path: "cart", populate: { path: "product" } })
+            .then((user) => res.status(201).send(user.cart));
         });
       });
+    });
   },
   resetCart(req, res) {
     User.findById(req.user._id)

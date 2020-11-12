@@ -7,8 +7,7 @@ const productSchema = new Schema({
     require: true,
   },
   brand: {
-    type: Schema.Types.String,
-    ref: "brand",
+    type: String,
     require: true,
   },
   categories: [
@@ -19,7 +18,6 @@ const productSchema = new Schema({
   ],
   price: {
     type: Number,
-    ref: "order",
     required: true,
   },
   reviews: [
