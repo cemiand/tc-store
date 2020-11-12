@@ -7,7 +7,7 @@ import { submitCat, fetchCategories, deleteCategory } from "../store/actions/cat
 import useInput from "../hooks/useInput"
 import { useDispatch, useSelector } from "react-redux"
 
-export default () => {
+export default ({history}) => {
   const dispatch = useDispatch();
 
   const { users, singleUser } = useSelector((state) => state.usersReducer);
@@ -52,6 +52,7 @@ export default () => {
   const handleDeleteProduct = (e) => {
     e.preventDefault()
     dispatch(deleteProduct(singleProduct))
+    history.push("/")
   }
 
   const handleSubmitCreate = (e) => {
@@ -65,6 +66,7 @@ export default () => {
       pictures: e.target[4].value,
       description: e.target[5].value
     })
+    dispatch(fetchProducts())
   }
 
 
@@ -73,7 +75,7 @@ export default () => {
     dispatch(updateProduct({
       name: e.target[0].value,
       brand: e.target[1].value,
-      categories: options,
+      categories: [options],
       price: e.target[3].value,
       pictures: e.target[4].value,
       description: e.target[5].value,
