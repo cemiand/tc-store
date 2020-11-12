@@ -12,9 +12,8 @@ const singleProduct = (data) => ({
 });
 
 export const createProduct = (product) => (dispatch) => {
-  axios.post("/api/products", product).then(({ data }) => dispatch(fetchProducts()))
-}
-
+  axios.post("/api/products", product).then(() => dispatch(fetchProducts()));
+};
 
 export const fetchProducts = () => (dispatch) =>
   axios.get("/api/products").then(({ data }) => dispatch(products(data)));
@@ -22,18 +21,17 @@ export const fetchProducts = () => (dispatch) =>
 export const fetchSingleProduct = (id) => (dispatch) =>
   axios
     .get(`/api/products/${id}`)
-    .then(({ data }) => dispatch(singleProduct(data)))
+    .then(({ data }) => dispatch(singleProduct(data)));
 
 export const updateProduct = (product) => {
-  axios.put(`/api/products/${product._id}`, product)
-    .then(res => res.data)
-    .then(data => { dispatch(fetchSingleProduct(data._id)) })
-}
+  axios
+    .put(`/api/products/${product._id}`, product)
+    .then((res) => res.data)
+    .then((data) => dispatch(fetchSingleProduct(data._id)));
+};
 
 export const deleteProduct = (product) => {
-  axios.delete(`/api/products/${product._id}`)
-    .then(() => { dispatch(fetchProducts()) })
-}
-
-
-
+  axios
+    .delete(`/api/products/${product._id}`)
+    .then(() => dispatch(fetchProducts()));
+};

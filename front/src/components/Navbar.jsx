@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Button, Modal, Nav, Navbar, Dropdown,
-} from "react-bootstrap";
+import { Button, Modal, Navbar, Dropdown } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
-export default ({ userlog, logout, handleChange, filterValue, show, handleShow, handleClose }) => {
-
+export default ({
+  userlog,
+  logout,
+  handleChange,
+  filterValue,
+  handleClose,
+  handleShow,
+  show,
+}) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/" className="brand">
@@ -93,15 +98,15 @@ export default ({ userlog, logout, handleChange, filterValue, show, handleShow, 
             </Dropdown>
           </>
         ) : (
-            <>
-              <Button variant="outline-success" onClick={handleShow}>
-                Sign In
+          <>
+            <Button variant="outline-success" onClick={handleShow}>
+              Sign In
             </Button>
-              <Modal show={show} onHide={handleClose}>
-                {<LoginContainer handleClose={handleClose} />}
-              </Modal>
-            </>
-          )}
+            <Modal show={show} onHide={handleClose}>
+              {<LoginContainer handleClose={handleClose} />}
+            </Modal>
+          </>
+        )}
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />

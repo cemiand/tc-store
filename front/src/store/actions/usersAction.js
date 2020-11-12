@@ -1,5 +1,6 @@
 import axios from "axios";
 import { SET_USER, REMOVE_USER, SET_USERS } from "../constants";
+import { resetCartStorage } from "./cartAction";
 
 const setUser = (data) => ({ type: SET_USER, payload: data });
 
@@ -25,17 +26,21 @@ const loginUserGoogle = (user) => (dispatch) => {
 };
 
 const updateUser = (user) => {
-  axios.put("/api/users", user)
+  axios
+    .put("/api/users", user)
 
-    .then(res => console.log(res.data))
-}
+    .then((res) => console.log(res.data));
+};
 
 const deleteUser = (user) => {
-  axios.delete(`/api/users/${user.email}`)
-}
+  axios.delete(`/api/users/${user.email}`);
+};
 
 const logoutUser = () => (dispatch) =>
-  axios.post("/api/auth/logout").then(() => dispatch(cleanUser()));
+  axios.post("/api/auth/logout").then(() => {
+    dispatch(cleanUser());
+    dispatch(resetCartStorage());
+  });
 
 const fetchUser = () => (dispatch) =>
   axios.get("/api/auth/me").then(({ data }) => {
@@ -43,7 +48,14 @@ const fetchUser = () => (dispatch) =>
     return data;
   });
 
-
-
-export { fetchUsers, loginUser, logoutUser, createUser, fetchUser, loginUserGoogle, deleteUser, updateUser, setUser };
-
+export {
+  fetchUsers,
+  loginUser,
+  logoutUser,
+  createUser,
+  fetchUser,
+  loginUserGoogle,
+  deleteUser,
+  updateUser,
+  setUser,
+};
