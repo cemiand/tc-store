@@ -3,16 +3,30 @@ import { useDispatch } from "react-redux"
 import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
+import FormProductsDelete from "./FormProductsDelete";
+import FormProductsUpdate from "./FormProductsUpdate";
 import FormProductSearch from "./FormProductSearch";
-import { updateProduct } from "../store/actions/productAction";
+import FormOrders from "./FormOrders"
 
+export default ({
+  orders,
+  singleOrder,
+  handleOptions, setProduct,
+  users,
+  handleChange,
+  handleSubmitCat,
+  handleDeleteCat,
+  filterValue,
+  products,
+  singleProduct,
+  deleteProduct,
+  categories, }) => {
 
-
-export default ({ handleOptions, setProduct, users, handleChange, handleSubmitCat, handleDeleteCat, filterValue, products, singleProduct, deleteProduct, categories }) => {
 
   const [key, setKey] = useState("Users");
 
   return (
+
     <Jumbotron fluid>
       <Tabs
         id="controlled-tab-example"
@@ -52,45 +66,29 @@ export default ({ handleOptions, setProduct, users, handleChange, handleSubmitCa
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
-                    <h1 className="adminUserForm">Create a Product</h1>
-                    <Form>
+                    <div>
                       <FormProductsCreate />
-                      <Button className="buttonsDiv" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <Form>
-                      <h1 className="adminUserForm">Update a Product</h1>
+                    <div>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
                         singleProduct={singleProduct}
                       />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button
-                        className="buttonsDiv"
-                        onClick={setProduct}
-                        type="submit"
-                      >
-                        Submit
-                      </Button>
-                    </Form>
+                      <FormProductsUpdate singleProduct={singleProduct} />
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
-                    <Form>
-                      <h1 className="adminUserForm">Delete a Product</h1>
+                    <div>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
                         singleProduct={singleProduct} />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button className="buttonsDiv" type="submit" onClick={deleteProduct}>
-                        Submit
-                      </Button>
-                    </Form>
+                      <FormProductsDelete singleProduct={singleProduct} />
+                    </div>
                   </Tab.Pane>
                 </Tab.Content>
               </Col>
@@ -160,8 +158,13 @@ export default ({ handleOptions, setProduct, users, handleChange, handleSubmitCa
             </Row>
           </Tab.Container>
         </Tab>
+
         {/* //----------PESTAÑA ORDERS------------ */}
-        <Tab eventKey="Orders" title="Orders"></Tab>
+        <Tab eventKey="Orders" title="Orders">
+          <div>
+            <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders} />
+          </div>
+        </Tab>
       </Tabs>
     </Jumbotron>
   );

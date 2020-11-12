@@ -94,12 +94,14 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
               <Button variant="outline-success" onClick={handleShow}>
                 Sign In
             </Button>
+              <Button variant="outline-success" href="/admin">
+                Admin
+            </Button>
               <Modal show={show} onHide={handleClose}>
                 {<LoginContainer />}
               </Modal>
             </>
           )}
-
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />
