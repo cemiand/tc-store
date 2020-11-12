@@ -1,4 +1,4 @@
-const { Product, User, ProductOrder } = require("../db/models");
+const { User, ProductOrder } = require("../db/models");
 
 const cartController = {
   getCart(req, res) {
@@ -19,21 +19,15 @@ const cartController = {
         });
       });
   },
-  // resetCart(req, res) {
-  //   // ¿QUEDAN LAS ORDERS EN LA DATABASE?
-  //   User.findByIdAndUpdate(req.user._id, req.body)
-  //     .then(() => res.status(200))
-  //     .catch((err) => res.status(500).send(err));
-  // },
   resetCart(req, res) {
     User.findById(req.user._id)
       .then((user) => {
         const cart = user.cart.map((order) =>
           ProductOrder.deleteOne({ _id: order._id })
         );
-        Promise.all(cart).then(() => {
+        Promise.all(cart).then((emptyCart) => {
           user.save();
-          res.status(200).send(user.cart);
+          res.status(200).send(emptyCart);
         });
       })
       .catch((err) => res.status(500).send(err));

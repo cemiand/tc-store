@@ -33,6 +33,12 @@ export default () => {
   }
 
 
+  useEffect(() => {
+    dispatch(fetchUsers());
+    dispatch(fetchProducts());
+    dispatch(fetchOrders());
+    dispatch(fetchCategories())
+  }, []);
 
   //PRODUCTOS
   function setProduct(e) {
@@ -122,7 +128,9 @@ export default () => {
     return (
     <Admin singleUser={singleUser} orders={orders} users={users} handleOptions={handleOptions} categories={categories} handleDeleteCat={handleDeleteCat} handleChange={handleChange} handleSubmitCat={handleSubmitCat} filterValue={inputs} products={products} setProduct={setProduct} singleProduct={singleProduct} singleOrder={singleOrder} setSingleProduct={setSingleProduct} handleDeleteProduct={handleDeleteProduct} handleSubmitUpdate={handleSubmitUpdate}
     handleSubmitCreate={handleSubmitCreate} handleUpdateUser={handleUpdateUser} handleUserDelete={handleUserDelete} handleSubmitOrder={handleSubmitOrder}/>
+
     )
+  
 
     
 }

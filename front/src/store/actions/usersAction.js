@@ -26,9 +26,11 @@ const loginUserGoogle = (user) => (dispatch) => {
 
 const updateUser = (user) => {
   axios.put("/api/users", user)
+
+    .then(res => console.log(res.data))
 }
 
-const deleteUser = (user) => (dispatch) => {
+const deleteUser = (user) => {
   axios.delete(`/api/users/${user.email}`)
 }
 
