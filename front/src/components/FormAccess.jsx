@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react"
-import { Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card } from "react-bootstrap"
+import React, { useState } from "react"
+import { Form, Row, Col, Button, Card } from "react-bootstrap"
 import { deleteUser, updateUser } from "../store/actions/usersAction"
 
 export default ({ users, handleChange, filterValue }) => {
   const [options, setOptions] = useState("")
   function setUser(e) {
     e.preventDefault()
+    console.log("options en user:", options)
     updateUser({ email: filterValue, accessLevel: options })
   }
 
@@ -39,7 +40,8 @@ export default ({ users, handleChange, filterValue }) => {
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label>Levels of Access</Form.Label>
-        <Form.Control as="select" onClick={(e) => { setOptions(e.target.value) }}>
+        <Form.Control as="select" onChange={(e) => { setOptions(e.target.value) }}>
+          <option value=""></option>
           <option value="admin">Admin</option>
           <option value="user">User</option>
         </Form.Control>
@@ -47,10 +49,9 @@ export default ({ users, handleChange, filterValue }) => {
       <Form.Group as={Row}>
         <Col sm={{ span: 10, offset: 2 }} >
           <div className="buttonsDivUser">
-            <Button className="buttonformAdmin" onClick={setUser} type="submit" variant="info">Update</Button>
+            <Button className="buttonformAdmin" onClick={setUser} variant="info">Update</Button>
             <Button className="buttonformAdmin" onClick={setDelete} type="submit" variant="warning">Delete</Button>
           </div>
-
         </Col>
       </Form.Group></Form>
   )

@@ -26,19 +26,13 @@ const loginUserGoogle = (user) => (dispatch) => {
 
 const updateUser = (user) => {
   axios.put("/api/users", user)
-    .then(res => res.data)
+
+    .then(res => console.log(res.data))
 }
 
 const deleteUser = (user) => {
   axios.delete(`/api/users/${user.email}`)
 }
-
-export const deletCategory = (id) => (dispatch)=>{
-  axios.delete(`/api/categories/${id}`)
-  .then(({data})=>dispatch(categories(data)))
-}
-
-
 
 const logoutUser = () => (dispatch) =>
   axios.post("/api/auth/logout").then(() => dispatch(cleanUser()));
