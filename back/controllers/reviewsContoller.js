@@ -10,8 +10,11 @@ const reviewsController = {
           description: req.body.review,
         }).then((review) => {
           product.reviews.push(review);
-          product.save();
-          res.status(201).send(product);
+          product.save().then(() => {
+            Product.findById(req.params.productId)
+              .populate({ path: "reviews", populate: { path: "user" } })
+              .then((producto) => res.status(201).send(producto));
+          });
         });
       })
       .catch((err) => res.status(404).send(err));
