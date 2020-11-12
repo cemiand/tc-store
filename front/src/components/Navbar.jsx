@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Button, Modal, Nav, Navbar, Form, FormControl, Dropdown,
+  Button,
+  Modal,
+  Nav,
+  Navbar,
+  Form,
+  FormControl,
+  Dropdown,
 } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
@@ -35,6 +41,24 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Link>
           </div>
         </div>
+
+        {/* <Form className="searcher">
+          <FormControl
+            onChange={handleChange}
+            value={filterValue}
+            name="search"
+            type="text"
+            placeholder="Search"
+            className="mr-sm-2"
+          />
+          <Link to={`/${filterValue}`}>
+            {" "}
+            <Button type="button" variant="outline-success">
+              <img src="lupita2.png" className="lupitapng" />
+            </Button>
+          </Link>
+        </Form> */}
+
         {userlog && userlog.name ? (
           <>
             <Dropdown>
@@ -60,32 +84,26 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                 }}
               >
                 <Dropdown.Item className="dropdownbutton">
-                  <Link to="/shoppinghistory" >
+                  <Link to="/shoppinghistory">
                     <div>Shopping</div>
                   </Link>
                 </Dropdown.Item>
-                {userlog.accessLevel === "admin"
-                  ?
+                {userlog.accessLevel === "admin" ? (
                   <Dropdown.Item className="dropdownbutton">
                     <Link bg="lg" to="/admin">
                       <div>Admin</div>
                     </Link>
                   </Dropdown.Item>
-                  :
-                  null
-                }
+                ) : null}
                 <Link to="/" onClick={logout}>
-                  <Dropdown.Item>
-                    {" "}
-                    Log Out
-                </Dropdown.Item>
+                  <Dropdown.Item> Log Out</Dropdown.Item>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
           </>
         ) : (
             <>
-              <Button variant="outline" className="buttonSignIn" onClick={handleShow}>
+              <Button variant="outline-success" onClick={handleShow}>
                 Sign In
             </Button>
               <Modal show={show} onHide={handleClose}>
