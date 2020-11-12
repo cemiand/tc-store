@@ -12,7 +12,7 @@ const singleProduct = (data) => ({
 });
 
 export const createProduct = (product) => (dispatch) => {
-  axios.post("/api/products", product).then(() => dispatch(fetchProducts()));
+ axios.post("/api/products", product).then(() => dispatch(fetchProducts()));
 };
 
 export const fetchProducts = () => (dispatch) =>
