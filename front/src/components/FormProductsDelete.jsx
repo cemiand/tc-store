@@ -7,9 +7,9 @@ export default ({ singleProduct }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    deleteProduct({   
+    deleteProduct(
    singleProduct
-    })
+    )
     }
 
   return (

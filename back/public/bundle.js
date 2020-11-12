@@ -55968,9 +55968,7 @@ __webpack_require__.r(__webpack_exports__);
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["deleteProduct"])({
-      singleProduct: singleProduct
-    });
+    Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_2__["deleteProduct"])(singleProduct);
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
