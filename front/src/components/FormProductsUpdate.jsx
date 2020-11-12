@@ -21,7 +21,7 @@ export default ({ singleProduct, handleOptions, handleSubmit, categories }) => {
 
       <Form.Group >
         <Form.Label><b>Category:</b></Form.Label>
-        <Form.Control as="select" onChange={handleOptions}>
+        <Form.Control as="select" onClick={handleOptions}>
           {categories &&
             categories.map(category => {
               return (

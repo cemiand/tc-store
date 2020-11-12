@@ -62223,6 +62223,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+
 
 
 var ContenedorDeReviews = function ContenedorDeReviews(_ref) {
@@ -62244,7 +62246,10 @@ var ContenedorDeReviews = function ContenedorDeReviews(_ref) {
         textAlign: "left"
       }
     }, review.user.name, " dijo:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, review.description));
-  }) : null);
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Spinner"], {
+    animation: "border",
+    variant: "light"
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ContenedorDeReviews);
@@ -62760,7 +62765,7 @@ __webpack_require__.r(__webpack_exports__);
     defaultValue: singleProduct && singleProduct.brand
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Category:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     as: "select",
-    onChange: handleOptions
+    onClick: handleOptions
   }, categories && categories.map(function (category) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: category._id,
@@ -63159,7 +63164,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
+ // import { Spinner } from "react-bootstrap";
 
 var Review = function Review(_ref) {
   var singleUser = _ref.singleUser,
@@ -63175,11 +63180,12 @@ var Review = function Review(_ref) {
       setDejoReview = _useState2[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    setDejoReview(false);
     singleProductReviews && singleProductReviews.forEach(function (reviews) {
       reviews.user._id == singleUser.id ? setDejoReview(true) : null;
     });
   });
-  return dejoReview == false && (singleUser.name ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return dejoReview == false && singleUser.name ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "formulario"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "h2"
@@ -63197,7 +63203,7 @@ var Review = function Review(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary"
-  }, "Submit"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Plz leave a review"));
+  }, "Submit"))) : null;
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Review);
@@ -63428,7 +63434,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var history = _ref.history;
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["useDispatch"])();
 
   var _useSelector = Object(react_redux__WEBPACK_IMPORTED_MODULE_7__["useSelector"])(function (state) {
@@ -63500,6 +63507,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   var handleDeleteProduct = function handleDeleteProduct(e) {
     e.preventDefault();
     dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["deleteProduct"])(singleProduct));
+    history.push("/");
   };
 
   var handleSubmitCreate = function handleSubmitCreate(e) {
@@ -63512,6 +63520,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       pictures: e.target[4].value,
       description: e.target[5].value
     });
+    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["fetchProducts"])());
   };
 
   var handleSubmitUpdate = function handleSubmitUpdate(e) {
@@ -63519,7 +63528,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["updateProduct"])({
       name: e.target[0].value,
       brand: e.target[1].value,
-      categories: options,
+      categories: [options],
       price: e.target[3].value,
       pictures: e.target[4].value,
       description: e.target[5].value,
@@ -64035,8 +64044,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _components_Review__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Review */ "./src/components/Review.jsx");
-/* harmony import */ var _store_actions_reviewsAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/actions/reviewsAction */ "./src/store/actions/reviewsAction.js");
-/* harmony import */ var _components_ContenedorDeReviews__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ContenedorDeReviews */ "./src/components/ContenedorDeReviews.jsx");
+/* harmony import */ var _store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/actions/productAction */ "./src/store/actions/productAction.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -64055,8 +64063,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var ReviewContainer = function ReviewContainer() {
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
+
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
       _useState2 = _slicedToArray(_useState, 2),
       review = _useState2[0],
@@ -64083,13 +64092,10 @@ var ReviewContainer = function ReviewContainer() {
 
   var onSubmiteHandler = function onSubmiteHandler(e) {
     e.preventDefault();
-
-    /*#__PURE__*/
-    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ContenedorDeReviews__WEBPACK_IMPORTED_MODULE_4__["default"], null);
-    Object(_store_actions_reviewsAction__WEBPACK_IMPORTED_MODULE_3__["postReview"])(singleProduct, {
+    dispatch(Object(_store_actions_productAction__WEBPACK_IMPORTED_MODULE_3__["postReview"])(singleProduct, {
       review: review,
       rating: rating
-    });
+    }));
   };
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Review__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -64591,11 +64597,12 @@ var deleteOrder = function deleteOrder(order) {
 /*!********************************************!*\
   !*** ./src/store/actions/productAction.js ***!
   \********************************************/
-/*! exports provided: createProduct, fetchProducts, fetchSingleProduct, updateProduct, deleteProduct */
+/*! exports provided: postReview, createProduct, fetchProducts, fetchSingleProduct, updateProduct, deleteProduct */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postReview", function() { return postReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createProduct", function() { return createProduct; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchProducts", function() { return fetchProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSingleProduct", function() { return fetchSingleProduct; });
@@ -64621,66 +64628,49 @@ var singleProduct = function singleProduct(data) {
   };
 };
 
-var createProduct = function createProduct(product) {
+var postReview = function postReview(product, review) {
   return function (dispatch) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/products", product).then(function () {
-      return dispatch(fetchProducts());
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/reviews/".concat(product._id), review).then(function (_ref) {
+      var data = _ref.data;
+      return dispatch(singleProduct(data));
     });
   };
 };
+var createProduct = function createProduct(product) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/products", product).then(function () {
+    return fetchProducts();
+  });
+};
 var fetchProducts = function fetchProducts() {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products").then(function (_ref) {
-      var data = _ref.data;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products").then(function (_ref2) {
+      var data = _ref2.data;
       return dispatch(products(data));
     });
   };
 };
 var fetchSingleProduct = function fetchSingleProduct(id) {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products/".concat(id)).then(function (_ref2) {
-      var data = _ref2.data;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products/".concat(id)).then(function (_ref3) {
+      var data = _ref3.data;
       return dispatch(singleProduct(data));
     });
   };
 };
 var updateProduct = function updateProduct(product) {
   return function (dispatch) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/products/".concat(product._id), product).then(function (res) {
-      return res.data;
-    }).then(function (data) {
-      dispatch(fetchSingleProduct(data._id));
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.put("/api/products/".concat(product._id), product).then(function (_ref4) {
+      var data = _ref4.data;
+      return dispatch(fetchSingleProduct(data._id));
     });
   };
 };
 var deleteProduct = function deleteProduct(product) {
   return function (dispatch) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/products/".concat(product._id)).then(function () {
-      dispatch(fetchProducts());
+      return dispatch(fetchProducts());
     });
   };
-};
-
-/***/ }),
-
-/***/ "./src/store/actions/reviewsAction.js":
-/*!********************************************!*\
-  !*** ./src/store/actions/reviewsAction.js ***!
-  \********************************************/
-/*! exports provided: postReview */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postReview", function() { return postReview; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-var postReview = function postReview(product, review) {
-  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/reviews/".concat(product._id), review).then(function (_ref) {
-    var data = _ref.data;
-    return console.log(data);
-  });
 };
 
 /***/ }),
