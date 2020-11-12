@@ -21,6 +21,7 @@ const usuariosController = {
         name: user.name,
         email: user.email,
         id: user.id,
+        accessLevel: user.accessLevel
       })
     );
   },
@@ -37,6 +38,7 @@ const usuariosController = {
           name: user.name,
           email: user.email,
           id: user.id,
+          accessLevel: user.accessLevel
         })
       );
     } else {

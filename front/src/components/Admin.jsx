@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux"
 import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
@@ -67,7 +66,7 @@ export default ({
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div>
-                      <FormProductsCreate />
+                      <FormProductsCreate categories={categories} handleOptions={handleOptions} />
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">

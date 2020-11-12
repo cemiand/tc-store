@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import {deleteProduct} from "../store/actions/productAction"
+import { deleteProduct } from "../store/actions/productAction"
 
 
 export default ({ singleProduct }) => {
@@ -8,9 +8,9 @@ export default ({ singleProduct }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     deleteProduct(
-   singleProduct
+      singleProduct
     )
-    }
+  }
 
   return (
 
@@ -50,10 +50,10 @@ export default ({ singleProduct }) => {
 
       <Form.Group >
         <Form.Label><b>Product Id</b></Form.Label>
-        <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled/>
+        <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled />
       </Form.Group>
 
-     <Button variant="success" type="submit">Submit</Button> 
+      <Button variant="success" className="buttonsDiv" type="submit">Submit</Button>
 
     </Form>
 
