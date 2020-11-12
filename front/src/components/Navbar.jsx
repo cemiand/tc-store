@@ -11,11 +11,15 @@ import {
 } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
-export default ({ userlog, logout, handleChange, filterValue }) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+export default ({
+  userlog,
+  logout,
+  handleChange,
+  filterValue,
+  handleClose,
+  handleShow,
+  show,
+}) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/" className="brand">
@@ -107,7 +111,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
               Sign In
             </Button>
             <Modal show={show} onHide={handleClose}>
-              {<LoginContainer />}
+              {<LoginContainer handleClose={handleClose} />}
             </Modal>
           </>
         )}
