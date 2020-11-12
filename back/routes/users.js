@@ -4,12 +4,12 @@ const { authRole } = require("./admin")
 
 //agregar el authRole authRole("admin")
 router.route("/")
-  .post(userCreate)
+  .post(authRole("admin"), userCreate)
   .get(findAll)
-  .put(changeAccessLevel)
+  .put(authRole("admin"), changeAccessLevel)
 
 router.route("/:email")
-  .delete(deleteUser)
+  .delete(authRole("admin"), deleteUser)
 
 module.exports = router;
 
