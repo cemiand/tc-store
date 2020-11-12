@@ -8,18 +8,28 @@ import CategoriesContainer from "../containers/CategoriesContainer";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
 import AdminContainer from "../containers/AdminContainer";
 import CartContainer from "../containers/CartContainer";
-import StarRatingContainer from "../containers/StarRatingContainer";
 import ReviewContainer from "../containers/ReviewContainer";
-import ShoppinghistoryContainer from "../containers/ShoppinghistoryContainer"
+import ShoppinghistoryContainer from "../containers/ShoppinghistoryContainer";
+import Footer from "./Footer";
 
-const Main = () => {
+const Main = ({ history }) => {
   return (
     <React.Fragment>
-      <NavbarContainer />
+      <NavbarContainer history={history} />
       <br />
       <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <div>
+              <CarruselContainer />
+              <CategoriesContainer />
+            </div>
+          )}
+        />
+        <Route path="/categories/:name" component={FilteredProductsContainer} />
         <Route exact path="/review" component={ReviewContainer} />
-        {/* <Route exact path="/rating" component={StarRatingContainer} /> */}
         <Route exact path="/admin" component={AdminContainer} />
         <Route
           exact
@@ -32,21 +42,15 @@ const Main = () => {
           )}
         />
         <Route exact path="/cart" component={CartContainer} />
-        <Route exact path="/shoppinghistory" component={ShoppinghistoryContainer} />
-        <Route path="/products/:id" component={SingleProductContainer} />
         <Route
-          path="/categories"
-          render={() => (
-            <div>
-              <CarruselContainer />
-              <CategoriesContainer />
-            </div>
-          )}
+          exact
+          path="/shoppinghistory"
+          component={ShoppinghistoryContainer}
         />
+        <Route path="/products/:id" component={SingleProductContainer} />
         <Route path="/:search" component={FilteredProductsContainer} />
-        <Redirect from="/" to="/products" />
-
       </Switch>
+      <Footer />
       {/* <Footer /> ACA IRIA EL FOOTER */}
     </React.Fragment>
   );

@@ -44,6 +44,7 @@ export default ({ handleClose }) => {
       handleSingIn={handleSingIn}
       handleSignGoogle={handleSignGoogle}
       inputs={inputs}
+
     />
   );
 };
