@@ -18,7 +18,6 @@ export default ({
   filterValue,
   products,
   singleProduct,
-  deleteProduct,
   categories, }) => {
 
 
