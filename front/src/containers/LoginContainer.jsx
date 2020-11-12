@@ -8,7 +8,7 @@ import {
   loginUserGoogle,
 } from "../store/actions/usersAction";
 
-export default () => {
+export default ({ handleClose }) => {
   const dispatch = useDispatch();
 
   const handleButton = () => {
@@ -29,6 +29,7 @@ export default () => {
   const handleSingIn = () => {
     const user = { email: inputs.email, password: inputs.password };
     dispatch(loginUser(user));
+    handleClose();
   };
 
   const handleSignGoogle = () => {

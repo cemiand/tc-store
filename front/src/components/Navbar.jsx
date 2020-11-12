@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Button, Modal, Nav, Navbar, Form, FormControl, Dropdown,
+  Button,
+  Modal,
+  Nav,
+  Navbar,
+  Form,
+  FormControl,
+  Dropdown,
 } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
@@ -52,6 +58,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Button>
           </Link>
         </Form> */}
+
         {userlog && userlog.name ? (
           <>
             <Dropdown>
@@ -77,39 +84,33 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                 }}
               >
                 <Dropdown.Item className="dropdownbutton">
-                  <Link to="/shoppinghistory" >
+                  <Link to="/shoppinghistory">
                     <div>Shopping</div>
                   </Link>
                 </Dropdown.Item>
-                {userlog.accessLevel === "admin"
-                  ?
+                {userlog.accessLevel === "admin" ? (
                   <Dropdown.Item className="dropdownbutton">
                     <Link bg="lg" to="/admin">
                       <div>Admin</div>
                     </Link>
                   </Dropdown.Item>
-                  :
-                  null
-                }
+                ) : null}
                 <Link to="/" onClick={logout}>
-                  <Dropdown.Item>
-                    {" "}
-                    Log Out
-                </Dropdown.Item>
+                  <Dropdown.Item> Log Out</Dropdown.Item>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
           </>
         ) : (
-            <>
-              <Button variant="outline-success" onClick={handleShow}>
-                Sign In
+          <>
+            <Button variant="outline-success" onClick={handleShow}>
+              Sign In
             </Button>
-              <Modal show={show} onHide={handleClose}>
-                {<LoginContainer />}
-              </Modal>
-            </>
-          )}
+            <Modal show={show} onHide={handleClose}>
+              {<LoginContainer />}
+            </Modal>
+          </>
+        )}
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />
