@@ -1,27 +1,83 @@
-import React, {useEffect} from "react"
+import React, { useEffect, useState } from "react"
 import Admin from "../components/Admin"
 import { fetchUsers } from "../store/actions/usersAction";
-import {fetchProducts, fetchSingleProduct} from "../store/actions/productAction"
+import { fetchProducts, updateProduct } from "../store/actions/productAction"
+import { fetchOrders } from "../store/actions/ordersAction"
+import { submitCat, fetchCategories, deleteCategory } from "../store/actions/categoriesAction"
 import useInput from "../hooks/useInput"
-import {useDispatch, useSelector} from "react-redux"
-
-
+import { useDispatch, useSelector } from "react-redux"
 
 export default () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const { users } = useSelector((state) => state.usersReducer);
-    const { products, singleProduct } = useSelector((state) => state.productsReducer);
+  const { users, singleUser } = useSelector((state) => state.usersReducer);
+  const { products, singleProduct, deleteProduct } = useSelector((state) => state.productsReducer);
+  const { orders, singleOrder } = useSelector((state) => state.ordersReducer);
+  const { categories } = useSelector((state) => state.categoriesReducer)
 
-    const { handleChange, inputs } = useInput();
-  
-    useEffect(() => {
-      dispatch(fetchUsers());
-      dispatch(fetchProducts());
-      }, []);
-  
-    return (
-        <Admin users={users} handleChange={handleChange} filterValue={inputs} products={products} singleProduct={singleProduct}/>
-    )
+  const [options, setOptions] = useState("")
+
+  const { handleChange, inputs, setInputs } = useInput();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+    dispatch(fetchProducts());
+    dispatch(fetchOrders());
+    dispatch(fetchCategories())
+  }, []);
+
+  //PRODUCTOS
+  function setProduct(e) {
+    e.preventDefault();
+    updateProduct(singleProduct);
+  }
+
+  function setDelete(e) {
+    e.preventDefault()
+    deleteProduct()
+  }
+
+  //CATEGORIES
+  const handleOptions = (e) => {
+    const value = e.target.value
+    setOptions(value)
+    console.log("options en handleOptions", options)
+  }
+
+  const handleSubmitCat = (e) => {
+    e.preventDefault();
+    const category = {
+      name: inputs.name,
+      image: inputs.image
+    }
+    dispatch(submitCat(category))
+    setInputs({ ...inputs, name: "", image: "" })
+  }
+  const handleDeleteCat = (e) => {
+    e.preventDefault();
+    console.log("options", options)
+    dispatch(deleteCategory(options))
+    setOptions("")
+  }
+
+
+
+  //PRODUCTOS
+  function setProduct(e) {
+    e.preventDefault();
+    updateProduct(singleProduct);
+  }
+
+  function setDelete(e) {
+    e.preventDefault()
+    deleteProduct()
+  }
+
+
+
+  return (
+    <Admin singleUser={singleUser} orders={orders} users={users} handleOptions={handleOptions} categories={categories} handleDeleteCat={handleDeleteCat} handleChange={handleChange} handleSubmitCat={handleSubmitCat} filterValue={inputs} products={products} setProduct={setProduct} singleProduct={singleProduct} deleteProduct={setDelete} singleOrder={singleOrder} />
+  )
+
 
 }

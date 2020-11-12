@@ -1,12 +1,8 @@
-import React from "react"
-import Carrusel from "../components/Carrusel"
+import React from "react";
+import Carrusel from "../components/Carrusel";
 
 const CarruselContainer = () => {
+  return <Carrusel />;
+};
 
-    return (
-        <Carrusel/>
-        )
-
-}
-
-export default CarruselContainer
+export default CarruselContainer;

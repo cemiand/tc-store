@@ -1,54 +1,72 @@
 import React, { useState } from "react"
-import { Form } from "react-bootstrap"
-import { deleteUser } from "../store/actions/usersAction"
+import { Form, Button } from "react-bootstrap"
+import { createProduct } from "../store/actions/productAction"
 
 
-export default ({ filterValue, singleProduct, inputs }) => {
-  const [options, setOptions] = useState("")
-  const [optionDelete, setOptionDelete] = useState("")
 
-  function setDelete(e) {
+export default ({ categories, handleOptions }) => {
+
+  const handleSubmit = (e) => {
+
     e.preventDefault()
-    deleteUser({ email: filterValue })
+    createProduct({
+      name: e.target[0].value,
+      brand: e.target[1].value,
+      categories: e.target[2].value,
+      price: e.target[3].value,
+      pictures: e.target[4].value,
+      description: e.target[5].value
+    })
   }
 
   return (
 
-    <>
+    <Form onSubmit={handleSubmit}>
       <Form.Group >
-        <Form.Label><b>Name</b></Form.Label>
-        <Form.Control name="name" type="text" placeholder="Name" defaultValue={singleProduct && singleProduct.name} />
+        <Form.Label><b>Name:</b></Form.Label>
+        <Form.Control name="name" type="text" placeholder="Name" />
       </Form.Group>
 
 
       <Form.Group >
-        <Form.Label><b>Brand</b></Form.Label>
-        <Form.Control name="brand" type="text" placeholder="Brand" defaultValue={singleProduct && singleProduct.brand} />
+        <Form.Label><b>Brand:</b></Form.Label>
+        <Form.Control name="brand" type="text" placeholder="Brand" />
       </Form.Group>
 
 
       <Form.Group >
-        <Form.Label><b>Categories</b></Form.Label>
-        <Form.Control name="categories" type="text" placeholder="Categories" defaultValue={singleProduct && singleProduct.categories} />
+        <Form.Label><b>Category:</b></Form.Label>
+        {/*  <Form.Control name="categories" type="text" placeholder="Categories" /> */}
+        <Form.Control as="select" onChange={handleOptions}>
+          {categories &&
+            categories.map(category => {
+              return (
+                <option key={category._id} value={category._id}>{category.name}</option>
+              )
+            })
+          }
+        </Form.Control>
       </Form.Group>
 
       <Form.Group >
-        <Form.Label><b>Price</b></Form.Label>
-        <Form.Control name="price" type="text" placeholder="Price" defaultValue={singleProduct && singleProduct.price} />
+        <Form.Label><b>Price:</b></Form.Label>
+        <Form.Control name="price" type="text" placeholder="Price" />
       </Form.Group>
 
 
       <Form.Group >
-        <Form.Label><b>Pictures</b></Form.Label>
-        <Form.Control name="pictures" type="text" placeholder="Pictures" defaultValue={singleProduct && singleProduct.pictures} />
+        <Form.Label><b>Pictures:</b></Form.Label>
+        <Form.Control name="pictures" type="text" placeholder="Pictures" />
       </Form.Group>
 
       <Form.Group >
-        <Form.Label><b>Description</b></Form.Label>
-        <Form.Control name="description" type="text" placeholder="Description" defaultValue={singleProduct && singleProduct.description} />
+        <Form.Label><b>Description:</b></Form.Label>
+        <Form.Control name="description" type="text" placeholder="Description" />
       </Form.Group>
 
-    </>
+      <Button variant="success" className="buttonsDiv" type="submit">Submit</Button>
+
+    </Form>
 
   )
 }

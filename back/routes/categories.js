@@ -1,13 +1,15 @@
-const router = require("express").Router()
-const { authRole } = require("./admin")
-const { findAll, createCategory, updateCategory, deleteCategory } = require("../controllers/categoriesController")
+const router = require("express").Router();
+const {findCategories,createCategories,deleteCategories} = require("../controllers/categoriesController")
 
-//Agregar el authRole authRole("admin")
 
 router.route("/")
-    .get(findAll)
-    .post(createCategory)
-    .delete(deleteCategory)
-    .put(updateCategory)
+.get(findCategories)
+.post(createCategories)
 
-module.exports = router; 
+router.route("/:id")
+.delete(deleteCategories)
+// .get()
+
+
+
+module.exports = router;
