@@ -3,18 +3,13 @@ import { Form, Button } from "react-bootstrap"
 import {deleteProduct} from "../store/actions/productAction"
 
 
-export default ({ singleProduct }) => {
+export default ({ singleProduct, handleDeleteProduct }) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    deleteProduct(
-   singleProduct
-    )
-    }
+  
 
   return (
 
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleDeleteProduct}>
       <Form.Group >
         <Form.Label><b>Name</b></Form.Label>
         <Form.Control name="name" type="text" placeholder="Name" defaultValue={singleProduct && singleProduct.name} />

@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card } from "react-bootstrap"
-import {updateOrder, fetchSingleOrder} from "../store/actions/ordersAction"
+import { Form, Row, Col, Button, Card } from "react-bootstrap"
+import { fetchSingleOrder} from "../store/actions/ordersAction"
 import {useDispatch} from "react-redux"
 
 
-export default ({ orders, singleOrder }) => {
+export default ({ orders, singleOrder, handleSubmitOrder }) => {
   const dispatch = useDispatch()
     const [options, setOptions] = useState("")
     const [newOptions, setNewOptions] = useState("")
@@ -12,19 +12,7 @@ export default ({ orders, singleOrder }) => {
 
     function setOrder(e, id) {
       e.preventDefault()
-      console.log("OPTIONSSSSSS",id)
-      dispatch(fetchSingleOrder(id))
-      console.log("SINGLE ORDER", newOptions)
-    }
-
-    
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    updateOrder({  
-        _id: singleOrder._id,
-        state: newOptions
-    })
+      dispatch(fetchSingleOrder(id))  
     }
 
   return (
@@ -71,7 +59,7 @@ export default ({ orders, singleOrder }) => {
       <Form.Group as={Row}>
         <Col sm={{ span: 10, offset: 2 }} >
           <div className="buttonsDivUser">
-            <Button onClick={handleSubmit} className="buttonformAdmin" type="submit" variant="info">Update</Button>
+            <Button onClick={(e)=>handleSubmitOrder(e, newOptions)} className="buttonformAdmin" type="submit" variant="info">Update</Button>
           </div>
 
         </Col>

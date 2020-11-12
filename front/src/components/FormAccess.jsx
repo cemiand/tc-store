@@ -2,17 +2,8 @@ import React, { useState, useRef } from "react"
 import { Form, Row, Col, Button, Jumbotron, Tabs, Tab, Card } from "react-bootstrap"
 import { deleteUser, updateUser } from "../store/actions/usersAction"
 
-export default ({ users, handleChange, filterValue }) => {
+export default ({ users, handleChange, filterValue, handleUserDelete, handleUpdateUser }) => {
   const [options, setOptions] = useState("")
-  function setUser(e) {
-    e.preventDefault()
-    updateUser({ email: filterValue, accessLevel: options })
-  }
-
-  function setDelete(e) {
-    e.preventDefault()
-    deleteUser({ email: filterValue })
-  }
 
 
   return (
@@ -47,8 +38,8 @@ export default ({ users, handleChange, filterValue }) => {
       <Form.Group as={Row}>
         <Col sm={{ span: 10, offset: 2 }} >
           <div className="buttonsDivUser">
-            <Button className="buttonformAdmin" onClick={setUser} type="submit" variant="info">Update</Button>
-            <Button className="buttonformAdmin" onClick={setDelete} type="submit" variant="warning">Delete</Button>
+            <Button className="buttonformAdmin" onClick={(e) => handleUpdateUser(e, options)} type="submit" variant="info">Update</Button>
+            <Button className="buttonformAdmin" onClick={handleUserDelete} type="submit" variant="warning">Delete</Button>
           </div>
 
         </Col>

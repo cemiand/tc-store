@@ -29,7 +29,7 @@ const updateUser = (user) => {
     .then(res => res.data)
 }
 
-const deleteUser = (user) => {
+const deleteUser = (user) => (dispatch) => {
   axios.delete(`/api/users/${user.email}`)
 }
 

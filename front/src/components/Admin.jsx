@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux"
 import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
@@ -11,7 +10,8 @@ import FormOrders from "./FormOrders"
 export default ({
   orders,
   singleOrder,
-  handleOptions,  setProduct,
+  handleOptions,  
+  setProduct,
   users,
   handleChange,
   handleSubmitCat,
@@ -19,8 +19,15 @@ export default ({
   filterValue,
   products,
   singleProduct,
-  deleteProduct,
-  categories,}) => {
+  categories,
+  setSingleProduct,
+handleDeleteProduct,
+handleSubmitUpdate,
+handleSubmitCreate,
+handleUpdateUser,
+handleUserDelete,
+handleSubmitOrder
+}) => {
 
 
   const [key, setKey] = useState("Users");
@@ -38,8 +45,11 @@ export default ({
             handleChange={handleChange}
             users={users}
             filterValue={filterValue.email}
+            handleUpdateUser={handleUpdateUser}
+            handleUserDelete={handleUserDelete}
           />
         </Tab>
+
         {/* //----------PESTAÑA PRODUCTS--------- */}
         <Tab eventKey="Products" title="Products">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -67,7 +77,7 @@ export default ({
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div>
-                      <FormProductsCreate />
+                      <FormProductsCreate handleSubmitCreate={handleSubmitCreate}/>
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
@@ -76,9 +86,11 @@ export default ({
                         handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct}
+                        setSingleProduct={setSingleProduct}
+                        
+                        
                       />
-                      <FormProductsUpdate singleProduct={singleProduct} />
+                      <FormProductsUpdate singleProduct={singleProduct} handleSubmit={handleSubmitUpdate} />
                      </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
@@ -86,8 +98,10 @@ export default ({
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct}/>
-                      <FormProductsDelete singleProduct={singleProduct}/>
+                        setSingleProduct={setSingleProduct}
+                        
+                        />
+                      <FormProductsDelete singleProduct={singleProduct} handleDeleteProduct={handleDeleteProduct}/>
                     </div>
                     </Tab.Pane>
                 </Tab.Content>
@@ -162,7 +176,7 @@ export default ({
         {/* //----------PESTAÑA ORDERS------------ */}
         <Tab eventKey="Orders" title="Orders">
           <div>
-          <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders}/>
+          <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders} handleSubmitOrder={handleSubmitOrder}/>
           </div>
         </Tab>
       </Tabs>

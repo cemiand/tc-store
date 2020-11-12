@@ -1,23 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import { Form, Button } from "react-bootstrap"
-import {updateProduct} from "../store/actions/productAction"
 
 
-export default ({ singleProduct }) => {
-
-  const handleSubmit = (e) => {
- 
-    e.preventDefault()
-    updateProduct({   
-    name: e.target[0].value,
-    brand: e.target[1].value,
-    categories: e.target[2].value,
-    price: e.target[3].value,
-    pictures: e.target[4].value,
-    description: e.target[5].value,
-    _id: e.target[6].value,
-    })
-    }
+export default ({ singleProduct, handleSubmit }) => {
 
   return (
 
