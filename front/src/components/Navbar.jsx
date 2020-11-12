@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Button,
-  Modal,
-  Nav,
-  Navbar,
-  Form,
-  FormControl,
-  Dropdown,
+  Button, Modal, Nav, Navbar, Form, FormControl, Dropdown,
 } from "react-bootstrap";
 import LoginContainer from "../containers/LoginContainer";
 
@@ -58,6 +52,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Button>
           </Link>
         </Form> */}
+
         {userlog && userlog.name ? (
           <>
             <Dropdown>
@@ -82,14 +77,20 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
                   padding: "0 4px",
                 }}
               >
-                <Link to="/" className="dropdownbutton">
-                  <Dropdown.Item>
-                    <b> Favoritos</b>
+                <Dropdown.Item className="dropdownbutton">
+                  <Link to="/shoppinghistory">
+                    <div>Shopping</div>
+                  </Link>
+                </Dropdown.Item>
+                {userlog.accessLevel === "admin" ? (
+                  <Dropdown.Item className="dropdownbutton">
+                    <Link bg="lg" to="/admin">
+                      <div>Admin</div>
+                    </Link>
                   </Dropdown.Item>
-                </Link>
-                <Link to="" onClick={logout} className="dropdownbutton">
-                  {" "}
-                  <Dropdown.Item>Log Out</Dropdown.Item>
+                ) : null}
+                <Link to="/" onClick={logout}>
+                  <Dropdown.Item> Log Out</Dropdown.Item>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>

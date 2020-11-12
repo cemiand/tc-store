@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SET_CATEGORIES, SET_CATEGORY,REMOVE_CATEGORY,NEW_CATEGORY } from "../constants";
+import { SET_CATEGORIES, SET_CATEGORY, REMOVE_CATEGORY, NEW_CATEGORY } from "../constants";
 
 const categories = (data) => ({
     type: SET_CATEGORIES,
@@ -12,15 +12,16 @@ const category = (data) => ({
     payload: data,
 });
 
-const newCategory = (data)=>({
+const newCategory = (data) => ({
     type: NEW_CATEGORY,
-    payload:data
+    payload: data
 })
 
-const removeCategory =(data)=>({
+const removeCategory = (data) => ({
     type: REMOVE_CATEGORY,
     payload: data,
 })
+
 export const fetchCategories = () => (dispatch) =>
     axios
         .get("/api/categories")
@@ -31,14 +32,14 @@ export const fetchCategory = (id) => (dispatch) =>
         .get(`/api/categories/${id}`)
         .then(({ data }) => dispatch(category(data)));
 
-export const submitCat = (categoria) =>(dispatch) =>{
+export const submitCat = (categoria) => (dispatch) => {
     axios.post("/api/categories", categoria)
-    .then(({data})=>dispatch(newCategory(data)))
+        .then(({ data }) => dispatch(newCategory(data)))
 }
 
-export const deletCategory = (id) => (dispatch)=>{
+export const deleteCategory = (id) => (dispatch) => {
     axios.delete(`/api/categories/${id}`)
-    .then(()=>dispatch(removeCategory(id)))
+        .then(() => dispatch(removeCategory(id)))
 }
 
 

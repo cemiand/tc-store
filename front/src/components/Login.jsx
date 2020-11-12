@@ -96,7 +96,6 @@ export default ({
             type="password"
             name="confirmPassword"
             onChange={handleChange}
-            onChange={handleChange}
             value={inputs.confirmPassword}
           />
         </label>

@@ -1,15 +1,11 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import { fetchSingleProduct } from "../store/actions/productAction"
 import { useDispatch } from "react-redux"
 
-export default ({ handleChange, products, filterValue }) => {
-  const dispatch = useDispatch()
+export default ({ handleChange, products, filterValue, setSingleProduct }) => {
+
   const [options, setOptions] = useState("")
-  function setProduct(e) {
-    e.preventDefault()
-    dispatch(fetchSingleProduct(options))
-  }
+  
 
   return (
     <Form.Group controlId="exampleForm.ControlInput1">
@@ -24,7 +20,7 @@ export default ({ handleChange, products, filterValue }) => {
           })
         }
       </Form.Control>
-      <Button className="buttonsDiv" onClick={setProduct}>Search</Button>
+      <Button className="buttonsDiv" onClick={(e) => setSingleProduct(e, options)}>Fulfill</Button>
 
 
     </Form.Group>

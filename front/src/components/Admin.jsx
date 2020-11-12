@@ -1,18 +1,42 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux"
 import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
+import FormProductsDelete from "./FormProductsDelete";
+import FormProductsUpdate from "./FormProductsUpdate";
 import FormProductSearch from "./FormProductSearch";
-import { updateProduct } from "../store/actions/productAction";
+import FormOrders from "./FormOrders"
 
+export default ({
+  orders,
+  singleOrder, 
+  handleOptions, 
+  users,
+  handleChange,
+  handleSubmitCat,
+  handleDeleteCat,
+  filterValue,
+  products,
+  singleProduct,
+  categories,
+  setSingleProduct,
+handleDeleteProduct,
+handleSubmitUpdate,
+handleSubmitCreate,
+handleUpdateUser,
+handleUserDelete,
+handleSubmitOrder,
+singleUser
+}) => {
 
-
-export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,handleDeleteCat,filterValue,products,singleProduct,deleteProduct,categories,}) => {
 
   const [key, setKey] = useState("Users");
 
   return (
+    <div>
+    {singleUser.accessLevel === "admin"
+                  ?
+
     <Jumbotron fluid>
       <Tabs
         id="controlled-tab-example"
@@ -24,8 +48,11 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
             handleChange={handleChange}
             users={users}
             filterValue={filterValue.email}
+            handleUpdateUser={handleUpdateUser}
+            handleUserDelete={handleUserDelete}
           />
         </Tab>
+
         {/* //----------PESTAÑA PRODUCTS--------- */}
         <Tab eventKey="Products" title="Products">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -52,45 +79,33 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
-                    <h1 className="adminUserForm">CREATE A PRODUCT</h1>
-                    <Form>
-                      <FormProductsCreate />
-                      <Button className="buttonsDiv" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
+                    <div>
+                      <FormProductsCreate categories={categories} handleSubmitCreate={handleSubmitCreate} handleOptions={handleOptions}/>
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <Form>
-                      <h1 className="adminUserForm">UPDATE A PRODUCT</h1>
+                    <div>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct}
+                        setSingleProduct={setSingleProduct}
+                        
+                        
                       />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button
-                        className="buttonsDiv"
-                        onClick={setProduct}
-                        type="submit"
-                      >
-                        Submit
-                      </Button>
-                    </Form>
+                      <FormProductsUpdate singleProduct={singleProduct} handleSubmit={handleSubmitUpdate} />
+                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
-                    <Form>
-                      <h1 className="adminUserForm">DELETE A PRODUCT</h1>
+                    <div>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct} />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button className="buttonsDiv" type="submit" onClick={deleteProduct}>
-                        Submit
-                      </Button>
-                    </Form>
+                        setSingleProduct={setSingleProduct}
+                        
+                        />
+                      <FormProductsDelete singleProduct={singleProduct} handleDeleteProduct={handleDeleteProduct}/>
+                    </div>
                   </Tab.Pane>
                 </Tab.Content>
               </Col>
@@ -121,6 +136,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                   {/* //-------------CREATE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="first">
                     <Form>
+                      <h1 className="adminUserForm">Create a category</h1>
                       <Form.Group >
                         <Form.Label><b>Name</b></Form.Label>
                         <Form.Control name="name" type="text" placeholder="Name" onChange={handleChange} value={filterValue.name} />
@@ -136,10 +152,10 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                   </Tab.Pane>
                   {/*  //------------DELETE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="third">
-                    <Form>
+                    <Form onSubmit={handleDeleteCat}>
                       <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Categories</Form.Label>
-                        <Form.Control as="select" onClick={handleOptions}>
+                        <Form.Control as="select" onChange={handleOptions}>
                           {categories &&
                             categories.map(category => {
                               return (
@@ -149,7 +165,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                           }
                         </Form.Control>
                       </Form.Group>
-                      <Button className="buttonsDiv" variant="warning" type="submit" onClick={handleDeleteCat}>
+                      <Button className="buttonsDiv" variant="warning" type="submit">
                         Delete
                       </Button>
                     </Form>
@@ -159,9 +175,17 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
             </Row>
           </Tab.Container>
         </Tab>
+
         {/* //----------PESTAÑA ORDERS------------ */}
-        <Tab eventKey="Orders" title="Orders"></Tab>
+        <Tab eventKey="Orders" title="Orders">
+          <div>
+          <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders} handleSubmitOrder={handleSubmitOrder}/>
+          </div>
+        </Tab>
       </Tabs>
     </Jumbotron>
+    :
+    <div > <img src="https://i.pinimg.com/originals/41/78/6e/41786e0b3128dc977160edf08e40c7aa.jpg"></img>Puede ser pa? Puede ser que no seas admin?</div>}
+    </div>
   );
 };

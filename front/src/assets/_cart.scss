@@ -9,6 +9,20 @@
   font-weight: 400;
 }
 
+.buttons {
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+  button {
+    margin: 5px auto;
+    border: 2px groove white;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
 .shopping-cart {
   width: 80%;
   height: 100%;
@@ -174,5 +188,21 @@
         content: "$ ";
       }
     }
+  }
+}
+
+.confirmPurchase {
+  height: 400px;
+  background-color: black;
+  padding: 10%;
+  h1 {
+    font-size: 25px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: blanchedalmond;
+  }
+  p {
+    font-size: 20px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: blanchedalmond;
   }
 }
