@@ -8,7 +8,7 @@ import { updateProduct } from "../store/actions/productAction";
 
 
 
-export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,handleDeleteCat,filterValue,products,singleProduct,deleteProduct,categories,}) => {
+export default ({ handleOptions, setProduct, users, handleChange, handleSubmitCat, handleDeleteCat, filterValue, products, singleProduct, deleteProduct, categories }) => {
 
   const [key, setKey] = useState("Users");
 

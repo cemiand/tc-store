@@ -1,20 +1,19 @@
-import React, { useEffect,useState } from "react"
+import React, { useEffect, useState } from "react"
 import Admin from "../components/Admin"
 import { fetchUsers } from "../store/actions/usersAction";
-import { fetchProducts } from "../store/actions/productAction"
-import { submitCat,fetchCategories } from "../store/actions/categoriesAction"
+import { fetchProducts, updateProduct } from "../store/actions/productAction"
+import { submitCat, fetchCategories, deleteCategory } from "../store/actions/categoriesAction"
 import useInput from "../hooks/useInput"
 import { useDispatch, useSelector } from "react-redux"
-import { deletCategory } from "../store/actions/categoriesAction";
-import { updateProduct } from "../store/actions/productAction";
+
 
 export default () => {
   const dispatch = useDispatch();
 
   const { users } = useSelector((state) => state.usersReducer);
   const { products, singleProduct, deleteProduct } = useSelector((state) => state.productsReducer);
-  const {categories} = useSelector((state)=>state.categoriesReducer)
-  const { handleChange, inputs,setInputs } = useInput();
+  const { categories } = useSelector((state) => state.categoriesReducer)
+  const { handleChange, inputs, setInputs } = useInput();
 
   const [options, setOptions] = useState("")
   useEffect(() => {
@@ -36,9 +35,9 @@ export default () => {
   }
 
   //CATEGORIES
-const handleOptions = (e)=>{
-   setOptions(e.target.value)
-}
+  const handleOptions = (e) => {
+    setOptions(e.target.value)
+  }
 
   const handleSubmitCat = (e) => {
     e.preventDefault();
@@ -47,13 +46,12 @@ const handleOptions = (e)=>{
       image: inputs.image
     }
     dispatch(submitCat(category))
-    setInputs({ ...inputs, name: "" ,image: "" })
-
+    setInputs({ ...inputs, name: "", image: "" })
   }
   const handleDeleteCat = (e) => {
     e.preventDefault();
-    console.log("options",options)
-    dispatch(deletCategory(options.toString()))
+    console.log("options de handleDeleteCat", options)
+    dispatch(deleteCategory(options))
   }
 
   return (
