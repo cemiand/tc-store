@@ -3,16 +3,30 @@ import { useDispatch } from "react-redux"
 import { Row, Col, Button, Jumbotron, Tabs, Tab, Nav, Form, } from "react-bootstrap";
 import FormAccess from "./FormAccess";
 import FormProductsCreate from "./FormProductsCreate";
+import FormProductsDelete from "./FormProductsDelete";
+import FormProductsUpdate from "./FormProductsUpdate";
 import FormProductSearch from "./FormProductSearch";
-import { updateProduct } from "../store/actions/productAction";
+import FormOrders from "./FormOrders"
 
+export default ({
+  orders,
+  singleOrder,
+  handleOptions,  setProduct,
+  users,
+  handleChange,
+  handleSubmitCat,
+  handleDeleteCat,
+  filterValue,
+  products,
+  singleProduct,
+  deleteProduct,
+  categories,}) => {
 
-
-export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,handleDeleteCat,filterValue,products,singleProduct,deleteProduct,categories,}) => {
 
   const [key, setKey] = useState("Users");
 
   return (
+    
     <Jumbotron fluid>
       <Tabs
         id="controlled-tab-example"
@@ -52,53 +66,37 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
               <Col sm={9}>
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
-                    <h1 className="adminUserForm">CREATE A PRODUCT</h1>
-                    <Form>
+                    <div>
                       <FormProductsCreate />
-                      <Button className="buttonsDiv" type="submit">
-                        Submit
-                      </Button>
-                    </Form>
+                    </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <Form>
-                      <h1 className="adminUserForm">UPDATE A PRODUCT</h1>
+                    <div>
                       <FormProductSearch
                         handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
                         singleProduct={singleProduct}
                       />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button
-                        className="buttonsDiv"
-                        onClick={setProduct}
-                        type="submit"
-                      >
-                        Submit
-                      </Button>
-                    </Form>
+                      <FormProductsUpdate singleProduct={singleProduct} />
+                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">
-                    <Form>
-                      <h1 className="adminUserForm">DELETE A PRODUCT</h1>
+                    <div>
                       <FormProductSearch handleChange={handleChange}
                         products={products}
                         filterValue={filterValue}
-                        singleProduct={singleProduct} />
-                      <FormProductsCreate singleProduct={singleProduct} />
-                      <Button className="buttonsDiv" type="submit" onClick={deleteProduct}>
-                        Submit
-                      </Button>
-                    </Form>
-                  </Tab.Pane>
+                        singleProduct={singleProduct}/>
+                      <FormProductsDelete singleProduct={singleProduct}/>
+                    </div>
+                    </Tab.Pane>
                 </Tab.Content>
               </Col>
             </Row>
           </Tab.Container>
         </Tab>
-        {/* //----------PESTAÑA CATEGORIES-------- */}
-        <Tab eventKey="Categories" title="Categories">
+         {/* //----------PESTAÑA CATEGORIES-------- */}
+         <Tab eventKey="Categories" title="Categories">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row className="adminRow">
               <Col sm={3}>
@@ -121,6 +119,7 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
                   {/* //-------------CREATE CATEGORY------------------------ */}
                   <Tab.Pane eventKey="first">
                     <Form>
+                      <h1 className="adminUserForm">Create a category</h1>
                       <Form.Group >
                         <Form.Label><b>Name</b></Form.Label>
                         <Form.Control name="name" type="text" placeholder="Name" onChange={handleChange} value={filterValue.name} />
@@ -158,9 +157,14 @@ export default ({handleOptions,setProduct,users,handleChange,handleSubmitCat,han
               </Col>
             </Row>
           </Tab.Container>
-        </Tab>
+        </Tab>          
+        
         {/* //----------PESTAÑA ORDERS------------ */}
-        <Tab eventKey="Orders" title="Orders"></Tab>
+        <Tab eventKey="Orders" title="Orders">
+          <div>
+          <FormOrders filterValue={filterValue} handleChange={handleChange} singleOrder={singleOrder} orders={orders}/>
+          </div>
+        </Tab>
       </Tabs>
     </Jumbotron>
   );

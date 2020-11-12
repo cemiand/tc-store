@@ -36,7 +36,7 @@ export const submitCat = (categoria) =>(dispatch) =>{
     .then(({data})=>dispatch(newCategory(data)))
 }
 
-export const deletCategory = (id) => (dispatch)=>{
+export const deleteCategory = (id) => (dispatch)=>{
     axios.delete(`/api/categories/${id}`)
     .then(()=>dispatch(removeCategory(id)))
 }

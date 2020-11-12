@@ -1,27 +1,30 @@
 import React, { useEffect,useState } from "react"
 import Admin from "../components/Admin"
 import { fetchUsers } from "../store/actions/usersAction";
-import { fetchProducts } from "../store/actions/productAction"
-import { submitCat,fetchCategories } from "../store/actions/categoriesAction"
+import {fetchProducts, updateProduct } from "../store/actions/productAction"
+import {fetchOrders} from "../store/actions/ordersAction"
+import { submitCat,fetchCategories, deleteCategory } from "../store/actions/categoriesAction"
 import useInput from "../hooks/useInput"
 import { useDispatch, useSelector } from "react-redux"
-import { deletCategory } from "../store/actions/categoriesAction";
-import { updateProduct } from "../store/actions/productAction";
 
 export default () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const { users } = useSelector((state) => state.usersReducer);
-  const { products, singleProduct, deleteProduct } = useSelector((state) => state.productsReducer);
-  const {categories} = useSelector((state)=>state.categoriesReducer)
-  const { handleChange, inputs,setInputs } = useInput();
+    const { users, singleUser } = useSelector((state) => state.usersReducer);
+    const { products, singleProduct, deleteProduct  } = useSelector((state) => state.productsReducer);
+    const { orders, singleOrder } = useSelector((state) => state.ordersReducer);
+    const {categories} = useSelector((state)=>state.categoriesReducer)
 
-  const [options, setOptions] = useState("")
-  useEffect(() => {
-    dispatch(fetchUsers());
-    dispatch(fetchProducts());
-    dispatch(fetchCategories())
-  }, []);
+    const [options, setOptions] = useState("")
+
+    const { handleChange, inputs, setInputs } = useInput();
+  
+    useEffect(() => {
+      dispatch(fetchUsers());
+      dispatch(fetchProducts());
+      dispatch(fetchOrders());
+      dispatch(fetchCategories())
+      }, []);
 
 
   //PRODUCTOS
@@ -53,11 +56,27 @@ const handleOptions = (e)=>{
   const handleDeleteCat = (e) => {
     e.preventDefault();
     console.log("options",options)
-    dispatch(deletCategory(options.toString()))
+    dispatch(deleteCategory(options.toString()))
   }
 
+
+
+  //PRODUCTOS
+  function setProduct(e) {
+    e.preventDefault();
+    updateProduct(singleProduct);
+  }
+
+  function setDelete(e) {
+    e.preventDefault()
+    deleteProduct()
+  }
+
+ 
+
   return (
-    <Admin users={users} handleOptions={handleOptions} categories={categories} handleDeleteCat={handleDeleteCat} handleChange={handleChange} handleSubmitCat={handleSubmitCat} filterValue={inputs} products={products} setProduct={setProduct} singleProduct={singleProduct} deleteProduct={setDelete} />
+    <Admin singleUser={singleUser} orders={orders} users={users} handleOptions={handleOptions} categories={categories} handleDeleteCat={handleDeleteCat} handleChange={handleChange} handleSubmitCat={handleSubmitCat} filterValue={inputs} products={products} setProduct={setProduct} singleProduct={singleProduct} deleteProduct={setDelete} singleOrder={singleOrder} />
   )
+ 
 
 }
