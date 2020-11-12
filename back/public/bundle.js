@@ -62362,7 +62362,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     variant: "info"
   }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     className: "buttonformAdmin",
-    onClick: handleUserDelete,
+    onClick: function onClick(e) {
+      return handleUserDelete(e, filterValue);
+    },
     type: "submit",
     variant: "warning"
   }, "Delete")))));
@@ -63452,9 +63454,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }));
   }
 
-  function handleUserDelete(e) {
+  function handleUserDelete(e, filterValue) {
     e.preventDefault();
-    dispatch(deleteUser({
+    dispatch(Object(_store_actions_usersAction__WEBPACK_IMPORTED_MODULE_2__["deleteUser"])({
       email: filterValue
     }));
   }
