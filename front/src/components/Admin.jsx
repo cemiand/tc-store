@@ -25,7 +25,7 @@ export default ({
 
   return (
 
-    <Jumbotron fluid>
+    <Jumbotron className="jumbotronAdmin" fluid>
       <Tabs
         id="controlled-tab-example"
         activeKey={key}
@@ -76,7 +76,7 @@ export default ({
                         filterValue={filterValue}
                         singleProduct={singleProduct}
                       />
-                      <FormProductsUpdate singleProduct={singleProduct} />
+                      <FormProductsUpdate singleProduct={singleProduct} categories={categories} handleOptions={handleOptions} />
                     </div>
                   </Tab.Pane>
                   <Tab.Pane eventKey="third">

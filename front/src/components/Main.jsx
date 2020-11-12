@@ -8,9 +8,9 @@ import CategoriesContainer from "../containers/CategoriesContainer";
 import FilteredProductsContainer from "../containers/FilteredProductsContainer";
 import AdminContainer from "../containers/AdminContainer";
 import CartContainer from "../containers/CartContainer";
-import StarRatingContainer from "../containers/StarRatingContainer";
 import ReviewContainer from "../containers/ReviewContainer";
-import ShoppinghistoryContainer from "../containers/ShoppinghistoryContainer"
+import ShoppinghistoryContainer from "../containers/ShoppinghistoryContainer";
+import Footer from "./Footer"
 
 const Main = () => {
   return (
@@ -47,6 +47,7 @@ const Main = () => {
         <Redirect from="/" to="/products" />
 
       </Switch>
+      <Footer />
       {/* <Footer /> ACA IRIA EL FOOTER */}
     </React.Fragment>
   );

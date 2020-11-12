@@ -35,23 +35,6 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
             </Link>
           </div>
         </div>
-
-        {/* <Form className="searcher">
-          <FormControl
-            onChange={handleChange}
-            value={filterValue}
-            name="search"
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-          />
-          <Link to={`/${filterValue}`}>
-            {" "}
-            <Button type="button" variant="outline-success">
-              <img src="lupita2.png" className="lupitapng" />
-            </Button>
-          </Link>
-        </Form> */}
         {userlog && userlog.name ? (
           <>
             <Dropdown>
@@ -102,7 +85,7 @@ export default ({ userlog, logout, handleChange, filterValue }) => {
           </>
         ) : (
             <>
-              <Button variant="outline-success" onClick={handleShow}>
+              <Button variant="outline" className="buttonSignIn" onClick={handleShow}>
                 Sign In
             </Button>
               <Modal show={show} onHide={handleClose}>

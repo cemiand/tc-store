@@ -53,7 +53,7 @@ export default ({ singleProduct }) => {
         <Form.Control name="_id" type="text" placeholder="Id" defaultValue={singleProduct && singleProduct._id} disabled />
       </Form.Group>
 
-      <Button variant="success" className="buttonsDiv" type="submit">Submit</Button>
+      <Button variant="warning" className="buttonsDiv" type="submit">Delete</Button>
 
     </Form>
 

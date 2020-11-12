@@ -19,10 +19,17 @@
   margin-left:0px;
   width:100px
 }
-.cartButton{
-  border: 1px solid #29a745;
+.cartButton {
+  border: 1px solid #7579ff;
   &:hover{
-    background:#29a745;
+    background:-webkit-linear-gradient(left, #7579ff, #b224ef);
+  }
+}
+.buttonSignIn{
+  color:#fff;
+  border: 1px solid #7579ff;
+  &:hover{
+    background:-webkit-linear-gradient(left, #7579ff, #b224ef);
   }
 }
 
