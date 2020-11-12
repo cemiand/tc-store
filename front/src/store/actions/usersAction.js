@@ -25,12 +25,11 @@ const loginUserGoogle = (user) => (dispatch) => {
   });
 };
 
-const updateUser = (user) => {
-  axios
-    .put("/api/users", user)
+const updateUser = (user) => (dispatch) => {
+  axios.put("/api/users", user)
 
-    .then((res) => console.log(res.data));
-};
+    .then(() => dispatch(fetchUsers()))
+}
 
 const deleteUser = (user) => {
   axios.delete(`/api/users/${user.email}`);

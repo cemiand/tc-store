@@ -40,3 +40,4 @@ export const deleteProduct = (product) => {
     .delete(`/api/products/${product._id}`)
     .then(() => dispatch(fetchProducts()));
 };
+

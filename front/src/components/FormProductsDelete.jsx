@@ -21,7 +21,7 @@ export default ({ singleProduct, handleDeleteProduct }) => {
 
       <Form.Group >
         <Form.Label><b>Categories</b></Form.Label>
-        <Form.Control name="categories" type="text" placeholder="Categories" defaultValue={singleProduct && singleProduct.categories} />
+        <Form.Control name="categories" type="text" placeholder="Categories" defaultValue={singleProduct && singleProduct.categories} disabled/>
       </Form.Group>
 
       <Form.Group >

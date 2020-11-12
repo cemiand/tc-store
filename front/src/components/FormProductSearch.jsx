@@ -5,10 +5,10 @@ import { useDispatch } from "react-redux"
 export default ({ handleChange, products, filterValue, setSingleProduct }) => {
 
   const [options, setOptions] = useState("")
-  
+
 
   return (
-    <Form.Group controlId="exampleForm.ControlInput1">
+    <Form.Group>
       <Form.Label>Search by name</Form.Label>
       <Form.Control onChange={handleChange} value={filterValue && filterValue.search} name="search" type="text" placeholder="search by name" />
       <Form.Control as="select" onClick={(e) => { setOptions(e.target.value) }}>

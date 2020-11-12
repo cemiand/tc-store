@@ -91,9 +91,9 @@ export default ({
                     </Link>
                   </Dropdown.Item>
                 ) : null}
-                <Link to="/" onClick={logout}>
-                  <Dropdown.Item> Log Out</Dropdown.Item>
-                </Link>
+
+                <Dropdown.Item className="dropdownbutton" onClick={logout}> Log Out</Dropdown.Item>
+
               </Dropdown.Menu>
             </Dropdown>
           </>

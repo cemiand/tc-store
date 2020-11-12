@@ -8,7 +8,7 @@ export default ({ users, handleChange, filterValue, handleUserDelete, handleUpda
   return (
     <Form className="adminUserForm">
       <h1>Niveles de acceso</h1>
-      <Form.Group controlId="exampleForm.ControlInput1">
+      <Form.Group>
         <Form.Label>Email address</Form.Label>
         <Form.Control onChange={handleChange} value={filterValue} name="email" type="email" placeholder="name@example.com" />
         {(filterValue.length >= 3) && (
@@ -27,7 +27,7 @@ export default ({ users, handleChange, filterValue, handleUserDelete, handleUpda
         )}
 
       </Form.Group>
-      <Form.Group controlId="exampleForm.ControlSelect1">
+      <Form.Group>
         <Form.Label>Levels of Access</Form.Label>
         <Form.Control as="select" onChange={(e) => { setOptions(e.target.value) }}>
           <option value=""></option>

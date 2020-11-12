@@ -80,31 +80,29 @@ export default ({
                     <Tab.Content>
                       <Tab.Pane eventKey="first">
                         <div>
+                          <h1 className="adminUserForm">Create a Product</h1>
                           <FormProductsCreate categories={categories} handleSubmitCreate={handleSubmitCreate} handleOptions={handleOptions} />
                         </div>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
                         <div>
+                          <h1 className="adminUserForm">Update a Product</h1>
                           <FormProductSearch
                             handleChange={handleChange}
                             products={products}
                             filterValue={filterValue}
                             setSingleProduct={setSingleProduct}
-
-
                           />
-
                           <FormProductsUpdate singleProduct={singleProduct} categories={categories} handleOptions={handleOptions} handleSubmit={handleSubmitUpdate} />
                         </div>
-
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
                         <div>
+                          <h1 className="adminUserForm">Delete a Product</h1>
                           <FormProductSearch handleChange={handleChange}
                             products={products}
                             filterValue={filterValue}
                             setSingleProduct={setSingleProduct}
-
                           />
                           <FormProductsDelete singleProduct={singleProduct} handleDeleteProduct={handleDeleteProduct} />
                         </div>
@@ -155,7 +153,8 @@ export default ({
                       {/*  //------------DELETE CATEGORY------------------------ */}
                       <Tab.Pane eventKey="third">
                         <Form onSubmit={handleDeleteCat}>
-                          <Form.Group controlId="exampleForm.ControlInput1">
+                          <h1 className="adminUserForm">Delete a category</h1>
+                          <Form.Group>
                             <Form.Label>Categories</Form.Label>
                             <Form.Control as="select" onChange={handleOptions}>
                               {categories &&
