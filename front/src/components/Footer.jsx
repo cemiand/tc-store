@@ -22,7 +22,7 @@ export default () => {
             <h6>Alejandro Tartaglia</h6>
           </Col>
           <Col xs={6} md={4}>
-            <Image className="images" src="https://mpng.subpng.com/20180411/rzw/kisspng-user-profile-computer-icons-user-interface-mystique-5aceb0245aa097.2885333015234949483712.jpg" roundedCircle />
+            <Image className="images" src="https://los40es00.epimg.net/los40/imagenes/2019/11/28/musica/1574941974_409983_1574943522_miniatura_normal.jpg" roundedCircle />
 
             <h6>Diego Garber</h6>
           </Col>

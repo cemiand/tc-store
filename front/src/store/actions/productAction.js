@@ -16,13 +16,12 @@ export const postReview = (product, review) => (dispatch) =>
     .post(`/api/reviews/${product._id}`, review)
     .then(({ data }) => dispatch(singleProduct(data)));
 
-export const createProduct = (product) => {
- axios.post("/api/products", product).then(() => fetchProducts());
+export const createProduct = (product) => (dispatch) => {
+  axios.post("/api/products", product).then(() => dispatch(fetchProducts()));
 };
 
 export const fetchProducts = () => (dispatch) =>
   axios.get("/api/products").then(({ data }) => dispatch(products(data)));
-
 
 export const fetchSingleProduct = (id) => (dispatch) =>
   axios
@@ -40,4 +39,3 @@ export const deleteProduct = (product) => (dispatch) => {
     .delete(`/api/products/${product._id}`)
     .then(() => dispatch(fetchProducts()));
 };
-
