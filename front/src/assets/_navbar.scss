@@ -30,6 +30,7 @@
   border: 1px solid #7579ff;
   &:hover{
     background:-webkit-linear-gradient(left, #7579ff, #b224ef);
+    color:#fff
   }
 }
 
@@ -92,7 +93,6 @@
 .dropdown-item{
   color:#fff;
   list-style: none;
-  background-color:#343A40;
 }
 
 /* .link{
@@ -100,5 +100,8 @@
   background: #333;
 } */
 .divsDropNav {
-  color:#fff
+  color:#fff;
+}
+.divsDropNav:hover{
+  text-decoration: none;
 }
