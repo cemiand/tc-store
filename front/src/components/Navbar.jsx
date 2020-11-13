@@ -15,7 +15,7 @@ export default ({
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/" className="brand">
-        <img style={{ width: "40%" }} src="/logoTC2.png" alt="TC-Store" />
+        <img style={{ width: "116%" }} src="/tcmusic.png" alt="TC-Store" />
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -77,20 +77,23 @@ export default ({
                 <Dropdown.Item className="dropdownbutton" onClick={logout}>
                   <div className="dropdown-item">Log Out</div>
                 </Dropdown.Item>
-
               </Dropdown.Menu>
             </Dropdown>
           </>
         ) : (
-            <>
-              <Button variant="outline-sucess" className="buttonSignIn" onClick={handleShow}>
-                Sign In
+          <>
+            <Button
+              variant="outline-sucess"
+              className="buttonSignIn"
+              onClick={handleShow}
+            >
+              Sign In
             </Button>
-              <Modal show={show} onHide={handleClose}>
-                {<LoginContainer handleClose={handleClose} />}
-              </Modal>
-            </>
-          )}
+            <Modal show={show} onHide={handleClose}>
+              {<LoginContainer handleClose={handleClose} />}
+            </Modal>
+          </>
+        )}
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />
