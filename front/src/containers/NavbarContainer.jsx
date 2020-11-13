@@ -19,6 +19,7 @@ const NavbarContainer = ({ history }) => {
 
   const { handleChange, inputs } = useInput();
 
+
   return (
     <Navbar
       userlog={singleUser}

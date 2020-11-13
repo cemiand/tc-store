@@ -2,9 +2,9 @@ import React from 'react';
 import { Jumbotron, Container, Row, Col, Image } from "react-bootstrap"
 export default () => {
   return (
-    <Jumbotron className="JumbotronFooter" Fluid>
-      <h5>Tc-Store® & TC-Crew® are registred marks of TC-Crew Group made at Plataforma 5 by:</h5>
-      <Container Fluid >
+    <div className="JumbotronFooter jumby" Fluid>
+      <p className="pFooter">Tc-Store® & TC-Crew® are registred marks of TC-Crew Group made at Plataforma 5 by:</p>
+      <Container className="JumbotronFooter" Fluid >
         <Row className="containerFooter">
           <Col xs={6} md={4}>
             <Image className="images" src="https://cdn.discordapp.com/attachments/764235703889428490/776602326680207400/CV.jpg" roundedCircle />
@@ -32,6 +32,6 @@ export default () => {
           </Col>
         </Row>
       </Container>
-    </Jumbotron>
+    </div>
   )
 }
