@@ -21,9 +21,10 @@ const fetchCartUser = () => (dispatch) =>
   });
 
 const setCartUser = () => (dispatch) =>
-  axios
-    .post("/api/cart", cartStorage)
-    .then(({ data }) => dispatch(setCart(data)));
+  axios.post("/api/cart", cartStorage).then(({ data }) => {
+    dispatch(setCart(data));
+    resetCartStorage();
+  });
 
 const resetCartUser = () => (dispatch) =>
   axios.put("/api/cart", {}).then(({ data }) => {
@@ -59,10 +60,7 @@ const deleteProductStorage = (product) => (dispatch) => {
   dispatch(setCart(cartStorage));
 };
 
-const resetCartStorage = () => (dispatch) => {
-  localStorage.setItem("cart", JSON.stringify([]));
-  dispatch(resetCart());
-};
+const resetCartStorage = () => localStorage.setItem("cart", JSON.stringify([]));
 
 export {
   setCart,
@@ -73,5 +71,6 @@ export {
   addProductStorage,
   deleteProductStorage,
   resetCartStorage,
+  resetCart,
   cartStorage,
 };

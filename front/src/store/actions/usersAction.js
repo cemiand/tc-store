@@ -1,6 +1,6 @@
 import axios from "axios";
 import { SET_USER, REMOVE_USER, SET_USERS } from "../constants";
-import { resetCartStorage } from "./cartAction";
+import { resetCart } from "./cartAction";
 
 const setUser = (data) => ({ type: SET_USER, payload: data });
 
@@ -26,10 +26,11 @@ const loginUserGoogle = (user) => (dispatch) => {
 };
 
 const updateUser = (user) => (dispatch) => {
-  axios.put("/api/users", user)
+  axios
+    .put("/api/users", user)
 
-    .then(() => dispatch(fetchUsers()))
-}
+    .then(() => dispatch(fetchUsers()));
+};
 
 const deleteUser = (user) => {
   axios.delete(`/api/users/${user.email}`);
@@ -38,7 +39,7 @@ const deleteUser = (user) => {
 const logoutUser = () => (dispatch) =>
   axios.post("/api/auth/logout").then(() => {
     dispatch(cleanUser());
-    dispatch(resetCartStorage());
+    dispatch(resetCart());
   });
 
 const fetchUser = () => (dispatch) =>

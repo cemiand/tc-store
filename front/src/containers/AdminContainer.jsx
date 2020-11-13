@@ -118,10 +118,13 @@ export default () => {
   //ORDERS
   const handleSubmitOrder = (e, val) => {
     e.preventDefault();
-    updateOrder({
-      _id: singleOrder._id,
-      state: val,
-    });
+    dispatch(
+      updateOrder({
+        _id: singleOrder._id,
+        state: val,
+      })
+    );
+    dispatch(fetchOrders());
   };
 
   useEffect(() => {
