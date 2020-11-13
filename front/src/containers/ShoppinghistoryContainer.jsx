@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Shoppinghistory from "../components/Shoppinghistory";
 import { fetchUserOrders } from "../store/actions/ordersAction";
 
 const ShoppingHistoryContainer = () => {
+  const dispatch = useDispatch();
+
   const { orders } = useSelector((state) => state.ordersReducer);
 
-  useEffect(() => fetchUserOrders(), []); // MEter dispatch una vez que está chequeado qué data llega
+  useEffect(() => dispatch(fetchUserOrders()), []);
 
   return <Shoppinghistory orders={orders} />;
 };

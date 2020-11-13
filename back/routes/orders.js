@@ -10,9 +10,7 @@ const {
 const { authRole } = require("./admin");
 //agregar el atuhRole authRole("admin")
 router.route("/").get(findAll).post(createOrder);
-
+router.route("/user").get(findUserOrders);
 router.route("/:id").get(findOrder).put(authRole("admin"), updateOrder);
-
-router.route("/user", findUserOrders);
 
 module.exports = router;

@@ -1,18 +1,31 @@
-.images{
-  width:150px;
-  height:150px;
-  margin: 0 auto;
+.jumby {
+  padding: 1px;
 }
-.containerFooter{
-  display: flex;
-  flex-flow: nowrap;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-  width:45%;
-  text-align: center;
-}
-.JumbotronFooter{
-  background-color:#343A40;
+
+.JumbotronFooter {
+  background-color: #343a40;
   color: #fff;
+
+  .pFooter {
+    padding: 1em;
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+
+  .containerFooter {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 45%;
+    text-align: center;
+
+    .images_foot {
+      width: 100px;
+      height: 100px;
+      margin: 4px auto;
+      border: 1px solid #7579ff;
+    }
+  }
 }

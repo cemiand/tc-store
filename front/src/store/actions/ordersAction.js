@@ -5,8 +5,8 @@ const setOrder = (data) => ({ type: SET_ORDER, payload: data });
 
 const setOrders = (data) => ({ type: SET_ORDERS, payload: data });
 
-export const newOrder = (cart) =>
-  axios.post("/api/orders", cart).then(({ data }) => console.log(data));
+export const newOrder = (cart) => (dispatch) =>
+  axios.post("/api/orders", cart).then(({ data }) => dispatch(setOrders(data)));
 
 export const fetchOrders = () => (dispatch) =>
   axios.get("/api/orders").then(({ data }) => dispatch(setOrders(data)));
@@ -22,5 +22,8 @@ export const deleteOrder = (order) => {
   axios.delete(`/api/orders/${order._id}`);
 };
 
-export const fetchUserOrders = () =>
-  axios.get(`/api/orders/user`).then(({ data }) => console.log(data));
+export const fetchUserOrders = () => (dispatch) =>
+  axios.get(`/api/orders/user`).then(({ data }) => {
+    console.log(data);
+    dispatch(setOrders(data));
+  });

@@ -30,6 +30,7 @@
   border: 1px solid #7579ff;
   &:hover{
     background:-webkit-linear-gradient(left, #7579ff, #b224ef);
+    color:#fff
   }
 }
 
@@ -94,7 +95,13 @@
   list-style: none;
 }
 
-.link{
+/* .link{
   color: #fff;
   background: #333;
+} */
+.divsDropNav {
+  color:#fff;
+}
+.divsDropNav:hover{
+  text-decoration: none;
 }

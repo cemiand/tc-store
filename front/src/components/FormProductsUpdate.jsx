@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap"
 
 
 export default ({ singleProduct, handleOptions, handleSubmit, categories }) => {
-
+  
   return (
 
     <Form onSubmit={handleSubmit}>
@@ -21,8 +21,7 @@ export default ({ singleProduct, handleOptions, handleSubmit, categories }) => {
 
       <Form.Group >
         <Form.Label><b>Category:</b></Form.Label>
-        {/*  <Form.Control name="categories" type="text" placeholder="Categories" /> */}
-        <Form.Control as="select" onChange={handleOptions}>
+        <Form.Control as="select" onClick={handleOptions}>
           {categories &&
             categories.map(category => {
               return (

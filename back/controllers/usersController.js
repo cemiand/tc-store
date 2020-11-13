@@ -16,14 +16,18 @@ const usuariosController = {
   },
 
   userLogin(req, res) {
-    User.findById(req.user._id).then((user) =>
-      res.status(200).json({
-        name: user.name,
-        email: user.email,
-        id: user.id,
-        accessLevel: user.accessLevel,
-      })
-    );
+    if (req.user) {
+      User.findById(req.user._id).then((user) =>
+        res.status(200).json({
+          name: user.name,
+          email: user.email,
+          id: user.id,
+          accessLevel: user.accessLevel,
+        })
+      );
+    } else {
+      res.status(401).end();
+    }
   },
 
   userLogout(req, res) {
@@ -57,13 +61,6 @@ const usuariosController = {
         res.status(500).send(err);
       });
   },
-
-  /*   getAccessLevel(req, res, next) {
-      if (req.user.accesLevel !== "admin")
-        return res.status(401).send("Acceso no autorizado");
-      next();
-    }, */
-
   findAll(req, res) {
     User.find({})
       .populate("cart")

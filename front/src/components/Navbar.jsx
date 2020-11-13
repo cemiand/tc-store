@@ -37,24 +37,6 @@ export default ({
             </Link>
           </div>
         </div>
-
-        {/* <Form className="searcher">
-          <FormControl
-            onChange={handleChange}
-            value={filterValue}
-            name="search"
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-          />
-          <Link to={`/${filterValue}`}>
-            {" "}
-            <Button type="button" variant="outline-success">
-              <img src="lupita2.png" className="lupitapng" />
-            </Button>
-          </Link>
-        </Form> */}
-
         {userlog && userlog.name ? (
           <>
             <Dropdown>
@@ -80,33 +62,35 @@ export default ({
                 }}
               >
                 <Dropdown.Item className="dropdownbutton">
-                  <Link to="/shoppinghistory">
-                    <div>Shopping</div>
+                  <Link to="/shoppinghistory" className="divsDropNav">
+                    <div className="dropdown-item">Shopping</div>
                   </Link>
                 </Dropdown.Item>
                 {userlog.accessLevel === "admin" ? (
                   <Dropdown.Item className="dropdownbutton">
-                    <Link bg="lg" to="/admin">
-                      <div>Admin</div>
+                    <Link bg="lg" to="/admin" className="divsDropNav">
+                      <div className="dropdown-item">Admin</div>
                     </Link>
                   </Dropdown.Item>
                 ) : null}
-                <Link to="/" onClick={logout}>
-                  <Dropdown.Item> Log Out</Dropdown.Item>
-                </Link>
+
+                <Dropdown.Item className="dropdownbutton" onClick={logout}>
+                  <div className="dropdown-item">Log Out</div>
+                </Dropdown.Item>
+
               </Dropdown.Menu>
             </Dropdown>
           </>
         ) : (
-          <>
-            <Button variant="outline-success" onClick={handleShow}>
-              Sign In
+            <>
+              <Button variant="outline-sucess" className="buttonSignIn" onClick={handleShow}>
+                Sign In
             </Button>
-            <Modal show={show} onHide={handleClose}>
-              {<LoginContainer handleClose={handleClose} />}
-            </Modal>
-          </>
-        )}
+              <Modal show={show} onHide={handleClose}>
+                {<LoginContainer handleClose={handleClose} />}
+              </Modal>
+            </>
+          )}
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />

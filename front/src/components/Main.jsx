@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import ProductsContainer from "../containers/ProductsContainer";
 import SingleProductContainer from "../containers/SingleProductContainer";
 import CarruselContainer from "../containers/CarruselContainer";
@@ -51,7 +51,6 @@ const Main = ({ history }) => {
         <Route path="/:search" component={FilteredProductsContainer} />
       </Switch>
       <Footer />
-      {/* <Footer /> ACA IRIA EL FOOTER */}
     </React.Fragment>
   );
 };

@@ -33,17 +33,15 @@ const Cart = ({
 
                 {order.product ? (
                   <div>
-                    <div className="image">
-                      <Link
-                        to={`/products/${order.product._id}`}
-                        className="image"
-                      >
-                        <img
-                          src={order.product.pictures}
-                          alt="Imagen del producto"
-                        />
-                      </Link>
-                    </div>
+                    <Link
+                      to={`/products/${order.product._id}`}
+                      className="image"
+                    >
+                      <img
+                        src={order.product.pictures}
+                        alt="Imagen del producto"
+                      />
+                    </Link>
 
                     <div className="description">
                       <span className="name">{order.product.name}</span>

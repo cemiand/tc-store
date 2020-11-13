@@ -19,7 +19,13 @@ export default ({ orders }) => {
                 <tr>
                   <td>{index + 1}</td>
                   <td>{order.date}</td>
-                  <td>{order.products.map((p) => p.name)}</td>
+                  <td>
+                    {order.products.map((p) => (
+                      <li>
+                        {p.product.name} : {p.quantity}
+                      </li>
+                    ))}
+                  </td>
                   <td>{order.state}</td>
                 </tr>
               ))
