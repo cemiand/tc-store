@@ -11,14 +11,20 @@ const NavbarContainer = ({ history }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
   const logout = () => {
     dispatch(logoutUser()).then(() => history.push("/"));
   };
 
+
+
   const { singleUser } = useSelector((state) => state.usersReducer);
 
-  const { handleChange, inputs } = useInput();
+  const { handleChange, inputs, setInputs } = useInput();
 
+  const handleNavSearch = () => {
+    setInputs({ ...inputs, search: "" })
+  }
 
   return (
     <Navbar
@@ -29,6 +35,7 @@ const NavbarContainer = ({ history }) => {
       handleShow={handleShow}
       handleClose={handleClose}
       show={show}
+      handleNavSearch={handleNavSearch}
     />
   );
 };

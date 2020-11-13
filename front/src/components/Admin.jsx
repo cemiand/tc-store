@@ -157,6 +157,7 @@ export default ({
                           <Form.Group>
                             <Form.Label>Categories</Form.Label>
                             <Form.Control as="select" onChange={handleOptions}>
+                              <option value=""></option>
                               {categories &&
                                 categories.map(category => {
                                   return (

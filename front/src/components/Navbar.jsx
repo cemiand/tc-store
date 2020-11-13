@@ -11,25 +11,22 @@ export default ({
   handleClose,
   handleShow,
   show,
+  handleNavSearch
 }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/" className="brand">
-        <img style={{ width: "40%" }} src="/logoTC2.png" alt="TC-Store" />
+        <img style={{ width: "40%" }} src="/Tc-Music.png" alt="TC-Store" />
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="search_wrap search_wrap_3">
           <div className="search_box">
-            <input
-              type="text"
-              onChange={handleChange}
-              value={filterValue}
-              name="search"
+            <input type="text" onChange={handleChange} value={filterValue} name="search"
               className="input"
               placeholder="Search..."
             />
-            <Link to={`/${filterValue}`}>
+            <Link to={`/${filterValue}`} onClick={handleNavSearch}>
               {" "}
               <div className="btn btn_common">
                 <img src="lupita1.png" className="lupitapng" />

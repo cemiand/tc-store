@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import Admin from "../components/Admin"
-import { fetchUsers, updateUser } from "../store/actions/usersAction";
+import { fetchUsers, updateUser, deleteUser } from "../store/actions/usersAction";
 import { fetchProducts, updateProduct, fetchSingleProduct, deleteProduct, createProduct } from "../store/actions/productAction"
 import { fetchOrders, updateOrder } from "../store/actions/ordersAction"
 import { submitCat, fetchCategories, deleteCategory } from "../store/actions/categoriesAction"
 import useInput from "../hooks/useInput"
 import { useDispatch, useSelector } from "react-redux"
 
-export default ({ history }) => {
+export default () => {
   const dispatch = useDispatch();
 
   const { users, singleUser } = useSelector((state) => state.usersReducer);
@@ -29,7 +29,7 @@ export default ({ history }) => {
 
   function handleUserDelete(e) {
     e.preventDefault()
-    dispatch(deleteUser({ email: filterValue }))
+    dispatch(deleteUser({ email: inputs.email }))
   }
   useEffect(() => {
     dispatch(fetchUsers());
