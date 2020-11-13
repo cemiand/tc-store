@@ -37,24 +37,6 @@ export default ({
             </Link>
           </div>
         </div>
-
-        {/* <Form className="searcher">
-          <FormControl
-            onChange={handleChange}
-            value={filterValue}
-            name="search"
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-          />
-          <Link to={`/${filterValue}`}>
-            {" "}
-            <Button type="button" variant="outline-success">
-              <img src="lupita2.png" className="lupitapng" />
-            </Button>
-          </Link>
-        </Form> */}
-
         {userlog && userlog.name ? (
           <>
             <Dropdown>

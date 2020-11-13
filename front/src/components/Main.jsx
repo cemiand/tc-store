@@ -25,6 +25,7 @@ const Main = ({ history }) => {
             <div>
               <CarruselContainer />
               <CategoriesContainer />
+              <ProductsContainer />
             </div>
           )}
         />
