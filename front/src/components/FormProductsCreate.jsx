@@ -39,7 +39,19 @@ export default ({ handleSubmitCreate, categories, handleOptions }) => {
 
       <Form.Group >
         <Form.Label><b>Pictures:</b></Form.Label>
-        <Form.Control name="pictures" type="text" placeholder="Pictures" />
+        <Form.Control name="picture1" type="text" placeholder="Picture 1" />
+      </Form.Group>
+      <Form.Group >
+        <Form.Label><b></b></Form.Label>
+        <Form.Control name="picture2" type="text" placeholder="Picture 2" />
+      </Form.Group>
+      <Form.Group >
+        <Form.Label><b></b></Form.Label>
+        <Form.Control name="picture3" type="text" placeholder="Picture 3" />
+      </Form.Group>
+      <Form.Group >
+        <Form.Label><b></b></Form.Label>
+        <Form.Control name="picture4" type="text" placeholder="Picture 4" />
       </Form.Group>
 
       <Form.Group >
