@@ -57,15 +57,15 @@ export default () => {
   const handleSubmitCreate = (e) => {
 
     e.preventDefault()
-    createProduct({
+    
+    dispatch(createProduct({
       name: e.target[0].value,
       brand: e.target[1].value,
       categories: e.target[2].value,
       price: e.target[3].value,
       pictures: e.target[4].value,
       description: e.target[5].value
-    })
-    dispatch(fetchProducts())
+    }))
   }
 
 
