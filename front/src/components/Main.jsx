@@ -52,7 +52,6 @@ const Main = ({ history }) => {
         <Route path="/:search" component={FilteredProductsContainer} />
       </Switch>
       <Footer />
-      {/* <Footer /> ACA IRIA EL FOOTER */}
     </React.Fragment>
   );
 };
