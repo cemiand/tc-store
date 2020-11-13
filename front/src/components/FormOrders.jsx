@@ -15,7 +15,7 @@ export default ({ orders, handleSubmitOrder }) => {
 
   return (
     <Form>
-      <Form className="adminUserForm">
+      <Form className="orderAdminForm">
         <h1>Find and modify orders</h1>
         <Form.Group>
           <Form.Label>Orders by state:</Form.Label>
@@ -53,8 +53,8 @@ export default ({ orders, handleSubmitOrder }) => {
                         <li>{order.user.email}</li>
                       </td>
                     ) : (
-                      <td />
-                    )}
+                        <td />
+                      )}
                     <td>{order.date}</td>
                     {order.products.length > 0 ? (
                       <td>
@@ -65,8 +65,8 @@ export default ({ orders, handleSubmitOrder }) => {
                         ))}
                       </td>
                     ) : (
-                      <td />
-                    )}
+                        <td />
+                      )}
                     <td>
                       <Button
                         className="buttonsDivOrder"

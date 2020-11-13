@@ -40,9 +40,9 @@ export default ({
   const [key, setKey] = useState("Users");
 
   return (
-    <Jumbotron>
+    <Jumbotron className="jumbotronAdmin">
       {singleUser.accessLevel === "admin" ? (
-        <Jumbotron className="jumbotronAdmin" fluid>
+        <Jumbotron fluid>
           <Tabs
             id="controlled-tab-example"
             activeKey={key}
@@ -239,11 +239,11 @@ export default ({
           </Tabs>
         </Jumbotron>
       ) : (
-        <Jumbotron>
-          <img src="https://i.pinimg.com/originals/41/78/6e/41786e0b3128dc977160edf08e40c7aa.jpg"></img>
-          <p>Puede ser pa? Puede ser que no seas admin?</p>
-        </Jumbotron>
-      )}
+          <Jumbotron>
+            <img src="https://i.pinimg.com/originals/41/78/6e/41786e0b3128dc977160edf08e40c7aa.jpg"></img>
+            <p>Puede ser pa? Puede ser que no seas admin?</p>
+          </Jumbotron>
+        )}
     </Jumbotron>
   );
 };
