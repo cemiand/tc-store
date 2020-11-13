@@ -9,14 +9,14 @@ const SingleProduct = ({
   quantity,
   productRatingMagic
 }) => {
-  
+
   return (
     <div>
       <div className="product-container">
         {singleProduct && singleProduct.pictures ? (
           <div className="images">
             <div className="list-images">
-              {singleProduct.pictures.map((img) => (img && 
+              {singleProduct.pictures.map((img) => (img &&
                 <div key={img} className="imgContainer">
                   <img src={img} alt="img" />
                 </div>
@@ -35,26 +35,26 @@ const SingleProduct = ({
             <h4 className="price"> {singleProduct.price}</h4>
           </div>
 
-          <div >
-            <br/>
-        <h4>Product Rating:</h4>
-       {singleProduct.reviews && singleProduct.reviews.map(pic => {{productRatingMagic += pic.rating}})}
-<div className="starsContainer" style={{height: "1px"}}>
- {[...Array(5)].map((star, i) => {
-   const ratingVal = i + 1;
-          return (
-            <label>
-              <FaStar
-                color={ (ratingVal) <= (singleProduct.reviews && (productRatingMagic / singleProduct.reviews.length)) ? "#e7cf34" : "grey"}
-                size={30}
-              />
-            </label>
-          );
-        })}
-        </div>
-      </div>
-      <br/>
-      <br/>
+          <div style={{ textAlign: "center" }}>
+            <br />
+            <h4>Product Rating:</h4>
+            {singleProduct.reviews && singleProduct.reviews.map(pic => { { productRatingMagic += pic.rating } })}
+            <div className="starsContainerSingle" style={{ height: "1px" }}>
+              {[...Array(5)].map((star, i) => {
+                const ratingVal = i + 1;
+                return (
+                  <label>
+                    <FaStar
+                      color={(ratingVal) <= (singleProduct.reviews && (productRatingMagic / singleProduct.reviews.length)) ? "#e7cf34" : "grey"}
+                      size={30}
+                    />
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+          <br />
+          <br />
 
           <div className="order">
             <div className="quantity">
@@ -83,12 +83,12 @@ const SingleProduct = ({
 
       <hr />
 
-     
-    
-      <div className="description">
-        <h1>Description</h1>
+      <div className="descriptionProduct">
+        <h1>Description:</h1>
         <p>{singleProduct.description}</p>
       </div>
+
+      <hr />
     </div>
   );
 };

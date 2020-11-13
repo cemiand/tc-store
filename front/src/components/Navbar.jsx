@@ -11,6 +11,7 @@ export default ({
   handleClose,
   handleShow,
   show,
+  handleNavSearch
 }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -21,15 +22,11 @@ export default ({
       <Navbar.Collapse id="basic-navbar-nav">
         <div className="search_wrap search_wrap_3">
           <div className="search_box">
-            <input
-              type="text"
-              onChange={handleChange}
-              value={filterValue}
-              name="search"
+            <input type="text" onChange={handleChange} value={filterValue} name="search"
               className="input"
               placeholder="Search..."
             />
-            <Link to={`/${filterValue}`}>
+            <Link to={`/${filterValue}`} onClick={handleNavSearch}>
               {" "}
               <div className="btn btn_common">
                 <img src="lupita1.png" className="lupitapng" />
@@ -81,19 +78,19 @@ export default ({
             </Dropdown>
           </>
         ) : (
-          <>
-            <Button
-              variant="outline-sucess"
-              className="buttonSignIn"
-              onClick={handleShow}
-            >
-              Sign In
+            <>
+              <Button
+                variant="outline-sucess"
+                className="buttonSignIn"
+                onClick={handleShow}
+              >
+                Sign In
             </Button>
-            <Modal show={show} onHide={handleClose}>
-              {<LoginContainer handleClose={handleClose} />}
-            </Modal>
-          </>
-        )}
+              <Modal show={show} onHide={handleClose}>
+                {<LoginContainer handleClose={handleClose} />}
+              </Modal>
+            </>
+          )}
         <Link to="/cart">
           <Button variant="outline-sucess" className="cartButton">
             <img src="cart2.png" className="cart" />

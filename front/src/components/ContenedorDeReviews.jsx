@@ -1,22 +1,23 @@
 import React from "react";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Jumbotron } from "react-bootstrap";
 
 const ContenedorDeReviews = ({ singleProductReviews }) => {
   return (
-    <div style={{ backgroundColor: "grey", width: "100%", height: "500px" }}>
+    <Jumbotron className="reviewsContainer">
+      <h2>Reviews:</h2>
       {singleProductReviews ? (
         singleProductReviews.map((review) => {
           return (
-            <div key={review._id} style={{ border: "1px solid black" }}>
-              <h2 style={{ textAlign: "left" }}>{review.user.name} dijo:</h2>
-              <h3>{review.description}</h3>
+            <div key={review._id} className="reviewsbox">
+              <h3 style={{ textAlign: "left" }}>{review.user.name} dijo:</h3>
+              <h4>{review.description}</h4>
             </div>
           );
         })
       ) : (
-        <Spinner animation="border" variant="light" />
-      )}
-    </div>
+          <Spinner className="spinner" animation="border" variant="light" />
+        )}
+    </Jumbotron>
   );
 };
 
