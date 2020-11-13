@@ -15,9 +15,10 @@ export const fetchSingleOrder = (id) => (dispatch) =>
   axios.get(`/api/orders/${id}`).then(({ data }) => dispatch(setOrder(data)));
 
 export const updateOrder = (order) => (dispatch) => {
-  axios
-    .put(`/api/orders/${order._id}`, order)
-    .then(({ data }) => dispatch(setOrder(data)));
+  axios.put(`/api/orders/${order._id}`, order).then(({ data }) => {
+    dispatch(setOrder(data));
+    dispatch(fetchOrders());
+  });
 };
 
 export const deleteOrder = (order) => {

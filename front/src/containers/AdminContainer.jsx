@@ -1,12 +1,25 @@
-import React, { useEffect, useState } from "react"
-import Admin from "../components/Admin"
-import { fetchUsers, updateUser, deleteUser } from "../store/actions/usersAction";
-import { fetchProducts, updateProduct, fetchSingleProduct, deleteProduct, createProduct } from "../store/actions/productAction"
-import { fetchOrders, updateOrder } from "../store/actions/ordersAction"
-import { submitCat, fetchCategories, deleteCategory } from "../store/actions/categoriesAction"
-import useInput from "../hooks/useInput"
-import { useDispatch, useSelector } from "react-redux"
-
+import React, { useEffect, useState } from "react";
+import Admin from "../components/Admin";
+import {
+  fetchUsers,
+  updateUser,
+  deleteUser,
+} from "../store/actions/usersAction";
+import {
+  fetchProducts,
+  updateProduct,
+  fetchSingleProduct,
+  deleteProduct,
+  createProduct,
+} from "../store/actions/productAction";
+import { fetchOrders, updateOrder } from "../store/actions/ordersAction";
+import {
+  submitCat,
+  fetchCategories,
+  deleteCategory,
+} from "../store/actions/categoriesAction";
+import useInput from "../hooks/useInput";
+import { useDispatch, useSelector } from "react-redux";
 
 export default () => {
   const dispatch = useDispatch();
@@ -124,7 +137,6 @@ export default () => {
         state: val,
       })
     );
-    dispatch(fetchOrders());
   };
 
   useEffect(() => {
