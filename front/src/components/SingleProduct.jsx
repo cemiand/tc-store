@@ -13,7 +13,7 @@ const SingleProduct = ({
         {singleProduct && singleProduct.pictures ? (
           <div className="images">
             <div className="list-images">
-              {singleProduct.pictures.map((img) => (
+              {singleProduct.pictures.map((img) => (img && 
                 <div key={img} className="imgContainer">
                   <img src={img} alt="img" />
                 </div>
