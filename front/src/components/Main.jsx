@@ -25,22 +25,13 @@ const Main = ({ history }) => {
             <div>
               <CarruselContainer />
               <CategoriesContainer />
+              <ProductsContainer />
             </div>
           )}
         />
         <Route path="/categories/:name" component={FilteredProductsContainer} />
         <Route exact path="/review" component={ReviewContainer} />
         <Route exact path="/admin" component={AdminContainer} />
-        <Route
-          exact
-          path="/products"
-          render={() => (
-            <div>
-              <CarruselContainer />
-              <ProductsContainer />
-            </div>
-          )}
-        />
         <Route exact path="/cart" component={CartContainer} />
         <Route
           exact

@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap"
 
 
 
+
 export default ({ singleProduct, handleOptions, handleSubmit, categories }) => {
   
   return (
@@ -37,12 +38,16 @@ export default ({ singleProduct, handleOptions, handleSubmit, categories }) => {
         <Form.Control name="price" type="text" placeholder="Price" defaultValue={singleProduct && singleProduct.price} />
       </Form.Group>
 
+      
 
-      <Form.Group >
+{singleProduct.pictures && singleProduct.pictures.map(pic => (
+  <Form.Group >
         <Form.Label><b>Pictures:</b></Form.Label>
-        <Form.Control name="pictures" type="text" placeholder="Pictures" defaultValue={singleProduct && singleProduct.pictures} />
+        <Form.Control name="pictures" type="text" placeholder="Pictures" defaultValue={pic} />
       </Form.Group>
 
+))}
+      
       <Form.Group >
         <Form.Label><b>Description:</b></Form.Label>
         <Form.Control name="description" type="text" placeholder="Description" defaultValue={singleProduct && singleProduct.description} />

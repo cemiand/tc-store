@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Admin from "../components/Admin";
-import { fetchUsers, updateUser } from "../store/actions/usersAction";
+import {
+  deleteUser,
+  fetchUsers,
+  updateUser,
+} from "../store/actions/usersAction";
 import {
   fetchProducts,
   updateProduct,
@@ -17,7 +21,7 @@ import {
 import useInput from "../hooks/useInput";
 import { useDispatch, useSelector } from "react-redux";
 
-export default ({ history }) => {
+export default () => {
   const dispatch = useDispatch();
 
   const { users, singleUser } = useSelector((state) => state.usersReducer);
@@ -32,14 +36,14 @@ export default ({ history }) => {
   const { handleChange, inputs, setInputs } = useInput();
 
   //USERS
-  function handleUpdateUser(e, filterValue, val) {
+  function handleUpdateUser(e, val) {
     e.preventDefault();
-    dispatch(updateUser({ email: filterValue, accessLevel: val }));
+    dispatch(updateUser({ email: inputs.email, accessLevel: val }));
   }
 
   function handleUserDelete(e) {
     e.preventDefault();
-    dispatch(deleteUser({ email: filterValue }));
+    dispatch(deleteUser({ email: inputs.email }));
   }
   useEffect(() => {
     dispatch(fetchUsers());
@@ -72,8 +76,13 @@ export default ({ history }) => {
         brand: e.target[1].value,
         categories: e.target[2].value,
         price: e.target[3].value,
-        pictures: e.target[4].value,
-        description: e.target[5].value,
+        pictures: [
+          e.target[4].value,
+          e.target[5].value,
+          e.target[6].value,
+          e.target[7].value,
+        ],
+        description: e.target[8].value,
       })
     );
   };
@@ -86,9 +95,14 @@ export default ({ history }) => {
         brand: e.target[1].value,
         categories: [options],
         price: e.target[3].value,
-        pictures: e.target[4].value,
-        description: e.target[5].value,
-        _id: e.target[6].value,
+        pictures: [
+          e.target[4].value,
+          e.target[5].value,
+          e.target[6].value,
+          e.target[7].value,
+        ],
+        description: e.target[8].value,
+        _id: e.target[9].value,
       })
     );
   };

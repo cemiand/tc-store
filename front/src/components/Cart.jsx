@@ -32,7 +32,7 @@ const Cart = ({
                 </button>
 
                 {order.product ? (
-                  <div>
+                  <div className="productContainer">
                     <Link
                       to={`/products/${order.product._id}`}
                       className="image"

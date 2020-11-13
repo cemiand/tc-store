@@ -2,7 +2,6 @@ const router = require("express").Router();
 const {
   deleteUser,
   userCreate,
-  getAccessLevel,
   changeAccessLevel,
   findAll,
 } = require("../controllers/usersController");

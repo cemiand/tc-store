@@ -68,7 +68,6 @@ const usuariosController = {
       .catch((err) => res.status(500).send(err));
   },
   deleteUser(req, res) {
-    console.log("REQ PARAMS DE BACK", req.params);
     User.findOneAndDelete({ email: req.params.email }).then(() =>
       res.status(200).send(console.log("user deleted"))
     );
