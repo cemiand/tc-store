@@ -69,7 +69,7 @@ export default ({ orders, handleSubmitOrder }) => {
                     )}
                     <td>
                       <Button
-                        className="buttonsDiv"
+                        className="buttonsDivOrder"
                         onClick={(e) => {
                           setOrder(e, order._id);
                         }}
