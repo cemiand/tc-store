@@ -20,6 +20,18 @@
     font-weight: bold;
     outline: none;
     cursor: pointer;
+  };
+  .resetCart{
+    border: 1px solid darkkhaki;
+    &:hover{
+      background-color: goldenrod
+    } 
+  }
+  .buybutton{
+    border: 1px solid green;
+    &:hover{
+      background-color: forestgreen
+    } 
   }
 }
 
@@ -118,9 +130,20 @@
     border-bottom: 1px ridge;
 
     .delete-btn {
-      background-color: #ffffff;
-      width: 50px;
-      margin: auto 15px;
+      color: #fff;
+      width: 34px;
+  position:relative;
+  top:29px;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background: lightseagreen;
+      border: 1px solid fuchsia;
+      
+      &:hover {
+        background-color: red;
+      }
     }
     .image {
       position: relative;

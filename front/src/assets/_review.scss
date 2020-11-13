@@ -18,6 +18,25 @@
   }
 }
 
+.reviewsContainer{
+  margin: 0 auto;
+  width: 80%;
+  background: transparent;
+  border: 1px solid lightgreen;
+  color:#fff;
+  .reviewsbox{
+    border:2px solid lightcyan;
+    padding: 11px;
+    color:#fff;
+  };
+  .spinner{
+    position: relative;
+    top:30%;
+    left:50%
+   }
+}
+
+
 // .boxsizingBorder {
 //   -webkit-box-sizing: border-box;
 //   -moz-box-sizing: border-box;
