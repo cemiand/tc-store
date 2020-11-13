@@ -26,8 +26,7 @@ export const fetchSingleProduct = (id) => (dispatch) =>
 export const updateProduct = (product) => {
   axios
     .put(`/api/products/${product._id}`, product)
-    .then((res) => res.data)
-    .then((data) => dispatch(fetchSingleProduct(data._id)));
+    .then(({ data }) => dispatch(fetchSingleProduct(data._id)));
 };
 
 export const deleteProduct = (product) => {

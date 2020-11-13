@@ -5,16 +5,18 @@ const orderController = {
   findAll(req, res) {
     Order.find({})
       .then((orders) => res.send(orders))
-      .catch((err) => {
-        res.status(500).send(err);
-      });
+      .catch((err) => res.status(500).send(err));
   },
   findOrder(req, res) {
     Order.findById(req.params.id)
       .then((order) => res.send(order))
-      .catch((err) => {
-        res.status(404).send(err);
-      });
+      .catch((err) => res.status(404).send(err));
+  },
+  findUserOrders(req, res) {
+    User.findById(req.user._id)
+      .populate({ path: "orders", populate: { path: "products" } })
+      .then((user) => res.status(200).send(user.orders))
+      .catch((err) => res.status(404).send(err));
   },
   updateOrder(req, res) {
     Order.findByIdAndUpdate(req.params.id, req.body)

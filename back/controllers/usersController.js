@@ -21,7 +21,7 @@ const usuariosController = {
         name: user.name,
         email: user.email,
         id: user.id,
-        accessLevel: user.accessLevel
+        accessLevel: user.accessLevel,
       })
     );
   },
@@ -38,7 +38,7 @@ const usuariosController = {
           name: user.name,
           email: user.email,
           id: user.id,
-          accessLevel: user.accessLevel
+          accessLevel: user.accessLevel,
         })
       );
     } else {
@@ -72,8 +72,8 @@ const usuariosController = {
   },
   deleteUser(req, res) {
     console.log("REQ PARAMS DE BACK", req.params);
-    User.findOneAndDelete({ email: req.params.email }).then((user) =>
-      res.status(200).send(console.log("user deleted", user))
+    User.findOneAndDelete({ email: req.params.email }).then(() =>
+      res.status(200).send(console.log("user deleted"))
     );
   },
 };

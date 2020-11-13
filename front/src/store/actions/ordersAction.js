@@ -21,3 +21,6 @@ export const updateOrder = (order) => {
 export const deleteOrder = (order) => {
   axios.delete(`/api/orders/${order._id}`);
 };
+
+export const fetchUserOrders = () =>
+  axios.get(`/api/orders/user`).then(({ data }) => console.log(data));
