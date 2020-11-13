@@ -1,8 +1,14 @@
-.images {
-  width: 100px;
-  height: 100px;
-  margin: 4px auto;
-  border: 1px solid #7579ff;
+.JumbotronFooter {
+  .containerFooter {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 45%;
+    text-align: center;
+  }
+  background-color: #343a40;
 }
 .containerFooter {
   display: flex;
@@ -15,10 +21,24 @@
 }
 .JumbotronFooter {
   background-color: #343a40;
+
   color: #fff;
+  .pFooter {
+    padding: 1em;
+    margin-left: 20px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .imagesFoot {
+    width: 100px;
+    height: 100px;
+    margin: 4px auto;
+    border: 1px solid #7579ff;
+  }
 }
 .jumby {
   padding: 1px;
+  margin-top: 80px;
 }
 .pFooter {
   padding: 1em;

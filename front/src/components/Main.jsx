@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import ProductsContainer from "../containers/ProductsContainer";
 import SingleProductContainer from "../containers/SingleProductContainer";
 import CarruselContainer from "../containers/CarruselContainer";
@@ -32,16 +32,6 @@ const Main = ({ history }) => {
         <Route path="/categories/:name" component={FilteredProductsContainer} />
         <Route exact path="/review" component={ReviewContainer} />
         <Route exact path="/admin" component={AdminContainer} />
-        <Route
-          exact
-          path="/products"
-          render={() => (
-            <div>
-              <CarruselContainer />
-              <ProductsContainer />
-            </div>
-          )}
-        />
         <Route exact path="/cart" component={CartContainer} />
         <Route
           exact
