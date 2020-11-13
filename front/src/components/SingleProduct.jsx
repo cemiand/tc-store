@@ -13,7 +13,7 @@ const SingleProduct = ({
         {singleProduct && singleProduct.pictures ? (
           <div className="images">
             <div className="list-images">
-              {singleProduct.pictures.map((img) => (img && 
+              {singleProduct.pictures.map((img) => (img &&
                 <div key={img} className="imgContainer">
                   <img src={img} alt="img" />
                 </div>
@@ -59,10 +59,12 @@ const SingleProduct = ({
 
       <hr />
 
-      <div className="description">
-        <h1>Description</h1>
+      <div className="descriptionProduct">
+        <h1>Description:</h1>
         <p>{singleProduct.description}</p>
       </div>
+
+      <hr />
     </div>
   );
 };

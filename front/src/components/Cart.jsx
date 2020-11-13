@@ -17,38 +17,38 @@ const Cart = ({
     <div>
       <h4 className="title">Shopping Cart</h4>
       <div className="buttons">
-        <button onClick={resetCart}>Reset</button>
-        <button onClick={createOrder}>Buy</button>
+        <button onClick={resetCart} className="resetCart">Reset</button>
+        <button onClick={createOrder} className="buybutton">Buy</button>
       </div>
       <div className="shopping-cart">
         {cart
           ? cart.map((order) => (
-              <div className="item" key={order._id || order.product._id}>
-                <button
-                  className="delete-btn"
-                  onClick={() => deleteProduct(order.product)}
-                >
-                  X
+            <div className="item" key={order._id || order.product._id}>
+              <button
+                className="delete-btn"
+                onClick={() => deleteProduct(order.product)}
+              >
+                X
                 </button>
 
-                <div className="image">
-                  {/* <Link to={`/products/${order.product._id}`} className="image"> */}
-                  <img src={order.product.pictures} alt="Imagen del producto" />
-                  {/* </Link> */}
-                </div>
-
-                <div className="description">
-                  <span className="name">{order.product.name}</span>
-                  <span className="brand">{order.product.brand}</span>
-                </div>
-
-                <div className="quantity">Cantidad: {order.quantity}</div>
-
-                <div className="total-price">
-                  {order.product.price * order.quantity}
-                </div>
+              <div className="image">
+                {/* <Link to={`/products/${order.product._id}`} className="image"> */}
+                <img src={order.product.pictures} alt="Imagen del producto" />
+                {/* </Link> */}
               </div>
-            ))
+
+              <div className="description">
+                <span className="name">{order.product.name}</span>
+                <span className="brand">{order.product.brand}</span>
+              </div>
+
+              <div className="quantity">Cantidad: {order.quantity}</div>
+
+              <div className="total-price">
+                {order.product.price * order.quantity}
+              </div>
+            </div>
+          ))
           : null}
         {user && user.name ? (
           buy ? (
@@ -63,10 +63,10 @@ const Cart = ({
             </Modal>
           ) : null
         ) : (
-          <Modal show={show} onHide={handleClose}>
-            {<LoginContainer handleClose={handleClose} />}
-          </Modal>
-        )}
+            <Modal show={show} onHide={handleClose}>
+              {<LoginContainer handleClose={handleClose} />}
+            </Modal>
+          )}
       </div>
     </div>
   );
