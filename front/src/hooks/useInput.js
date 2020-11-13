@@ -7,7 +7,7 @@ const UseInput = () => {
     password: "",
     confirmPassword: "",
     search: "",
-    image:""
+    image: ""
   });
 
   const handleChange = (e) => {

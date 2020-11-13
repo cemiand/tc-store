@@ -1,7 +1,8 @@
 .images{
-  width:150px;
-  height:150px;
-  margin: 0 auto;
+  width:100px;
+  height:100px;
+  margin: 4px auto;
+  border: 1px solid #7579ff
 }
 .containerFooter{
   display: flex;
@@ -15,4 +16,12 @@
 .JumbotronFooter{
   background-color:#343A40;
   color: #fff;
+}
+.jumby{
+  padding: 1px
+}
+.pFooter{
+  padding: 1em;
+  margin-left: 20px;
+  margin-bottom: 0;
 }
