@@ -16,7 +16,7 @@ export default ({
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/" className="brand">
-        <img style={{ width: "40%" }} src="/Tc-Music.png" alt="TC-Store" />
+        <img style={{ width: "114%" }} src="/Tc-Music.png" alt="TC-Store" />
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
