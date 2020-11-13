@@ -7,7 +7,7 @@ export default () => {
       <Container Fluid >
         <Row className="containerFooter">
           <Col xs={6} md={4}>
-            <Image className="images" src="https://mpng.subpng.com/20180411/rzw/kisspng-user-profile-computer-icons-user-interface-mystique-5aceb0245aa097.2885333015234949483712.jpg" roundedCircle />
+            <Image className="images" src="https://cdn.discordapp.com/attachments/764235703889428490/776602326680207400/CV.jpg" roundedCircle />
 
             <h6>Nahuel Bonader</h6>
           </Col>
