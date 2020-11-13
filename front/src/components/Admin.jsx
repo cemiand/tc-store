@@ -231,7 +231,6 @@ export default ({
                 <FormOrders
                   filterValue={filterValue}
                   handleChange={handleChange}
-                  singleOrder={singleOrder}
                   orders={orders}
                   handleSubmitOrder={handleSubmitOrder}
                 />
