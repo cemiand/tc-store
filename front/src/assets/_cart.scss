@@ -132,7 +132,8 @@
     .delete-btn {
       color: #fff;
       width: 34px;
-  
+  position:relative;
+  top:29px;
       border-radius: 20px;
       outline: none;
       border: none;
@@ -144,8 +145,6 @@
         background-color: red;
       }
     }
-    
-
     .image {
       position: relative;
       width: 120px;

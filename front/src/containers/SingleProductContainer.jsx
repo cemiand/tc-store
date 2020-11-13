@@ -29,7 +29,7 @@ const SingleProductContainer = ({ match }) => {
   const restProduct = () => {
     if (count > 1) setCount(count - 1);
   };
-
+  const productRatingMagic = 0
   useEffect(() => {
     dispatch(fetchSingleProduct(match.params.id));
   }, []);
@@ -42,6 +42,7 @@ const SingleProductContainer = ({ match }) => {
         sumProduct={sumProduct}
         restProduct={restProduct}
         quantity={count}
+        productRatingMagic={productRatingMagic}
       />
       <ReviewContainer />
       <ContenedorDeReviews singleProductReviews={singleProduct.reviews} />

@@ -38,7 +38,7 @@ const CartContainer = () => {
 
   const createOrder = () => {
     if (cart.length) {
-      newOrder(cart);
+      dispatch(newOrder(cart));
       dispatch(resetCartUser());
       setBuy(true);
     }

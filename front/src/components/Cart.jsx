@@ -21,7 +21,7 @@ const Cart = ({
         <button onClick={createOrder} className="buybutton">Buy</button>
       </div>
       <div className="shopping-cart">
-        {cart
+        {cart.length > 0
           ? cart.map((order) => (
             <div className="item" key={order._id || order.product._id}>
               <button
@@ -31,22 +31,30 @@ const Cart = ({
                 X
                 </button>
 
-              <div className="image">
-                {/* <Link to={`/products/${order.product._id}`} className="image"> */}
-                <img src={order.product.pictures} alt="Imagen del producto" />
-                {/* </Link> */}
-              </div>
+              {order.product ? (
+                <>
+                  <Link
+                    to={`/products/${order.product._id}`}
+                    className="image"
+                  >
+                    <img
+                      src={order.product.pictures}
+                      alt="Imagen del producto"
+                    />
+                  </Link>
 
-              <div className="description">
-                <span className="name">{order.product.name}</span>
-                <span className="brand">{order.product.brand}</span>
-              </div>
+                  <div className="description">
+                    <span className="name">{order.product.name}</span>
+                    <span className="brand">{order.product.brand}</span>
+                  </div>
 
-              <div className="quantity">Cantidad: {order.quantity}</div>
+                  <div className="quantity">Cantidad: {order.quantity}</div>
 
-              <div className="total-price">
-                {order.product.price * order.quantity}
-              </div>
+                  <div className="total-price">
+                    {order.product.price * order.quantity}
+                  </div>
+                </>
+              ) : null}
             </div>
           ))
           : null}

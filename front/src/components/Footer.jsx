@@ -12,7 +12,7 @@ export default () => {
             <h6>Nahuel Bonader</h6>
           </Col>
           <Col xs={6} md={4}>
-            <Image className="imagesFoot" src="emi.png" roundedCircle />
+            <Image className="imagesFoot" src="https://cdn.discordapp.com/attachments/757364879496839168/776842818093973514/emi.jpg" roundedCircle />
 
             <h6>Emiliano Cantisani</h6>
           </Col>
@@ -27,7 +27,7 @@ export default () => {
             <h6>Diego Garber</h6>
           </Col>
           <Col xs={6} md={4}>
-            <Image className="imagesFoot" src="https://mpng.subpng.com/20180411/rzw/kisspng-user-profile-computer-icons-user-interface-mystique-5aceb0245aa097.2885333015234949483712.jpg" roundedCircle />
+            <Image className="imagesFoot" src="https://scontent.faep8-1.fna.fbcdn.net/v/t1.0-0/p206x206/11329868_10206205339389071_3053649869237829294_n.jpg?_nc_cat=105&ccb=2&_nc_sid=da31f3&_nc_ohc=SZ0XGi1eedwAX_c6m0A&_nc_ht=scontent.faep8-1.fna&tp=6&oh=a5bd1163af63e8eaa075ff592572997d&oe=5FD4632F" roundedCircle />
             Yherard Rojas
           </Col>
         </Row>

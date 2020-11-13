@@ -8,7 +8,14 @@
   border-radius: 20px;
   padding: 20px;
   background-color: white;
-
+.starsContainerSingle{
+  width: 25%;
+  display: flex;
+  margin: 0 auto;
+  /* align-items: center; */
+  justify-content: space-around;
+  background-color: white;
+}
   .images {
     position: relative;
     margin: 0;
