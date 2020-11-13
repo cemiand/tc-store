@@ -1,7 +1,7 @@
 import React from "react";
-import { Jumbotron, Table } from "react-bootstrap"
+import { Jumbotron, Table } from "react-bootstrap";
 
-export default () => {
+export default ({ orders }) => {
   return (
     <Jumbotron fluid>
       <Table striped bordered hover variant="dark">
@@ -14,26 +14,24 @@ export default () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>[guitarra,teclado,banyo]</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>[guitarra,teclado,banyo]</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colSpan="2">[guitarra,teclado,banyo]</td>
-            <td>[guitarra,teclado,banyo]</td>
-
-          </tr>
+          {orders
+            ? orders.map((order, index) => (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>{order.date}</td>
+                  <td>
+                    {order.products.map((p) => (
+                      <li>
+                        {p.product.name} : {p.quantity}
+                      </li>
+                    ))}
+                  </td>
+                  <td>{order.state}</td>
+                </tr>
+              ))
+            : null}
         </tbody>
       </Table>
     </Jumbotron>
-  )
-}
+  );
+};

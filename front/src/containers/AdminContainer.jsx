@@ -69,29 +69,43 @@ export default () => {
   };
 
   const handleSubmitCreate = (e) => {
-    e.preventDefault()
-    dispatch(createProduct({
-      name: e.target[0].value,
-      brand: e.target[1].value,
-      categories: e.target[2].value,
-      price: e.target[3].value,
-      pictures: [e.target[4].value, e.target[5].value, e.target[6].value, e.target[7].value],
-      description: e.target[8].value
-    }))
-  }
+    e.preventDefault();
+    dispatch(
+      createProduct({
+        name: e.target[0].value,
+        brand: e.target[1].value,
+        categories: e.target[2].value,
+        price: e.target[3].value,
+        pictures: [
+          e.target[4].value,
+          e.target[5].value,
+          e.target[6].value,
+          e.target[7].value,
+        ],
+        description: e.target[8].value,
+      })
+    );
+  };
 
   const handleSubmitUpdate = (e) => {
-    e.preventDefault()
-    dispatch(updateProduct({
-      name: e.target[0].value,
-      brand: e.target[1].value,
-      categories: [options],
-      price: e.target[3].value,
-      pictures: [e.target[4].value, e.target[5].value, e.target[6].value, e.target[7].value],
-      description: e.target[8].value,
-      _id: e.target[9].value,
-    }))
-  }
+    e.preventDefault();
+    dispatch(
+      updateProduct({
+        name: e.target[0].value,
+        brand: e.target[1].value,
+        categories: [options],
+        price: e.target[3].value,
+        pictures: [
+          e.target[4].value,
+          e.target[5].value,
+          e.target[6].value,
+          e.target[7].value,
+        ],
+        description: e.target[8].value,
+        _id: e.target[9].value,
+      })
+    );
+  };
 
   //CATEGORIES
   const handleOptions = (e) => {

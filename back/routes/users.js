@@ -7,7 +7,6 @@ const {
 } = require("../controllers/usersController");
 const { authRole } = require("./admin");
 
-//agregar el authRole authRole("admin")
 router
   .route("/")
   .post(userCreate)

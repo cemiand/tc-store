@@ -1,12 +1,16 @@
-import React from 'react'
-import Shoppinghistory from '../components/Shoppinghistory'
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Shoppinghistory from "../components/Shoppinghistory";
+import { fetchUserOrders } from "../store/actions/ordersAction";
 
 const ShoppingHistoryContainer = () => {
+  const dispatch = useDispatch();
 
-  return (
-    <Shoppinghistory />
-  )
-}
+  const { orders } = useSelector((state) => state.ordersReducer);
 
-export default ShoppingHistoryContainer
+  useEffect(() => dispatch(fetchUserOrders()), []);
+
+  return <Shoppinghistory orders={orders} />;
+};
+
+export default ShoppingHistoryContainer;
