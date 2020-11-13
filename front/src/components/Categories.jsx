@@ -4,24 +4,27 @@ import { Link } from "react-router-dom";
 
 export default ({ categories }) => {
   return (
-    <div>
-      <Container>
-        <h3 className="h2category">CATEGORIES</h3>
-        <Row className="rowcategories">
-          {categories
-            ? categories.map((category) => {
+    <Container>
+      <h3 className="h2category">CATEGORIES</h3>
+      <Row>
+        {categories
+          ? categories.map((cat) => {
               return (
-                <Col className="catContainer" xs={6} md={3} key={category._id}>
-                  <Link to={`/categories/${category.name}`}>
-                    <Image className="imagesCat" src={category.image} fluid roundedCircle />
-                    <h5 className="linkCategories">{category.name}</h5>
+                <Col xs={6} md={2} key={cat.id}>
+                  <Link to={`/categories/${cat.name}`}>
+                    <Image
+                      src={cat.image}
+                      className="catImg"
+                      fluid
+                      roundedCircle
+                    />
+                    <h3 className="cath3">{cat.name}</h3>
                   </Link>
                 </Col>
               );
             })
-            : null}
-        </Row>
-      </Container>
-    </div>
+          : null}
+      </Row>
+    </Container>
   );
 };

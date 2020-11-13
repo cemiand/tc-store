@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .JumbotronFooter{
   .containerFooter{
@@ -10,6 +11,25 @@
     text-align: center;
   };
   background-color:#343A40;
+=======
+.images {
+  width: 100px;
+  height: 100px;
+  margin: 4px auto;
+  border: 1px solid #7579ff;
+}
+.containerFooter {
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  width: 45%;
+  text-align: center;
+}
+.JumbotronFooter {
+  background-color: #343a40;
+>>>>>>> c762de4c2075beeefdb231f2dc8c8097903928f2
   color: #fff;
   .pFooter{
     padding: 1em;
@@ -24,6 +44,15 @@
     border: 1px solid #7579ff
   }
 }
-.jumby{
-  padding: 1px
+.jumby {
+  padding: 1px;
 }
+<<<<<<< HEAD
+=======
+.pFooter {
+  padding: 1em;
+  margin-left: 20px;
+  margin-bottom: 0;
+  text-align: center;
+}
+>>>>>>> c762de4c2075beeefdb231f2dc8c8097903928f2

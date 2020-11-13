@@ -1,14 +1,14 @@
-import React from 'react';
-import { Jumbotron, Container, Row, Col, Image } from "react-bootstrap"
+import React from "react";
+import { Jumbotron, Container, Row, Col, Image } from "react-bootstrap";
 export default () => {
   return (
     <div className="JumbotronFooter jumby" fluid>
-      <p className="pFooter">Tc-Store® & TC-Crew® are registred marks of TC-Crew Group made at Plataforma 5 by:</p>
+
+      <p className="pFooter">Tc-Music & TC-Crew® are registred marks of TC-Crew Group made at Plataforma 5 by:</p>
       <Container className="JumbotronFooter" >
         <Row className="containerFooter">
           <Col xs={6} md={4}>
             <Image className="imagesFoot" src="https://cdn.discordapp.com/attachments/764235703889428490/776602326680207400/CV.jpg" roundedCircle />
-
             <h6>Nahuel Bonader</h6>
           </Col>
           <Col xs={6} md={4}>
@@ -33,5 +33,5 @@ export default () => {
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
