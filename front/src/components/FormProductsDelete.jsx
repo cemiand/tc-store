@@ -29,12 +29,6 @@ export default ({ singleProduct, handleDeleteProduct }) => {
         <Form.Control name="price" type="text" placeholder="Price" defaultValue={singleProduct && singleProduct.price} disabled/>
       </Form.Group>
 
-
-      <Form.Group >
-        <Form.Label><b>Pictures</b></Form.Label>
-        <Form.Control name="pictures" type="text" placeholder="Pictures" defaultValue={singleProduct && singleProduct.pictures} disabled/>
-      </Form.Group>
-
       <Form.Group >
         <Form.Label><b>Description</b></Form.Label>
         <Form.Control name="description" type="text" placeholder="Description" defaultValue={singleProduct && singleProduct.description} disabled/>
