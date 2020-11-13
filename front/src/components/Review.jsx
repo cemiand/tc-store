@@ -22,7 +22,7 @@ const Review = ({
       });
   });
 
-  return dejoReview == false && singleUser.name ? (
+  return dejoReview == true && singleUser.name ? (
     <div className="formulario">
       <h2 className="h2">Did you buy this product {singleUser.name}?</h2>
       <h3 className="h3">Then, please, leave us a review</h3>
